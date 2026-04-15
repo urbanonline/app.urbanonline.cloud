@@ -2,17 +2,40 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
 export default defineConfig({
+	site: 'https://setup.urbanonline.cloud',
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: {
+				de: 'Einrichtung der Urban App Alma Pro',
+				en: 'Setup: Urban App Alma Pro',
+			},
+			social: [
+				{
+					icon: 'facebook',
+					label: 'Facebook',
+					href: 'https://www.facebook.com/urbanonline',
+				},
+				{
+					icon: 'instagram',
+					label: 'Instagram',
+					href: 'https://www.instagram.com/urban_fuetterungstechnik/',
+				},
+				{
+					icon: 'youtube',
+					label: 'YouTube',
+					href: 'https://www.youtube.com/user/calffeeding',
+				},
+				{
+					icon: 'tiktok',
+					label: 'TikTok',
+					href: 'https://www.tiktok.com/@urban_fuetterungstechnik',
+				},
+			],
 			sidebar: [
 				{
 					label: 'Guides',
 					items: [
-						// Each item here is one entry in the navigation menu.
 						{ label: 'Example Guide', slug: 'guides/example' },
 					],
 				},
