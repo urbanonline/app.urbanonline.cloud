@@ -7,8 +7,21 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: {
-				de: 'Einrichtung der Urban App Alma Pro',
-				en: 'Setup: Urban App Alma Pro',
+				de: 'Urban Feed Monitor App',
+				en: 'Urban Feed Monitor App',
+			},
+						// Set German as the default language for this site.
+			defaultLocale: 'root',
+			locales: {
+				// German docs in `src/content/docs/`
+				root: {
+					label: 'Deutsch',
+					lang: 'de'
+				},
+				// English docs in `src/content/docs/en/`
+				en: {
+					label: 'English',
+				},
 			},
 			social: [
 				{
@@ -34,14 +47,14 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Setup',
 					items: [
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Example Guide', slug: 'setup/example' },
 					],
 				},
 				{
-					label: 'Reference',
-					items: [{ autogenerate: { directory: 'reference' } }],
+					label: 'FAQ',
+					items: [{ autogenerate: { directory: 'faq' } }],
 				},
 			],
 		}),

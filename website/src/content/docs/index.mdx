@@ -1,40 +1,46 @@
 ---
-title: Welcome to Starlight
+title: Urban Feed Monitor App
 description: Get started building your docs site with Starlight.
 template: splash # Remove or comment out this line to display the site sidebar on this page.
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Powered by Urban Cloud
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/feedmonitor.png
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Setup und Installation
+      link: /setup/example
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
+      variant: primary
+    - text: FAQ
+      link: /faq/example
+      icon: right-arrow
+      variant: secondary
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## Leistungsmerkmale der App
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Hierarchische Stallstruktur" icon="farcaster" >
+		Erstellen Sie ihre `Ställe` und ordnen diesen dann ihre `Automaten` zu.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Filter: Ställe, Automaten" icon="question-circle">
+		Lassen Sie sich die Tiere in allen Ställen, von einem bestimmten Stall oder von einen bestimmten Automaten anzeigen.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Tiersuche" icon="magnifier">
+		`Suchen` Sie ein bestimmtes Tier in ihren Herdenliste anhand seiner `Tiernummer`.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="Einzeltierinfo" icon="information">
+		Blättern Sie durch die Einzeltiere und lassen sich die Tierinfo oder die Futterübersicht anzeigen`.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Betriebszustand Automaten" icon="analytics">
+		Sehen Sie den `Betriebszustand` aller Automaten incl. eventueller `Fehlermeldungen` ein.
+	</Card>
+	<Card title="Push-Nachricht bei Automatenfehlern" icon="comment-alt">
+		Tritt an einem Automat ein Fehler auf, so werden Sie darüber per `Push-Nachricht` informiert.
+	</Card>
+	<Card title="Flexible Benutzerverwaltung" icon="setting">
+		Legen Sie beliebig viele `Mitbenutzer` an und laden Sie diese zur Nutzung der App ein.
 	</Card>
 </CardGrid>

@@ -1,0 +1,46 @@
+---
+title: Urban Feed Monitor App
+description: Get started building your docs site with Starlight.
+template: splash # Remove or comment out this line to display the site sidebar on this page.
+hero:
+  tagline: Powered by Urban Cloud
+  image:
+    file: ../../../assets/feedmonitor.png
+  actions:
+    - text: Setup and Installation
+      link: /setup/example
+      icon: right-arrow
+      variant: primary
+    - text: FAQ
+      link: /faq/example
+      icon: right-arrow
+      variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## App Features
+
+<CardGrid stagger>
+	<Card title="Hierarchical Barn Structure" icon="farcaster" >
+		Create your `Barns` and assign `Feeders` to them.
+	</Card>
+	<Card title="Filters: Barns, Feeders" icon="question-circle">
+		View the animals from all barns, from a specific barn, or from a specific feeder.
+	</Card>
+	<Card title="Animal search" icon="magnifier">
+		`Search` for a specific animal in your herd list using its `animal number`.
+	</Card>
+	<Card title="Individual animal information" icon="information">
+		Scroll through the individual animals and view the animal info or the feed overview.
+	</Card>
+	<Card title="Operating status of feeders" icon="analytics">
+		View the `operating status` of all feeders, including any `error messages`.
+	</Card>
+	<Card title="Push notification in case of feeder errors" icon="comment-alt">
+		If an error occurs at a feeder, you will be notified via a `push notification`.
+	</Card>
+	<Card title="Flexible user management" icon="setting">
+		Create as many `co-users` as you like and invite them to use the app together with you.
+	</Card>
+</CardGrid>
