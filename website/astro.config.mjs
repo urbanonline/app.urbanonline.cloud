@@ -49,7 +49,7 @@ export default defineConfig({
 				{
 					label: 'Setup',
 					items: [
-						{ label: 'Example Guide', slug: 'setup/example' },
+						{ label: 'Alma Pro', slug: 'setup/alma-pro' },
 					],
 				},
 				{
