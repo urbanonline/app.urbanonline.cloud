@@ -18,7 +18,7 @@ export default defineConfig({
 				{
 					tag: "script",
 					attrs: {
-						src: "/src/scripts/lite-yt-embed.js"
+						src: "/scripts/lite-yt-embed.js"
 					},
 				},
 			],
