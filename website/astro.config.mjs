@@ -13,6 +13,7 @@ export default defineConfig({
 			favicon: './urban.ico',
 			customCss: [
 				'./src/styles/lite-yt-embed.css',
+				'./src/styles/colors.css',
 			],
 			head: [
 				{
