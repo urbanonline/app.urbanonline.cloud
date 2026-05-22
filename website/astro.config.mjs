@@ -10,6 +10,7 @@ export default defineConfig({
 				de: 'Urban Feed Monitor App',
 				en: 'Urban Feed Monitor App',
 			},
+			favicon: './urban.ico',
 			customCss: [
 				'./src/styles/lite-yt-embed.css',
 			],
