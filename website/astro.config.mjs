@@ -10,7 +10,18 @@ export default defineConfig({
 				de: 'Urban Feed Monitor App',
 				en: 'Urban Feed Monitor App',
 			},
-						// Set German as the default language for this site.
+			customCss: [
+				'./src/styles/lite-yt-embed.css',
+			],
+			head: [
+				{
+					tag: "script",
+					attrs: {
+						src: "/src/scripts/lite-yt-embed.js"
+					},
+				},
+			],
+			// Set German as the default language for this site.
 			defaultLocale: 'root',
 			locales: {
 				// German docs in `src/content/docs/`
