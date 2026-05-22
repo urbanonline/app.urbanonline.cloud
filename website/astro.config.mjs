@@ -52,10 +52,6 @@ export default defineConfig({
 						{ label: 'Alma Pro', slug: 'setup/alma-pro' },
 					],
 				},
-				{
-					label: 'FAQ',
-					items: [{ autogenerate: { directory: 'faq' } }],
-				},
 			],
 		}),
 	],

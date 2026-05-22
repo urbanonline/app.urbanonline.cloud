@@ -14,7 +14,7 @@ next: false
 Es muss sich um einen Fütterungsautomaten vom Typ *Alma Pro* handeln. Die meisten *Alma Pro*s sind für die Ausführung der App geeignet,
 folgende *Alma Pro* Automaten können die App jedoch **nicht nutzen**:
 
-• Automaten, die mit einem **Touch-Terminal der 1. Generation** ausgestattet sind.<br/>
+• Automaten, die mit einem **Touchscreen-Terminal der 1. Generation** ausgestattet sind.<br/>
 • Automaten, die mit einer **Parallelfütterung mit Bechern** ausgerüstet sind.<br/>
 • Automaten, die über ein **GSM-Modul** verfügen.<br/>
 </details>
@@ -22,22 +22,27 @@ folgende *Alma Pro* Automaten können die App jedoch **nicht nutzen**:
 <details>
 <summary>Welche Anforderungen werden an den Router und an den Internetanschluss gestellt?</summary>
 
-• Das Touch-Terminal muss mit einem **Urban-Router** ausgestattet sein. Es werden alle Urban-Router unterstützt, **auch ältere Modelle** sind geeignet.<br/>
-• Der installierte Urban Router über das betriebliche Netzwerk mit dem **Internet** verbunden sein, die Internetverbindung muss **dauerhaft stabil** sein.<br/>
-• Das Touch-Terminal muss lediglich nach außen mit dem Urban Datenbankserver in der Cloud kommunizieren. Der Betriebsrechner kann dabei mit einer beliebigen IP nach außen kommunizieren (IPv4, IPv6), diese kann auch wechseln. Es ist **kein** dynamischer DNS-Service (DDNS) nötig.<br/>
+• Das Touchscreen-Terminal muss mit einem **Urban-Router** verbunden sein. Es werden alle Urban-Router unterstützt, **auch ältere Modelle** sind geeignet.<br/>
+• Der installierte Urban Router über das betriebliche Netzwerk mit dem **Internet** verbunden sein. Die Internetverbindung muss **dauerhaft stabil** sein.<br/>
+• Das Touchscreen-Terminal muss eine HTTPS-gesicherte ausgehende Verbindung zum Urban Cloud-Datenbankserver (via Port 443) herstellen. Es tritt keinerlei eingehender Netzwerkverkehr auf. Insofern ist **kein** dynamischer DNS-Service (DDNS) nötig, der Betriebsrechner kann mit einer beliebigen IP-Adresse nach außen kommunizieren (IPv4, IPv6), diese IP kann auch wechseln (täglicher Zwangstrennung, etc.).<br/>
 </details>
 
 <details>
 <summary>Ist der Urban Feed Monitor sowohl für Geräte von Google (Android) als auch von Apple (iOS) verfügbar?</summary>
-Ja, die App kann sowohl im [Google Play Store]() (*Android*) als auch im [Apple Store]() (*Android*) heruntergeladen und installiert werden.
+Ja, die App kann sowohl im [Google Play Store]() (*Android*) als auch im [Apple Store]() (*iOS*) heruntergeladen und installiert werden.
 </details>
 
 <details>
-<summary>Kann ich das Touch-Terminal weiterhin mittels eines VNC-Clients aus der Ferne bedienen?</summary>
+<summary>Kann ich die App unverbindlich testen, bevor ich mich für ein Abonnement entscheide?</summary>
+Ja, nachdem sie sich innerhalb der App kostenlos [registriert](#) haben, können Sie die Automaten- und Tierdaten eines Demobetriebs laden und die App erkunden.
+</details>
+
+<details>
+<summary>Kann ich das Touchscreen-Terminal weiterhin mittels eines VNC-Clients aus der Ferne bedienen?</summary>
 Ja, diese Möglichkeit bleibt unverändert erhalten. Die Nutzung der App und der Zugriff via VNC sind parallel möglich.
 </details>
 
 <details>
-<summary>Kann über die *Feed Monitor App* auch ein Backup auf dem Cloud-Server abgelegt werden und zur Wiederherstellung genutzt werden?</summary>
-Nein, diese Möglichkeit ist in der aktuellen Version der App **nicht** vorhanden.
+<summary>Verfügt die *Feed Monitor App* über die Funktionalität, ein Sicherungskopie der Tier- und Automatendaten auf dem Cloud-Server zu erstellen und von dort wiederherzustellen?</summary>
+Nein, diese Funktionalität ist in der aktuellen Version der App **nicht** vorhanden.
 </details>
