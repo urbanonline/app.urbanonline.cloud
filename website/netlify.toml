@@ -1,3 +1,5 @@
+[build]
+
 ## This rule redirects to the English page version
 [[redirects]]
   from = "https://en.app.urbanonline.cloud"
