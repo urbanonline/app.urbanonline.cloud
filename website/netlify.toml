@@ -1,0 +1,5 @@
+## This rule redirects to the English page version
+[[redirects]]
+  from = "https://en.app.urbanonline.cloud"
+  to = "https://app.urbanonline.cloud/en/"
+  status = 301
