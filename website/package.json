@@ -12,7 +12,9 @@
   "dependencies": {
     "@astrojs/starlight": "^0.39.2",
     "astro": "^6.4.2",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "starlight-sidebar-topics": "^0.7.1",
+    "starlight-sidebar-topics-dropdown": "^0.6.0"
   },
   "packageManager": "pnpm@11.4.0"
 }

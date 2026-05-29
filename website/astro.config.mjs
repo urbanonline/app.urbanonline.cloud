@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightSidebarTopics from 'starlight-sidebar-topics'
 
 export default defineConfig({
 	site: 'https://app.urbanonline.cloud',
@@ -58,14 +59,60 @@ export default defineConfig({
 					href: 'https://www.tiktok.com/@urban_fuetterungstechnik',
 				},
 			],
-			sidebar: [
+			plugins: [
+				starlightSidebarTopics([
+					{
+						label: {
+							de: 'Doku für Anwender',
+							en: 'User documentation'
+						},
+						link: '/guide/user/',
+						icon: 'open-book',
+						items: [
+							{
+								label: 'Installation der App',
+								translations: {
+									en: 'Installation of app',
+								},
+								items: [{ autogenerate: { directory: 'guide/user' } }]},
+						],
+					},
+					{
+						label: {
+							de:	'Doku für Service',
+							en:	'Service documentation',							
+						},
+						link: '/guide/service/',
+						icon: 'open-book',
+						items: [
+							{
+								label: 'Installation Cloud',
+								translations: {
+									en: 'Installation of cloud',
+								},
+								items: [{ autogenerate: { directory: 'guide/service' } }]},
+						],
+					},
+					{
+						label: {
+							de: 'FAQ',
+							en: 'FAQ',
+						},
+						link: '/faq',
+						id: 'faq',
+						icon: 'information',
+						items: [ 'faq' ],
+					},
+				],
 				{
-					label: 'Setup',
-					items: [
-						{ label: 'Alma Pro', slug: 'setup/alma-pro' },
-					],
+					exclude: [ 'guide/toc' ]
 				},
-			],
+			),
+	    	],
+			components: {
+				// Override the default `Sidebar` component with a custom one.
+				Sidebar: './src/components/Sidebar.astro',
+			},
 		}),
 	],
 });
