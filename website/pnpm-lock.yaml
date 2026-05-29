@@ -17,6 +17,9 @@ importers:
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
+      starlight-sidebar-swipe:
+        specifier: ^0.2.0
+        version: 0.2.0(@astrojs/starlight@0.39.2(astro@6.4.2(@types/node@24.12.4)(rollup@4.60.4)))
       starlight-sidebar-topics:
         specifier: ^0.7.1
         version: 0.7.1(@astrojs/starlight@0.39.2(astro@6.4.2(@types/node@24.12.4)(rollup@4.60.4)))
@@ -1547,6 +1550,12 @@ packages:
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
+
+  starlight-sidebar-swipe@0.2.0:
+    resolution: {integrity: sha512-+krC5fbHjKjztStsGaGgaR5KaOahlPfwb32lYKbo1kzPR9v4Li95VM0tj+2qibilhS9cBq/okWdxN74fyccmBw==}
+    engines: {node: '>=22.12.0'}
+    peerDependencies:
+      '@astrojs/starlight': '>=0.38'
 
   starlight-sidebar-topics-dropdown@0.6.0:
     resolution: {integrity: sha512-V9a31xML6B28Eo/EZU84AqE8sjhPLjmRpo0buYtRyugRAp2vH7ZKJQDzQwpjSZen7MVb3hgYTNqBus0pdDr+XQ==}
@@ -3868,6 +3877,10 @@ snapshots:
   source-map@0.7.6: {}
 
   space-separated-tokens@2.0.2: {}
+
+  starlight-sidebar-swipe@0.2.0(@astrojs/starlight@0.39.2(astro@6.4.2(@types/node@24.12.4)(rollup@4.60.4))):
+    dependencies:
+      '@astrojs/starlight': 0.39.2(astro@6.4.2(@types/node@24.12.4)(rollup@4.60.4))
 
   starlight-sidebar-topics-dropdown@0.6.0(@astrojs/starlight@0.39.2(astro@6.4.2(@types/node@24.12.4)(rollup@4.60.4)))(starlight-sidebar-topics@0.7.1(@astrojs/starlight@0.39.2(astro@6.4.2(@types/node@24.12.4)(rollup@4.60.4)))):
     dependencies:

@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightSidebarTopics from 'starlight-sidebar-topics'
+import starlightSidebarSwipe from 'starlight-sidebar-swipe'
 
 export default defineConfig({
 	site: 'https://app.urbanonline.cloud',
@@ -108,6 +109,7 @@ export default defineConfig({
 					exclude: [ 'guide/toc' ]
 				},
 			),
+				starlightSidebarSwipe(),
 	    	],
 			components: {
 				// Override the default `Sidebar` component with a custom one.
