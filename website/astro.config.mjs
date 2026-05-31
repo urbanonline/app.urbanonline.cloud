@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightSidebarTopics from 'starlight-sidebar-topics'
 import starlightSidebarSwipe from 'starlight-sidebar-swipe'
+import starlightUiTweaks from 'starlight-ui-tweaks'
 
 export default defineConfig({
 	site: 'https://app.urbanonline.cloud',
@@ -16,6 +17,7 @@ export default defineConfig({
 			customCss: [
 				'./src/styles/lite-yt-embed.css',
 				'./src/styles/colors.css',
+				'./src/styles/ui-tweaks.css',
 			],
 			head: [
 				{
@@ -110,6 +112,32 @@ export default defineConfig({
 				},
 			),
 				starlightSidebarSwipe(),
+				starlightUiTweaks({
+					navbarLinks: [
+						{
+							label: "Dokumentation",
+							href: "/guide/user/",
+						},
+						{
+							label: "FAQ",
+							href: "/faq/",
+						},
+					],
+          			locales: {
+            			en: {
+              				navbarLinks: [
+								{
+									label: "Documentation",
+									href: "/en/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+            			},
+          			},
+				}),
 	    	],
 			components: {
 				// Override the default `Sidebar` component with a custom one.
