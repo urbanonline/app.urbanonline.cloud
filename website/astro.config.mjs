@@ -27,17 +27,23 @@ export default defineConfig({
 					},
 				},
 			],
-			// Set German as the default language for this site.
 			defaultLocale: 'root',
 			locales: {
-				// German docs in `src/content/docs/`
 				root: {
 					label: 'Deutsch',
 					lang: 'de'
 				},
-				// English docs in `src/content/docs/en/`
 				en: {
 					label: 'English',
+				},
+				es: {
+					label: 'Español',
+				},
+				fr: {
+					label: 'Français',
+				},
+				ru: {
+					label: 'Русский',
 				},
 			},
 			social: [
@@ -67,7 +73,10 @@ export default defineConfig({
 					{
 						label: {
 							de: 'Doku für Anwender',
-							en: 'User documentation'
+							en: 'User documentation',
+							es: 'Documentación para usuarios',
+							fr: 'Documentation utilisateur',
+							ru: 'Документация для пользователей',
 						},
 						link: '/guide/user/',
 						icon: 'open-book',
@@ -76,14 +85,20 @@ export default defineConfig({
 								label: 'Installation der App',
 								translations: {
 									en: 'Installation of app',
+									es: 'Instalación de la aplicación',
+									fr: 'Installation de l\'application',
+									ru: 'Установка приложения',
 								},
 								items: [{ autogenerate: { directory: 'guide/user' } }]},
 						],
 					},
 					{
 						label: {
-							de:	'Doku für Service',
-							en:	'Service documentation',							
+							de: 'Doku für Service',
+							en: 'Service documentation',
+							es: 'Documentación de servicio',
+							fr: 'Documentation service',
+							ru: 'Документация для сервиса',
 						},
 						link: '/guide/service/',
 						icon: 'open-book',
@@ -92,6 +107,9 @@ export default defineConfig({
 								label: 'Installation Cloud',
 								translations: {
 									en: 'Installation of cloud',
+									es: 'Instalación de la nube',
+									fr: 'Installation du cloud',
+									ru: 'Установка облака',
 								},
 								items: [{ autogenerate: { directory: 'guide/service' } }]},
 						],
@@ -100,6 +118,9 @@ export default defineConfig({
 						label: {
 							de: 'FAQ',
 							en: 'FAQ',
+							es: 'FAQ',
+							fr: 'FAQ',
+							ru: 'FAQ',
 						},
 						link: '/faq',
 						id: 'faq',
@@ -123,9 +144,9 @@ export default defineConfig({
 							href: "/faq/",
 						},
 					],
-          			locales: {
-            			en: {
-              				navbarLinks: [
+					locales: {
+						en: {
+							navbarLinks: [
 								{
 									label: "Documentation",
 									href: "/en/guide/user/",
@@ -135,12 +156,47 @@ export default defineConfig({
 									href: "/faq/",
 								},
 							],
-            			},
-          			},
+						},
+						es: {
+							navbarLinks: [
+								{
+									label: "Documentación",
+									href: "/es/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+						},
+						fr: {
+							navbarLinks: [
+								{
+									label: "Documentation",
+									href: "/fr/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+						},
+						ru: {
+							navbarLinks: [
+								{
+									label: "Документация",
+									href: "/ru/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+						},
+					},
 				}),
-	    	],
+			],
 			components: {
-				// Override the default `Sidebar` component with a custom one.
 				Sidebar: './src/components/Sidebar.astro',
 			},
 		}),
