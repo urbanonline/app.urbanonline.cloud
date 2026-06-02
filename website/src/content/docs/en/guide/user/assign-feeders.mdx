@@ -1,13 +1,125 @@
 ---
-title: Assignment and licensing of feeders
-description: A guide in my new Starlight docs site.
-sidebar:
-  label: Assignment feeders
+title: Installation Urban Feed Monitor
+description: Step-by-step guide for setting up the Urban Feed Monitor App including registration, barn setup and licensing.
 ---
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+import { Image } from 'astro:assets';
+import Einfuehrung from 'graphics/Einfuehrung_EN.png';
+import Registrierung from 'graphics/Registrierung_EN.png';
+import Accountdaten from 'graphics/Accountdaten_EN.png';
+import Unternehmensdaten from 'graphics/Unternehmensdaten_EN.png';
+import Login from 'graphics/Login_EN.png';
+import StallAnlegen from 'graphics/StallAnlegen_EN.png';
+import StallBenennen from 'graphics/StallBenennen_EN.png';
+import QRCodeScannen from 'graphics/QRCodeScannen_EN.png';
+import Abonnement from 'graphics/Abonnement_EN.png';
+import Lizenzverwaltung from 'graphics/Lizenzverwaltung_EN.png';
+import Zahlvorgang from 'graphics/Zahlvorgang_EN.png';
+import LizensierteAutomaten from 'graphics/LizensierteAutomaten_EN.png';
+import Abschluss from 'graphics/Abschluss_EN.png';
 
-## Further reading
+:::note
+The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
+:::
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+## Requirements
+
+- iPhone with iOS (currently available for iOS only)
+- Access to the App Store
+- Your Urban account credentials (for new registrations: email address and company details)
+
+---
+
+## 1. Registration
+
+Launch the Urban App. Complete the short introduction or skip this step.
+
+<Image src={Einfuehrung} alt="Urban App introduction screen" width={300} />
+
+Tap **Register** to create a new account and set up your farm.
+
+<Image src={Registrierung} alt="Login page with Register link" width={300} />
+
+Enter your account details and accept the terms of use.
+
+<Image src={Accountdaten} alt="Create account form" width={300} />
+
+Enter your company details. Tap **Continue** to complete the registration. You will receive a confirmation email at the address you provided.
+
+<Image src={Unternehmensdaten} alt="Company details form" width={300} />
+
+---
+
+## 2. Log in
+
+Log in with your credentials.
+
+<Image src={Login} alt="Login screen" width={300} />
+
+---
+
+## 3. Set up a barn
+
+Tap **Add a new barn**.
+
+<Image src={StallAnlegen} alt="Add barn" width={300} />
+
+Enter a name for your barn and confirm with **Save**.
+
+<Image src={StallBenennen} alt="Name barn" width={300} />
+
+---
+
+## 4. Add a terminal
+
+Go to the TouchTerminal you want to add and open the following menu.
+
+{/* Image: Screenshot TouchTerminal menu */}
+
+Tap **Scan QR code** and scan the QR code on the TouchTerminal you want to add.
+
+<Image src={QRCodeScannen} alt="Scan QR code" width={300} />
+
+The app automatically adds the feeders of the TouchTerminal. Synchronisation may take a few minutes. If necessary, log out and back in after 5 minutes.
+
+The app will now display the added feeders, which must be licensed before use.
+
+{/* Image: Unlicensed feeders – graphic pending */}
+
+---
+
+## 5. License feeders
+
+Navigate to **Settings → Subscription**.
+
+Here you can see an overview of your active licenses and monthly costs. Tap **Upgrade my plan**.
+
+<Image src={Abonnement} alt="Subscription overview" width={300} />
+
+In the license management, select the feeders you want to license and confirm with **Save**.
+
+<Image src={Lizenzverwaltung} alt="License management" width={300} />
+
+Confirm your selection and complete the payment process. You will then be redirected back to the app.
+
+<Image src={Zahlvorgang} alt="Payment process" width={300} />
+
+---
+
+## 6. Assign feeders to a barn
+
+Navigate to **Settings → Feeders → Edit barn**.
+
+Select the licensed feeders and confirm with **Save**.
+
+<Image src={LizensierteAutomaten} alt="Licensed feeders" width={300} />
+
+---
+
+## Setup complete
+
+You can now view your animal data.
+
+<Image src={Abschluss} alt="Dashboard with animal data" width={300} />
+
+For questions and feedback, contact [info@urbanonline.de](mailto:info@urbanonline.de).
