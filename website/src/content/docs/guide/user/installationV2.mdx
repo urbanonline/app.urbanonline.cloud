@@ -1,0 +1,114 @@
+---
+title: Installation Urban Feed Monitor V2
+description: Schritt-für-Schritt-Anleitung zur Einrichtung der Urban Feed Monitor App inklusive Registrierung, Stallanlage und Lizenzierung.
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Einfuehrung from 'graphics/Einfuehrung.png';
+import Registrierung from 'graphics/Registrierung.png';
+import Accountdaten from 'graphics/Accountdaten.png';
+import Unternehmensdaten from 'graphics/Unternehmensdaten.png';
+import Login from 'graphics/Login.png';
+import StallAnlegen from 'graphics/StallAnlegen.png';
+import StallBenennen from 'graphics/StallBenennen.png';
+import QRCodeScannen from 'graphics/QRCodeScannen.png';
+import Abonnement from 'graphics/Abonnement.png';
+import Lizenzverwaltung from 'graphics/Lizenzverwaltung.png';
+import Zahlvorgang from 'graphics/Zahlvorgang.png';
+import LizensierteAutomaten from 'graphics/LizensierteAutomaten.png';
+import Abschluss from 'graphics/Abschluss.png';
+
+## Voraussetzungen
+
+- iPhone mit iOS (aktuell verfügbar nur für iOS)
+- Zugang zum App Store
+- Zugangsdaten Ihres Urban-Accounts (bei Neuregistrierung: E-Mail-Adresse und Unternehmensdaten)
+
+<Steps>
+
+1. **Registrierung**
+
+   Starten Sie die Urban App. Durchlaufen Sie die kurze Einführung oder überspringen Sie diesen Schritt.
+
+   <Image src={Einfuehrung} alt="Einführungsbildschirm der Urban App" width={300} />
+
+   Tippen Sie auf **Registrieren**, um einen neuen Account und Ihren Betrieb anzulegen.
+
+   <Image src={Registrierung} alt="Login-Seite mit Registrieren-Link" width={300} />
+
+   Geben Sie Ihre Accountdaten ein und akzeptieren Sie die Nutzungsbedingungen.
+
+   <Image src={Accountdaten} alt="Formular Konto erstellen" width={300} />
+
+   Geben Sie anschließend die Daten Ihres Unternehmens ein. Tippen Sie auf **Fortsetzen**, um die Registrierung abzuschließen. Sie erhalten eine Bestätigung an die angegebene E-Mail-Adresse.
+
+   <Image src={Unternehmensdaten} alt="Formular Unternehmensdaten" width={300} />
+
+2. **Einloggen**
+
+   Melden Sie sich mit Ihren Login-Daten an.
+
+   <Image src={Login} alt="Login" width={300} />
+
+3. **Stall anlegen**
+
+   Tippen Sie auf **Einen neuen Stall anlegen**.
+
+   <Image src={StallAnlegen} alt="Stall anlegen" width={300} />
+
+   Geben Sie einen Namen für Ihren Stall ein und bestätigen Sie mit **Speichern**.
+
+   <Image src={StallBenennen} alt="Stall benennen" width={300} />
+
+4. **Terminal hinzufügen**
+
+   Gehen Sie zum gewünschten TouchTerminal und öffnen Sie das folgende Menü.
+
+   {/* TODO: Screenshot Menü TouchTerminal – Grafik ausstehend */}
+
+   Tippen Sie auf **QR-Code scannen** und scannen Sie den QR-Code auf dem TouchTerminal, das Sie hinzufügen möchten.
+
+   <Image src={QRCodeScannen} alt="QR-Code scannen" width={300} />
+
+   Die App fügt die Automaten des TouchTerminals automatisch hinzu.
+
+   {/* TODO: Nicht lizenzierte Automaten – Grafik ausstehend */}
+
+   <Aside type="caution">
+   Die Synchronisierung kann einige Minuten dauern. Loggen Sie sich gegebenenfalls nach 5 Minuten neu ein.
+   </Aside>
+
+5. **Automaten lizenzieren**
+
+   Navigieren Sie zu **Einstellungen → Abonnement**.
+
+   Hier sehen Sie eine Übersicht Ihrer aktiven Lizenzen und monatlichen Kosten. Tippen Sie auf **Meinen Plan upgraden**.
+
+   <Image src={Abonnement} alt="Abonnement-Übersicht" width={300} />
+
+   Wählen Sie in der Lizenzverwaltung die Automaten aus, die Sie lizenzieren möchten, und bestätigen Sie mit **Speichern**.
+
+   <Image src={Lizenzverwaltung} alt="Lizenzverwaltung" width={300} />
+
+   Bestätigen Sie Ihre Auswahl und schließen Sie den Bezahlvorgang ab. Sie werden anschließend zurück in die App geleitet.
+
+   <Image src={Zahlvorgang} alt="Zahlvorgang" width={300} />
+
+6. **Automaten dem Stall zuweisen**
+
+   Navigieren Sie zu **Einstellungen → Automaten → Stall bearbeiten**.
+
+   Wählen Sie die lizenzierten Automaten aus und bestätigen Sie mit **Speichern**.
+
+   <Image src={LizensierteAutomaten} alt="Lizenzierte Automaten" width={300} />
+
+</Steps>
+
+## Einrichtung abgeschlossen
+
+Sie können jetzt Ihre Tierdaten einsehen.
+
+<Image src={Abschluss} alt="Dashboard mit Tierdaten" width={300} />
+
+Bei Wünschen und Anregungen wenden Sie sich an [info@urbanonline.de](mailto:info@urbanonline.de).

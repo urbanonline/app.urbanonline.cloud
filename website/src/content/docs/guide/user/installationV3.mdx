@@ -1,0 +1,399 @@
+---
+title: Installation Urban Feed Monitor V3
+description: Schritt-für-Schritt-Anleitung zur Einrichtung der Urban Feed Monitor App inklusive Registrierung, Stallanlage und Lizenzierung.
+---
+
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import Einfuehrung from 'graphics/Einfuehrung.png';
+import Registrierung from 'graphics/Registrierung.png';
+import Accountdaten from 'graphics/Accountdaten.png';
+import Unternehmensdaten from 'graphics/Unternehmensdaten.png';
+import Login from 'graphics/Login.png';
+import StallAnlegen from 'graphics/StallAnlegen.png';
+import StallBenennen from 'graphics/StallBenennen.png';
+import QRCodeScannen from 'graphics/QRCodeScannen.png';
+import Abonnement from 'graphics/Abonnement.png';
+import Lizenzverwaltung from 'graphics/Lizenzverwaltung.png';
+import Zahlvorgang from 'graphics/Zahlvorgang.png';
+import LizensierteAutomaten from 'graphics/LizensierteAutomaten.png';
+import Abschluss from 'graphics/Abschluss.png';
+
+## Voraussetzungen
+
+- iPhone mit iOS (aktuell verfügbar nur für iOS)
+- Zugang zum App Store
+- Zugangsdaten Ihres Urban-Accounts (bei Neuregistrierung: E-Mail-Adresse und Unternehmensdaten)
+
+{/* ============================================================
+    STEPPER-NAVIGATION
+    Zeigt jeweils einen Schritt an. Schritt-Inhalte sind in
+    <div id="step-N"> Blöcken unterhalb definiert.
+    ============================================================ */}
+
+<div id="ufm-stepper">
+
+  <nav aria-label="Installationsschritte" id="ufm-step-nav">
+    <button data-step="1" class="ufm-step-btn ufm-active">1. Registrierung</button>
+    <button data-step="2" class="ufm-step-btn">2. Einloggen</button>
+    <button data-step="3" class="ufm-step-btn">3. Stall anlegen</button>
+    <button data-step="4" class="ufm-step-btn">4. Terminal hinzufügen</button>
+    <button data-step="5" class="ufm-step-btn">5. Automaten lizenzieren</button>
+    <button data-step="6" class="ufm-step-btn">6. Automaten zuweisen</button>
+  </nav>
+
+  <div id="ufm-progress" aria-live="polite">Schritt 1 von 6</div>
+
+</div>
+
+{/* ---- Schritt 1 ---- */}
+<div id="step-1" class="ufm-step-content">
+
+### Registrierung
+
+Starten Sie die Urban App. Durchlaufen Sie die kurze Einführung oder überspringen Sie diesen Schritt.
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Tippen Sie auf **Registrieren**, um einen neuen Account und Ihren Betrieb anzulegen.
+
+</div>
+<Image src={Einfuehrung} alt="Einführungsbildschirm der Urban App" width={300} />
+</div>
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Geben Sie Ihre Accountdaten ein und akzeptieren Sie die Nutzungsbedingungen.
+
+</div>
+<Image src={Accountdaten} alt="Formular Konto erstellen" width={300} />
+</div>
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Geben Sie anschließend die Daten Ihres Unternehmens ein. Tippen Sie auf **Fortsetzen**, um die Registrierung abzuschließen. Sie erhalten eine Bestätigung an die angegebene E-Mail-Adresse.
+
+</div>
+<Image src={Unternehmensdaten} alt="Formular Unternehmensdaten" width={300} />
+</div>
+
+</div>
+
+{/* ---- Schritt 2 ---- */}
+<div id="step-2" class="ufm-step-content" hidden>
+
+### Einloggen
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Melden Sie sich mit Ihren Login-Daten an.
+
+</div>
+<Image src={Login} alt="Login" width={300} />
+</div>
+
+</div>
+
+{/* ---- Schritt 3 ---- */}
+<div id="step-3" class="ufm-step-content" hidden>
+
+### Stall anlegen
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Tippen Sie auf **Einen neuen Stall anlegen**.
+
+</div>
+<Image src={StallAnlegen} alt="Stall anlegen" width={300} />
+</div>
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Geben Sie einen Namen für Ihren Stall ein und bestätigen Sie mit **Speichern**.
+
+</div>
+<Image src={StallBenennen} alt="Stall benennen" width={300} />
+</div>
+
+</div>
+
+{/* ---- Schritt 4 ---- */}
+<div id="step-4" class="ufm-step-content" hidden>
+
+### Terminal hinzufügen
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Gehen Sie zum gewünschten TouchTerminal und öffnen Sie das folgende Menü.
+
+{/* TODO: Screenshot Menü TouchTerminal – Grafik ausstehend */}
+
+Tippen Sie auf **QR-Code scannen** und scannen Sie den QR-Code auf dem TouchTerminal, das Sie hinzufügen möchten.
+
+</div>
+<Image src={QRCodeScannen} alt="QR-Code scannen" width={300} />
+</div>
+
+Die App fügt die Automaten des TouchTerminals automatisch hinzu.
+
+{/* TODO: Screenshot nicht lizenzierte Automaten – Grafik ausstehend */}
+
+<Aside type="caution">
+Die Synchronisierung kann einige Minuten dauern. Loggen Sie sich gegebenenfalls nach 5 Minuten neu ein.
+</Aside>
+
+</div>
+
+{/* ---- Schritt 5 ---- */}
+<div id="step-5" class="ufm-step-content" hidden>
+
+### Automaten lizenzieren
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Navigieren Sie zu **Einstellungen → Abonnement**.
+
+Hier sehen Sie eine Übersicht Ihrer aktiven Lizenzen und monatlichen Kosten. Tippen Sie auf **Meinen Plan upgraden**.
+
+</div>
+<Image src={Abonnement} alt="Abonnement-Übersicht" width={300} />
+</div>
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Wählen Sie in der Lizenzverwaltung die Automaten aus, die Sie lizenzieren möchten, und bestätigen Sie mit **Speichern**.
+
+</div>
+<Image src={Lizenzverwaltung} alt="Lizenzverwaltung" width={300} />
+</div>
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Bestätigen Sie Ihre Auswahl und schließen Sie den Bezahlvorgang ab. Sie werden anschließend zurück in die App geleitet.
+
+</div>
+<Image src={Zahlvorgang} alt="Zahlvorgang" width={300} />
+</div>
+
+</div>
+
+{/* ---- Schritt 6 ---- */}
+<div id="step-6" class="ufm-step-content" hidden>
+
+### Automaten dem Stall zuweisen
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Navigieren Sie zu **Einstellungen → Automaten → Stall bearbeiten**.
+
+Wählen Sie die lizenzierten Automaten aus und bestätigen Sie mit **Speichern**.
+
+</div>
+<Image src={LizensierteAutomaten} alt="Lizenzierte Automaten" width={300} />
+</div>
+
+</div>
+
+{/* ---- Abschluss (immer sichtbar nach Schritt 6, oder separat) ---- */}
+<div id="step-finish" class="ufm-step-content" hidden>
+
+### Einrichtung abgeschlossen
+
+Sie können jetzt Ihre Tierdaten einsehen.
+
+<Image src={Abschluss} alt="Dashboard mit Tierdaten" width={300} />
+
+Bei Wünschen und Anregungen wenden Sie sich an [info@urbanonline.de](mailto:info@urbanonline.de).
+
+</div>
+
+{/* ---- Vor/Zurück-Navigation ---- */}
+<div id="ufm-nav-buttons">
+  <button id="ufm-btn-prev" onclick="ufmNav(-1)" disabled>← Zurück</button>
+  <button id="ufm-btn-next" onclick="ufmNav(1)">Weiter →</button>
+</div>
+
+<script>
+{`
+  (function () {
+    const TOTAL = 7; // Schritte 1–6 + Abschluss
+    let current = 1;
+
+    function stepId(n) {
+      return n <= 6 ? 'step-' + n : 'step-finish';
+    }
+
+    function show(n) {
+      for (let i = 1; i <= TOTAL; i++) {
+        const el = document.getElementById(stepId(i));
+        if (el) el.hidden = i !== n;
+      }
+
+      // Fortschrittsanzeige
+      const prog = document.getElementById('ufm-progress');
+      if (prog) prog.textContent = n <= 6
+        ? 'Schritt ' + n + ' von 6'
+        : 'Einrichtung abgeschlossen';
+
+      // Navigations-Buttons
+      const prev = document.getElementById('ufm-btn-prev');
+      const next = document.getElementById('ufm-btn-next');
+      if (prev) prev.disabled = n === 1;
+      if (next) {
+        next.disabled = n === TOTAL;
+        next.textContent = n === 6 ? 'Abschließen →' : 'Weiter →';
+      }
+
+      // Aktiven Step-Button hervorheben
+      document.querySelectorAll('.ufm-step-btn').forEach(btn => {
+        const s = parseInt(btn.dataset.step, 10);
+        btn.classList.toggle('ufm-active', s === n);
+        btn.setAttribute('aria-current', s === n ? 'step' : 'false');
+      });
+
+      current = n;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Step-Buttons in der Nav
+    document.querySelectorAll('.ufm-step-btn').forEach(btn => {
+      btn.addEventListener('click', () => show(parseInt(btn.dataset.step, 10)));
+    });
+
+    // Globale Funktion für onclick-Attribute
+    window.ufmNav = function (dir) {
+      const next = current + dir;
+      if (next >= 1 && next <= TOTAL) show(next);
+    };
+
+    show(1);
+  })();
+`}
+</script>
+
+<style>
+{`
+  /* Stepper-Wrapper */
+  #ufm-stepper {
+    margin: 1.5rem 0 1rem;
+  }
+
+  /* Schritt-Buttons oben */
+  #ufm-step-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0.5rem;
+  }
+
+  .ufm-step-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 4px;
+    background: var(--sl-color-gray-7);
+    color: var(--sl-color-gray-2);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .ufm-step-btn:hover {
+    background: var(--sl-color-gray-6);
+    border-color: var(--sl-color-gray-4);
+  }
+
+  .ufm-step-btn.ufm-active {
+    background: var(--sl-color-text-accent);
+    border-color: var(--sl-color-text-accent);
+    color: var(--sl-color-bg);
+    font-weight: 600;
+  }
+
+  /* Fortschrittstext */
+  #ufm-progress {
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Zweispaltiges Layout: Text links, Bild rechts */
+  .ufm-step-row {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .ufm-step-text {
+    flex: 1;
+  }
+
+  .ufm-step-row img {
+    width: 220px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid var(--sl-color-gray-5);
+  }
+
+  /* Vor/Zurück-Buttons */
+  #ufm-nav-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--sl-color-gray-6);
+  }
+
+  #ufm-btn-prev,
+  #ufm-btn-next {
+    padding: 8px 20px;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 4px;
+    background: var(--sl-color-gray-7);
+    color: var(--sl-color-gray-1);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  #ufm-btn-prev:hover,
+  #ufm-btn-next:hover {
+    background: var(--sl-color-gray-6);
+  }
+
+  #ufm-btn-prev:disabled,
+  #ufm-btn-next:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  /* Smartphone: Bild unter Text stapeln */
+  @media (max-width: 768px) {
+    .ufm-step-row {
+      flex-direction: column;
+    }
+    .ufm-step-row img {
+      width: 100%;
+      max-width: 300px;
+    }
+    #ufm-step-nav {
+      gap: 4px;
+    }
+    .ufm-step-btn {
+      font-size: 0.75rem;
+      padding: 5px 9px;
+    }
+  }
+`}
+</style>

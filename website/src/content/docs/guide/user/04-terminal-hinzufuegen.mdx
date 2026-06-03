@@ -1,0 +1,35 @@
+---
+title: "Schritt 4: Terminal hinzufügen"
+description: Verbinden Sie Ihr TouchTerminal mit der Urban Feed Monitor App.
+prev:
+  label: "Schritt 3: Stall anlegen"
+  link: /installation/03-stall-anlegen
+next:
+  label: "Schritt 5: Automaten lizenzieren"
+  link: /installation/05-automaten-lizenzieren
+---
+
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import QRCodeScannen from 'graphics/QRCodeScannen.png';
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Gehen Sie zum gewünschten TouchTerminal und öffnen Sie das folgende Menü.
+
+{/* TODO: Screenshot Menü TouchTerminal – Grafik ausstehend */}
+
+Tippen Sie auf **QR-Code scannen** und scannen Sie den QR-Code auf dem TouchTerminal, das Sie hinzufügen möchten.
+
+</div>
+<Image src={QRCodeScannen} alt="QR-Code scannen" width={300} />
+</div>
+
+Die App fügt die Automaten des TouchTerminals automatisch hinzu.
+
+{/* TODO: Screenshot nicht lizenzierte Automaten – Grafik ausstehend */}
+
+<Aside type="caution">
+Die Synchronisierung kann einige Minuten dauern. Loggen Sie sich gegebenenfalls nach 5 Minuten neu ein.
+</Aside>
