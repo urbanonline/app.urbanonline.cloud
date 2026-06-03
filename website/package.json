@@ -10,13 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.39.2",
-    "astro": "^6.4.2",
+    "@astrojs/starlight": "^0.39.3",
+    "astro": "^6.4.3",
     "sharp": "^0.34.5",
     "starlight-sidebar-swipe": "^0.2.0",
     "starlight-sidebar-topics": "^0.7.1",
     "starlight-sidebar-topics-dropdown": "^0.6.0",
     "starlight-ui-tweaks": "^0.2.2"
-  },
-  "packageManager": "pnpm@11.5.0+sha512.dbfcc4f81cf48597afd4bc391ffdf12c11f1a9fb83a395bfa6b0a2d9cc2fd8ffebafdb1ccbd529632153f793904c2615b7f09fe1a345473fd1c35845172a8eb1"
+  }
 }

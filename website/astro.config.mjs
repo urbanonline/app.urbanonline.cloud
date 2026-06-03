@@ -69,7 +69,7 @@ export default defineConfig({
 							de: 'Doku für Anwender',
 							en: 'User documentation'
 						},
-						link: '/guide/user/',
+						link: '/guide/',
 						icon: 'open-book',
 						items: [
 							{
@@ -116,7 +116,7 @@ export default defineConfig({
 					navbarLinks: [
 						{
 							label: "Dokumentation",
-							href: "/guide/user/",
+							href: "/guide/",
 						},
 						{
 							label: "FAQ",
@@ -128,7 +128,7 @@ export default defineConfig({
               				navbarLinks: [
 								{
 									label: "Documentation",
-									href: "/en/guide/user/",
+									href: "/en/guide/",
 								},
 								{
 									label: "FAQ",
