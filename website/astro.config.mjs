@@ -41,6 +41,18 @@ export default defineConfig({
 				en: {
 					label: 'English',
 				},
+				// Spanish docs in `src/content/docs/es/`
+				es: {
+					label: 'Español',
+				},
+				// French docs in `src/content/docs/fr/`
+				fr: {
+					label: 'Français',
+				},
+				// Russian docs in `src/content/docs/ru/`
+				ru: {
+					label: 'Русский',
+				},
 			},
 			social: [
 				{
@@ -69,7 +81,10 @@ export default defineConfig({
 					{
 						label: {
 							de: 'Doku für Anwender',
-							en: 'User documentation'
+							en: 'User documentation',
+							es: 'Documentación para usuarios',
+							fr: 'Documentation utilisateur',
+							ru: 'Документация для пользователей',
 						},
 						link: '/guide/',
 						icon: 'open-book',
@@ -78,14 +93,20 @@ export default defineConfig({
 								label: 'Installation der App',
 								translations: {
 									en: 'Installation of app',
+									es: 'Instalación de la aplicación',
+									fr: 'Installation de l\'application',
+									ru: 'Установка приложения',
 								},
 								items: [{ autogenerate: { directory: 'guide/user' } }]},
 						],
 					},
 					{
 						label: {
-							de:	'Doku für Service',
-							en:	'Service documentation',							
+							de: 'Doku für Service',
+							en: 'Service documentation',
+							es: 'Documentación de servicio',
+							fr: 'Documentation service',
+							ru: 'Документация для сервиса',
 						},
 						link: '/guide/service/',
 						icon: 'open-book',
@@ -94,6 +115,9 @@ export default defineConfig({
 								label: 'Installation Cloud',
 								translations: {
 									en: 'Installation of cloud',
+									es: 'Instalación de la nube',
+									fr: 'Installation du cloud',
+									ru: 'Установка облака',
 								},
 								items: [{ autogenerate: { directory: 'guide/service' } }]},
 						],
@@ -102,6 +126,9 @@ export default defineConfig({
 						label: {
 							de: 'FAQ',
 							en: 'FAQ',
+							es: 'FAQ',
+							fr: 'FAQ',
+							ru: 'FAQ',
 						},
 						link: '/faq',
 						id: 'faq',
@@ -115,6 +142,66 @@ export default defineConfig({
 			),
 				starlightSidebarSwipe(),
 				starlightUiTweaks({
+					navbarLinks: [
+						{
+							label: "Dokumentation",
+							href: "/guide/",
+						},
+						{
+							label: "FAQ",
+							href: "/faq/",
+						},
+					],
+					locales: {
+						en: {
+							navbarLinks: [
+								{
+									label: "Documentation",
+									href: "/en/guide/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+						},
+						es: {
+							navbarLinks: [
+								{
+									label: "Documentación",
+									href: "/es/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+						},
+						fr: {
+							navbarLinks: [
+								{
+									label: "Documentation",
+									href: "/fr/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+						},
+						ru: {
+							navbarLinks: [
+								{
+									label: "Документация",
+									href: "/ru/guide/user/",
+								},
+								{
+									label: "FAQ",
+									href: "/faq/",
+								},
+							],
+            			},
+          			},
 					footer: {
 						showSocialIcons: false,
 						copyright: "Urban GmbH & Co. KG. Alle Rechte vorbehalten.",
