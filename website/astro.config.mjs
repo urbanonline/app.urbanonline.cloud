@@ -137,7 +137,146 @@ export default defineConfig({
 							],
             			},
           			},
-				}),
+					footer: {
+						showSocialIcons: false,
+						copyright: "Urban GmbH & Co. KG. Alle Rechte vorbehalten.",
+						firstColumn: {
+							title: "Unternehmen",
+							links: [
+								{
+									label: "Über Urban",
+									href: "https://www.urbanonline.de/ueber-urban",
+								},
+    							{
+									label: "Mitarbeiter",
+									href: "https://www.urbanonline.de/ueber-urban/mitarbeiter"
+								},
+    							{
+									label: "Karriere und Ausbildung",
+									href: "https://www.urbanonline.de/ueber-urban/karriere-und-ausbildung"
+								}
+							],
+						},
+						secondColumn: {
+      						title: "Produkte",
+      						links: [
+    							{
+									label: "Übersicht",
+									href: "https://www.urbanonline.de/produkte"
+								},
+								{
+									label: "Kälberaufzucht",
+									href: "https://www.urbanonline.de/produkte/fuer-die-kaelberaufzucht"
+								},
+								{
+									label: "Lämmeraufzucht",
+									href: "https://www.urbanonline.de/produkte/fuer-die-laemmeraufzucht"
+								},
+							]
+						},
+    					thirdColumn: {
+      						title: "Kontakt",
+      						links: [
+						        {
+									label: "Firmenzentrale",
+									href: "https://www.urbanonline.de/kontakt"
+								},
+        						{ label: "Vertriebspartner",
+									href: "https://www.urbanonline.de/map"
+								},
+      						],
+    					},
+    					fourthColumn: {
+      						title: "Rechtliches",
+      						links: [
+            					{
+									label: "Impressum",
+									href: "https://www.urbanonline.de/impressum"
+								},
+            					{
+									label: "Datenschutz",
+									href: "https://www.urbanonline.de/datenschutz"
+								},
+								{
+									label: "AGB",
+									href: "https://www.urbanonline.de/fileadmin/user_upload/2014_04_DE_AGB_FB-072a_20000_1_.pdf"
+								},
+      						],
+    					},
+  					},
+  					locales: {
+    					en: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. All rights reserved.",
+        						firstColumn: {
+          							title: "Company",
+          							links: [
+            							{
+											label: "About Urban",
+											href: "https://www.urbanonline.de/en/about-urban"
+										},
+            							{
+											label: "Employees",
+											href: "https://www.urbanonline.de/en/about-urban/employees"
+										},
+            							{
+											label: "Career and education",
+											href: "https://www.urbanonline.de/en/about-urban/career-and-education"
+										},
+          							],
+								},
+        						secondColumn: {
+          							title: "Products",
+          							links: [
+            							{
+											label: "Overview",
+											href: "https://www.urbanonline.de/en/urban-products"
+										},
+            							{
+											label: "Calf rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-calf-rearing"
+										},
+            							{
+											label: "Lamb and kid rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-lamb-and-kid-rearing"
+										},
+          							],
+						        },
+        						thirdColumn: {
+          							title: "Contact",
+          							links: [
+            							{
+											label: "Head office",
+											href: "https://www.urbanonline.de/en/contact"
+										},
+            							{
+											label: "Urban partners	",
+											href: "https://www.urbanonline.de/en/map"
+										},
+          							],
+        						},
+        						fourthColumn: {
+          							title: "Legal matters",
+          							links: [
+            						{
+										label: "Legal notice",
+										href: "https://www.urbanonline.de/en/legal-notice"
+									},
+            						{
+										label: "Privacy Policy",
+										href: "https://www.urbanonline.de/en/privacy-policy"
+									},
+									{
+										label: "Terms and conditions",
+										href: "https://www.urbanonline.de/fileadmin/user_upload/2014_04_EN_AGB_FB-072b_20000.pdf"
+									},
+          						],
+        					},
+      					},
+    				},
+  				},
+			}),
 	    	],
 			components: {
 				// Override the default `Sidebar` component with a custom one.
