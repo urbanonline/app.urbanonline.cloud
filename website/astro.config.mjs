@@ -42,17 +42,11 @@ export default defineConfig({
 					label: 'English',
 				},
 				// Spanish docs in `src/content/docs/es/`
-				es: {
-					label: 'Español',
-				},
+				//es: {label: 'Español',},
 				// French docs in `src/content/docs/fr/`
-				fr: {
-					label: 'Français',
-				},
+				//fr: {label: 'Français',},
 				// Russian docs in `src/content/docs/ru/`
-				ru: {
-					label: 'Русский',
-				},
+				//ru: {label: 'Русский',},
 			},
 			social: [
 				{
