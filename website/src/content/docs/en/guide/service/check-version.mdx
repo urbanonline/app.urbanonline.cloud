@@ -1,14 +1,38 @@
 ---
-title: Check of feeder versions
-description: A guide in my new Starlight docs site.
+title: Check of firmware version Alma Pro
+description: Determining the Alma Pro firmware version, comparison with minimum required version
 sidebar:
-  label: Version check feeder
+  label: ① Version check feeder
   order: 10
 ---
+import { Image } from 'astro:assets';
+import version_check from './version-check.png';
+import Home from '../../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../../public/icons/almapro/questionmark.svg';
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+### Firmware Version Requirements
 
-## Further reading
+Firmware version <span class="font-bold">25-04-V08</span> or higher needs to be installed on the Alma Pro for the installation and setup of the Urban Cloud.
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+### Checking the Firmware Version
+
+To check which firmware version is installed on your Alma Pro feeder:
+
+* Make sure you are on the feeder’s home screen. If needed click the top `Home` button <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> in the navigation bar on the left side of the screen.
+* On the home screen, click the `Help` button <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Help menu icon" /> in the upper-right corner of the screen.
+* The version number of the installed feeder firmware <span class="text-2xl">➂</span> is now displayed to the left of the language selection button.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: Firmware Version Check"  title="Alma Pro: Firmware Version Check" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Figure 1:</span> Alma Pro, Checking the Firmware Version
+  </figcaption>
+</figure>
+
+### Next Steps
+
+* If the firmware version installed on your feeder is lower than 25-04-V08, first perform a [firmware update](./update-feeder) on your feeder.
+
+* If firmware version 25-04-V08 (or higher) is already installed on your machine, proceed directly to step <span class="text-2xl">③</span> [Cloud Setup](./setup-cloud).

@@ -116,8 +116,23 @@ export default defineConfig({
 									fr: 'Installation du cloud',
 									ru: 'Установка облака',
 								},
-								items: [{ autogenerate: { directory: 'guide/service' } }]},
-						],
+								items: [
+									'guide/service',
+									'guide/service/check-version',
+									'guide/service/update-feeder',
+								{
+									label: '③ Setup Cloud',
+									translations: {
+										en: '③ Cloud setup',
+									},
+									items: [
+										{ slug: 'guide/service/setup-cloud' },
+										{ slug: 'guide/service/setup-cloud/network'},
+										{ slug: 'guide/service/setup-cloud/registration'},
+										{ slug: 'guide/service/setup-cloud/rest'},
+										{ slug: 'guide/service/setup-cloud/sync' }]},
+							]
+						}],
 					},
 					{
 						label: {
