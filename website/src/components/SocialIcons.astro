@@ -1,5 +1,6 @@
 ---
 import DefaultSocialIcons from "@astrojs/starlight/components/SocialIcons.astro";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 const t = Astro.locals.t;
 ---
 <div class="social-icons-extended">
@@ -7,8 +8,8 @@ const t = Astro.locals.t;
     <div class="has-submenu">
       <a href="/guide/" class="custom-link">{t('navbar.documentation')}</a>
       <ul role="menu">
-        <li class="custom-link" role="none"><a href="/guide/user/" role="menuitem">{t('navbar.documentation.for-users')}</a></li>
-        <li  class="custom-link" role="none"><a href="/guide/service/" role="menuitem">{t('navbar.documentation.for-service')}</a></li>
+        <li class="custom-link gh" role="none"><a href={getRelativeLocaleUrl(Astro.currentLocale, 'guide/user')} role="menuitem">{t('navbar.documentation.for-users')}</a></li>
+        <li  class="custom-link gh" role="none"><a href={getRelativeLocaleUrl(Astro.currentLocale, 'guide/service')} role="menuitem">{t('navbar.documentation.for-service')}</a></li>
       </ul>
     </div>
     <a href="/faq/" class="custom-link">{t('navbar.faq')}</a>
