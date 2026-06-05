@@ -1,0 +1,52 @@
+---
+import DefaultSocialIcons from "@astrojs/starlight/components/SocialIcons.astro";
+const t = Astro.locals.t;
+---
+<div class="social-icons-extended">
+  <div class="custom-links">
+    <a href="/guide/" class="custom-link">{t('navbar.documentation')}</a>
+    <a href="/faq/" class="custom-link">{t('navbar.faq')}</a>
+  </div>
+  <DefaultSocialIcons />
+</div>
+
+<style>
+  .social-icons-extended {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .custom-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .custom-link {
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+    font-size: var(--sl-text-sm);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .custom-link:hover {
+    opacity: 0.66;
+  }
+
+  .custom-links::after {
+    content: "";
+    height: 2rem;
+    border-inline-end: 1px solid var(--sl-color-gray-5);
+  }
+
+  @media (width < 800px) {
+    .social-icons-hidden .custom-links::after {
+      content: none;
+      border: 0;
+    }
+  }
+</style>

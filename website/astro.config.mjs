@@ -113,30 +113,6 @@ export default defineConfig({
 			),
 				starlightSidebarSwipe(),
 				starlightUiTweaks({
-					navbarLinks: [
-						{
-							label: "Dokumentation",
-							href: "/guide/",
-						},
-						{
-							label: "FAQ",
-							href: "/faq/",
-						},
-					],
-          			locales: {
-            			en: {
-              				navbarLinks: [
-								{
-									label: "Documentation",
-									href: "/en/guide/",
-								},
-								{
-									label: "FAQ",
-									href: "/faq/",
-								},
-							],
-            			},
-          			},
 					footer: {
 						showSocialIcons: false,
 						copyright: "Urban GmbH & Co. KG. Alle Rechte vorbehalten.",
@@ -281,6 +257,7 @@ export default defineConfig({
 			components: {
 				// Override the default `Sidebar` component with a custom one.
 				Sidebar: './src/components/Sidebar.astro',
+				SocialIcons: './src/components/SocialIcons.astro',
 			},
 		}),
 	],
