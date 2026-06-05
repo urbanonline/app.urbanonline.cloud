@@ -1,14 +1,38 @@
 ---
-title: Prüfung der Automatenversion
-description: A guide in my new Starlight docs site.
+title: Prüfung der Firmwareversion Alma Pro
+description: Ermittlung der Firmwareversion Alma Pro, Vergleich mit den Mindestvoraussetzungen an die Version
 sidebar:
-  label: Versionsprüfung
+  label: ① Versionsprüfung
   order: 10
 ---
+import { Image } from 'astro:assets';
+import version_check from './version-check.png';
+import Home from '../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../public/icons/almapro/questionmark.svg';
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+### Anforderungen an die Firmwareversion
 
-## Further reading
+Für die Installation und den Setup der Urban-Cloud ist eine Firmwareversion <span class="font-bold">25-04-V08</span> oder höher zwingend erforderlich.
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+### Ermittlung der Firmwareversion
+
+So prüfen Sie, welche Firmwareversion auf ihrem Automaten installiert ist:
+
+* Wechseln Sie zur Startseite des Automaten, klicken Sie dazu ggf. auf die oberste `Home`-Schaltfläche <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> in der Navigationsleiste im linken Bildschirmbereich.
+* Klicken Sie im Startbildschirm auf die `Hilfe`-Schaltfläche <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Icon Hilfemenü" /> im rechten oberen Bildschirmbereich.
+* Die Versionsnummer der installierten Automatenfirmware <span class="text-2xl">➂</span> wird jetzt links neben der Schaltfläche zur Sprachumschaltung angezeigt.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: Versionsprüfung Firmware"  title="Alma Pro: Versionsprüfung Firmware" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Abbildung 1:</span> Alma Pro, Überprüfung der Firmwareversion
+  </figcaption>
+</figure>
+
+### Weiteres Vorgehen
+
+* Ist die Firmwareversion ihres Automaten niedriger als 25-04-V08, so nehmen Sie zunächst ein [Firmwareupdate](./update-feeder) ihres Automaten vor.
+
+* Ist auf Ihrem Automaten bereits die Firmwareversion 25-04-V08 (oder höher) installiert, so fahren Sie direkt fort mit Schritt <span class="text-2xl">③</span> [Cloud Setup](./setup-cloud).

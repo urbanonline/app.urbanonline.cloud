@@ -1,13 +1,30 @@
 ---
-title: Serviceanleitung
-description: A guide in my new Starlight docs site.
+title: Installationsanleitung Urban Cloud
+description: Auflistung der drei Schritte, die zum Setup der Urban Cloud zu durchlaufen sind.
 sidebar:
-  hidden: true
+  label: Overview
+  hidden: false
+tableOfContents: false
 ---
+import { Steps, Aside } from '@astrojs/starlight/components';
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+Für die **Einrichtung und Aktivierung der Urban-Cloud** sind die folgenden **drei Schritte** erforderlich:
 
-## Further reading
+<Steps>
+    1. [Prüfung der Firmwareversion](check-version)
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+        <Aside type="note" icon="information" title="Mindestvoraussetzung Firmware Alma Pro">
+            Version **25-04_V08 oder höher**
+        </Aside>
+
+    1. [Aktualisierung der Firmware Alma Pro](update-feeder) (optional)
+
+        <Aside type="caution" icon="setting" title="Zwingend erforderlich bei einer Version kleiner als 25-04_V08!"/>
+
+    1. [Einrichtung der Kommunikation mit der Urban-Cloud](setup-cloud)
+
+        <Aside type="note" icon="database" title="Setup des Synchronsiationsdienstes">
+            In einem **vierstufigen Prozess** wird die Kommunikation mit der Urban-Cloud eingerichtet.
+        </Aside>
+
+</Steps>
