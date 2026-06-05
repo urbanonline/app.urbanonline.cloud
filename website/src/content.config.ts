@@ -17,6 +17,8 @@ export const collections = 	{
                     extend: z.object({
                       'navbar.documentation': z.string().optional(),
                       'navbar.faq': z.string().optional(),
+                      'navbar.documentation.for-users': z.string().optional(),
+                      'navbar.documentation.for-service': z.string().optional(),
                     }),
                   }),
                 }),

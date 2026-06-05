@@ -3,14 +3,48 @@ import DefaultSocialIcons from "@astrojs/starlight/components/SocialIcons.astro"
 const t = Astro.locals.t;
 ---
 <div class="social-icons-extended">
-  <div class="custom-links">
+  <div class="custom-links has-submenu">
     <a href="/guide/" class="custom-link">{t('navbar.documentation')}</a>
+      <ul role="menu">
+        <li class="custom-link" role="none"><a href="/guide/user/" role="menuitem">{t('navbar.documentation.for-users')}</a></li>
+        <li  class="custom-link" role="none"><a href="/guide/service/" role="menuitem">{t('navbar.documentation.for-service')}</a></li>
+      </ul>
     <a href="/faq/" class="custom-link">{t('navbar.faq')}</a>
   </div>
   <DefaultSocialIcons />
 </div>
 
 <style>
+
+  .has-submenu > ul {
+    display: none;
+  }
+
+  .has-submenu:focus-within > ul,
+  .has-submenu:hover > ul,
+  .has-submenu:has(> button[aria-expanded="true"]) > ul {
+    display: block;
+  }
+
+  .has-submenu {
+    position: relative;
+  }
+
+  .has-submenu > ul {
+    position: absolute;
+    top: 100%;
+    background: var(--sl-color-bg-nav);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    z-index: 100000;
+    list-style-type: none;
+    padding: 0em 1em 0em 0.5em;
+  }
+
+    .has-submenu > ul > li > a {
+      color: var(--sl-color-text-accent);
+      text-decoration: none;
+    }
+
   .social-icons-extended {
     display: flex;
     align-items: center;
