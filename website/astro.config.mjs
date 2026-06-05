@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import tailwindcss from '@tailwindcss/vite';
 import starlightSidebarTopics from 'starlight-sidebar-topics'
 import starlightSidebarSwipe from 'starlight-sidebar-swipe'
 import starlightUiTweaks from 'starlight-ui-tweaks'
@@ -15,6 +16,7 @@ export default defineConfig({
 			},
 			favicon: './urban.ico',
 			customCss: [
+				'./src/styles/global.css',
 				'./src/styles/lite-yt-embed.css',
 				'./src/styles/colors.css',
 				'./src/styles/ui-tweaks.css',
@@ -261,4 +263,7 @@ export default defineConfig({
 			},
 		}),
 	],
+	vite: {
+		plugins: [tailwindcss()],
+	}
 });
