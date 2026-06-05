@@ -3,12 +3,14 @@ import DefaultSocialIcons from "@astrojs/starlight/components/SocialIcons.astro"
 const t = Astro.locals.t;
 ---
 <div class="social-icons-extended">
-  <div class="custom-links has-submenu">
-    <a href="/guide/" class="custom-link">{t('navbar.documentation')}</a>
+  <div class="custom-links">
+    <div class="has-submenu">
+      <a href="/guide/" class="custom-link">{t('navbar.documentation')}</a>
       <ul role="menu">
         <li class="custom-link" role="none"><a href="/guide/user/" role="menuitem">{t('navbar.documentation.for-users')}</a></li>
         <li  class="custom-link" role="none"><a href="/guide/service/" role="menuitem">{t('navbar.documentation.for-service')}</a></li>
       </ul>
+    </div>
     <a href="/faq/" class="custom-link">{t('navbar.faq')}</a>
   </div>
   <DefaultSocialIcons />
