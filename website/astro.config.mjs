@@ -133,7 +133,7 @@ export default defineConfig({
 					},
 				],
 				{
-					exclude: [ 'guide/toc', '/es/**/*', '/fr/**/*', '/ru/**/*' ]
+					exclude: [ 'guide/toc' ]
 				},
 			),
 				starlightSidebarSwipe(),
