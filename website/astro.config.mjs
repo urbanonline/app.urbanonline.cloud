@@ -42,11 +42,11 @@ export default defineConfig({
 					label: 'English',
 				},
 				// Spanish docs in `src/content/docs/es/`
-				//es: {label: 'Español',},
+				es: {label: 'Español',},
 				// French docs in `src/content/docs/fr/`
-				//fr: {label: 'Français',},
+				fr: {label: 'Français',},
 				// Russian docs in `src/content/docs/ru/`
-				//ru: {label: 'Русский',},
+				ru: {label: 'Русский',},
 			},
 			social: [
 				{
@@ -82,6 +82,7 @@ export default defineConfig({
 						},
 						link: '/guide/',
 						icon: 'open-book',
+						id: 'user',
 						items: [
 							{
 								label: 'Installation der App',
@@ -104,6 +105,7 @@ export default defineConfig({
 						},
 						link: '/guide/service/',
 						icon: 'open-book',
+						id: 'service',
 						items: [
 							{
 								label: 'Installation Cloud',
@@ -131,7 +133,7 @@ export default defineConfig({
 					},
 				],
 				{
-					exclude: [ 'guide/toc' ]
+					exclude: [ 'guide/toc', '/es/**/*', '/fr/**/*', '/ru/**/*' ]
 				},
 			),
 				starlightSidebarSwipe(),
