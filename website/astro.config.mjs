@@ -337,6 +337,216 @@ export default defineConfig({
         					},
       					},
     				},
+    					es: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. All rights reserved.",
+        						firstColumn: {
+          							title: "Empresa",
+          							links: [
+            							{
+											label: "About Urban",
+											href: "https://www.urbanonline.de/en/about-urban"
+										},
+            							{
+											label: "Employees",
+											href: "https://www.urbanonline.de/en/about-urban/employees"
+										},
+            							{
+											label: "Career and education",
+											href: "https://www.urbanonline.de/en/about-urban/career-and-education"
+										},
+          							],
+								},
+        						secondColumn: {
+          							title: "Products",
+          							links: [
+            							{
+											label: "Overview",
+											href: "https://www.urbanonline.de/en/urban-products"
+										},
+            							{
+											label: "Calf rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-calf-rearing"
+										},
+            							{
+											label: "Lamb and kid rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-lamb-and-kid-rearing"
+										},
+          							],
+						        },
+        						thirdColumn: {
+          							title: "Contact",
+          							links: [
+            							{
+											label: "Head office",
+											href: "https://www.urbanonline.de/en/contact"
+										},
+            							{
+											label: "Urban partners	",
+											href: "https://www.urbanonline.de/en/map"
+										},
+          							],
+        						},
+        						fourthColumn: {
+          							title: "Legal matters",
+          							links: [
+            						{
+										label: "Legal notice",
+										href: "https://www.urbanonline.de/en/legal-notice"
+									},
+            						{
+										label: "Privacy Policy",
+										href: "https://www.urbanonline.de/en/privacy-policy"
+									},
+									{
+										label: "Terms and conditions",
+										href: "https://www.urbanonline.de/fileadmin/user_upload/2014_04_EN_AGB_FB-072b_20000.pdf"
+									},
+          						],
+        					},
+      					},
+    				},
+    					fr: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. All rights reserved.",
+        						firstColumn: {
+          							title: "La Société",
+          							links: [
+            							{
+											label: "About Urban",
+											href: "https://www.urbanonline.de/en/about-urban"
+										},
+            							{
+											label: "Employees",
+											href: "https://www.urbanonline.de/en/about-urban/employees"
+										},
+            							{
+											label: "Career and education",
+											href: "https://www.urbanonline.de/en/about-urban/career-and-education"
+										},
+          							],
+								},
+        						secondColumn: {
+          							title: "Products",
+          							links: [
+            							{
+											label: "Overview",
+											href: "https://www.urbanonline.de/en/urban-products"
+										},
+            							{
+											label: "Calf rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-calf-rearing"
+										},
+            							{
+											label: "Lamb and kid rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-lamb-and-kid-rearing"
+										},
+          							],
+						        },
+        						thirdColumn: {
+          							title: "Contact",
+          							links: [
+            							{
+											label: "Head office",
+											href: "https://www.urbanonline.de/en/contact"
+										},
+            							{
+											label: "Urban partners	",
+											href: "https://www.urbanonline.de/en/map"
+										},
+          							],
+        						},
+        						fourthColumn: {
+          							title: "Legal matters",
+          							links: [
+            						{
+										label: "Legal notice",
+										href: "https://www.urbanonline.de/en/legal-notice"
+									},
+            						{
+										label: "Privacy Policy",
+										href: "https://www.urbanonline.de/en/privacy-policy"
+									},
+									{
+										label: "Terms and conditions",
+										href: "https://www.urbanonline.de/fileadmin/user_upload/2014_04_EN_AGB_FB-072b_20000.pdf"
+									},
+          						],
+        					},
+      					},
+    				},
+    					ru: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. All rights reserved.",
+        						firstColumn: {
+          							title: "Де́ло",
+          							links: [
+            							{
+											label: "About Urban",
+											href: "https://www.urbanonline.de/en/about-urban"
+										},
+            							{
+											label: "Employees",
+											href: "https://www.urbanonline.de/en/about-urban/employees"
+										},
+            							{
+											label: "Career and education",
+											href: "https://www.urbanonline.de/en/about-urban/career-and-education"
+										},
+          							],
+								},
+        						secondColumn: {
+          							title: "Products",
+          							links: [
+            							{
+											label: "Overview",
+											href: "https://www.urbanonline.de/en/urban-products"
+										},
+            							{
+											label: "Calf rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-calf-rearing"
+										},
+            							{
+											label: "Lamb and kid rearing",
+											href: "https://www.urbanonline.de/en/urban-products/for-the-lamb-and-kid-rearing"
+										},
+          							],
+						        },
+        						thirdColumn: {
+          							title: "Contact",
+          							links: [
+            							{
+											label: "Head office",
+											href: "https://www.urbanonline.de/en/contact"
+										},
+            							{
+											label: "Urban partners	",
+											href: "https://www.urbanonline.de/en/map"
+										},
+          							],
+        						},
+        						fourthColumn: {
+          							title: "Legal matters",
+          							links: [
+            						{
+										label: "Legal notice",
+										href: "https://www.urbanonline.de/en/legal-notice"
+									},
+            						{
+										label: "Privacy Policy",
+										href: "https://www.urbanonline.de/en/privacy-policy"
+									},
+									{
+										label: "Terms and conditions",
+										href: "https://www.urbanonline.de/fileadmin/user_upload/2014_04_EN_AGB_FB-072b_20000.pdf"
+									},
+          						],
+        					},
+      					},
+    				},
   				},
 			}),
 	    	],
