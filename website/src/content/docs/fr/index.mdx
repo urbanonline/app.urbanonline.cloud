@@ -1,0 +1,52 @@
+---
+title: Urban Feed Monitor App
+description: "Urban Cloud and Urban Feed Monitor App: home page."
+template: splash
+banner:
+  content: |
+    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&gl=GB"><img src="../playstore-en.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../playstore-en.png'"/></a><a href="https://apps.apple.com/us/iphone/apps"><img src="../appstore.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../appstore.png'"/></a>
+hero:
+  tagline: Powered by Urban Cloud
+  image:
+    file: ../../../../public/urban.svg
+  actions:
+    - text: Documentation
+      link: /en/guide/
+      icon: right-arrow
+      variant: primary
+    - text: FAQ
+      link: /en/faq/
+      icon: right-arrow
+      variant: secondary
+---
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Introductory video
+
+<lite-youtube videoid="aFFjDOyEEew" title="Urban Cloud & Urban Feed Monitor app. The next step into your digital future!" params="cc_lang_pref=en" ></lite-youtube>
+
+## App Features
+
+<CardGrid stagger>
+	<Card title="Hierarchical Barn Structure" icon="farcaster" >
+		Create your `Barns` and assign `Feeders` to them.
+	</Card>
+	<Card title="Filters: Barns, Feeders" icon="question-circle">
+		View the animals from all barns, from a specific barn, or from a specific feeder.
+	</Card>
+	<Card title="Animal search" icon="magnifier">
+		`Search` for a specific animal in your herd list using its `animal number`.
+	</Card>
+	<Card title="Individual animal information" icon="information">
+		Scroll through the individual animals and view the animal info or the feed overview.
+	</Card>
+	<Card title="Operating status of feeders" icon="analytics">
+		View the `operating status` of all feeders, including any `error messages`.
+	</Card>
+	<Card title="Push notification in case of feeder errors" icon="comment-alt">
+		If an error occurs at a feeder, you will be notified via a `push notification`.
+	</Card>
+	<Card title="Flexible user management" icon="setting">
+		Create as many `co-users` as you like and invite them to use the app together with you.
+	</Card>
+</CardGrid>
