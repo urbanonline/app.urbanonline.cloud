@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { satteri } from '@astrojs/markdown-satteri';
 import starlight from '@astrojs/starlight';
 import tailwindcss from '@tailwindcss/vite';
 import starlightSidebarTopics from 'starlight-sidebar-topics'
@@ -346,7 +347,10 @@ export default defineConfig({
 			},
 		}),
 	],
+	markdown: {
+		processor: satteri(),
+	},
 	vite: {
 		plugins: [tailwindcss()],
-	}
+	},
 });
