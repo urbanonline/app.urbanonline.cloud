@@ -1,4 +1,6 @@
 {
   "navbar.documentation": "Documentación",
-  "navbar.faq": "FAQ"
+  "navbar.faq": "FAQ",
+  "navbar.documentation.for-users": "Para usuarios",
+  "navbar.documentation.for-service": "Para el personal de servicio"
 }
