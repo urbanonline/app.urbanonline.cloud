@@ -402,7 +402,7 @@ export default defineConfig({
           							],
         						},
         						fourthColumn: {
-          							title: "Mentions légales",
+          							title: "Informations légales",
           							links: [
             							{ label: "Mentions légales", href: "https://www.urbanonline.de/fr/mentions-legales" },
             							{ label: "Protection des données", href: "https://www.urbanonline.de/fr/protection-des-donnees" },
