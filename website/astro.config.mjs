@@ -337,6 +337,117 @@ export default defineConfig({
         					},
       					},
     				},
+    					es: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. Todos los derechos reservados.",
+        						firstColumn: {
+          							title: "Empresa",
+          							links: [
+            							{ label: "Sobre Urban", href: "https://www.urbanonline.de/es/sobre-urban" },
+               							{ label: "Nuestros empleados", href: "https://www.urbanonline.de/es/sobre-urban/unsere-mitarbeiter" },
+             						    { label: "Carrera y formación", href: "https://www.urbanonline.de/es/sobre-urban/carrera-y-formacion" },
+          							],
+								},
+        						secondColumn: {
+          							title: "Productos",
+          							links: [
+              					  		{ label: "Descripción general", href: "https://www.urbanonline.de/es/productos" },
+         						        { label: "Crianza de terneros", href: "https://www.urbanonline.de/es/productos/para-la-crianza-de-terneros" },
+              							{ label: "Crianza de corderos y cabritos", href: "https://www.urbanonline.de/es/productos/para-la-crianza-de-corderos-y-cabritos" },
+       								     ],
+						        },
+        						thirdColumn: {
+          							title: "Contacto",
+          							links: [
+            							{ label: "Sede central", href: "https://www.urbanonline.de/es/contacto" },
+         							    { label: "Distribuidores", href: "https://www.urbanonline.de/es/map" },
+       								     ],
+        						},
+        						fourthColumn: {
+          							title: "Legal",
+          							links: [
+            							{ label: "Información legal", href: "https://www.urbanonline.de/es/aviso-legal" },
+            							{ label: "Protección de datos", href: "https://www.urbanonline.de/es/proteccion-de-datos" },
+            							{ label: "Condiciones generales", href: "https://www.urbanonline.de/es/agb" },
+          						],
+        					},
+      					},
+    				},
+    					fr: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. Tous droits réservés.",
+        						firstColumn: {
+          							title: "La Société",
+          							links: [
+            							{ label: "À propos d'Urban", href: "https://www.urbanonline.de/fr/a-propos-durban" },
+            							{ label: "Employés", href: "https://www.urbanonline.de/fr/a-propos-durban/employes" },
+            							{ label: "Carrière et éducation", href: "https://www.urbanonline.de/fr/a-propos-durban/carriere-et-education" },
+          							],
+								},
+        						secondColumn: {
+          							title: "Produits",
+          							links: [
+            							{ label: "Aperçu", href: "https://www.urbanonline.de/fr/urban-produits" },
+            							{ label: "Élevage de veaux", href: "https://www.urbanonline.de/fr/urban-produits/pour-elevage-de-veaux" },
+            							{ label: "Élevage d'agneaux", href: "https://www.urbanonline.de/fr/urban-produits/pour-elevage-dagneaux" },
+          							],
+						        },
+        						thirdColumn: {
+          							title: "Contact",
+          							links: [
+            							{ label: "Siège social", href: "https://www.urbanonline.de/fr/contact" },
+            							{ label: "Distributeurs", href: "https://www.urbanonline.de/fr/map" },
+          							],
+        						},
+        						fourthColumn: {
+          							title: "Informations légales",
+          							links: [
+            							{ label: "Mentions légales", href: "https://www.urbanonline.de/fr/mentions-legales" },
+            							{ label: "Protection des données", href: "https://www.urbanonline.de/fr/protection-des-donnees" },
+            							{ label: "Conditions générales", href: "https://www.urbanonline.de/fr/conditions-generales-de-ventes" },
+          						],
+        					},
+      					},
+    				},
+    					ru: {
+      						footer: {
+								showSocialIcons: false,
+        						copyright: "Urban GmbH & Co. KG. Все права защищены.",
+        						firstColumn: {
+          							title: "Компания",
+          							links: [
+            							{ label: "О компании Urban", href: "https://www.urbanonline.de/en/about-urban" },
+            							{ label: "Сотрудники", href: "https://www.urbanonline.de/en/about-urban/employees" },
+            							{ label: "Карьера и обучение", href: "https://www.urbanonline.de/en/about-urban/career-and-education" },
+          							],
+								},
+        						secondColumn: {
+          							title: "Продукты",
+          							links: [
+            							{ label: "Обзор", href: "https://www.urbanonline.de/en/urban-products" },
+            							{ label: "Выращивание телят", href: "https://www.urbanonline.de/en/urban-products/for-the-calf-rearing" },
+            							{ label: "Выращивание ягнят", href: "https://www.urbanonline.de/en/urban-products/for-the-lamb-and-kid-rearing" },
+          							],
+						        },
+        						thirdColumn: {
+          							title: "Контакт",
+          							links: [
+            							{ label: "Главный офис", href: "https://www.urbanonline.de/en/contact" },
+            							{ label: "Дистрибьюторы", href: "https://www.urbanonline.de/en/map" },
+          							],
+        						},
+        						fourthColumn: {
+          							title: "Правовая информация",
+          							links: [
+            							{ label: "Правовые уведомления", href: "https://www.urbanonline.de/en/legal-notice" },
+            							{ label: "Политика конфиденциальности", href: "https://www.urbanonline.de/en/privacy-policy" },
+            							{ label: "Условия и положения", href: "https://www.urbanonline.de/en/terms-and-conditions" },
+          						],
+        					},
+      					},
+    				},
   				},
 			}),
 	    	],
