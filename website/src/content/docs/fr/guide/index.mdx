@@ -1,0 +1,23 @@
+---
+title: Documentation de l'application Feed Monitor
+description: Documentation utilisateur et technique pour l'application « Urban Feed Monitor ».
+---
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import Frame from '/src/components/Frame.astro';
+
+#### Sélectionnez votre catégorie ::
+
+<Frame>
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Pour les utilisateurs de l'application"
+      href="/guide/user/"
+      description="Installation et configuration de l'application" 
+   />
+    <LinkCard
+      title="Pour le personnel de service"
+      href="/guide/service/"
+      description="Alma Pro : Configuration d'Urban-Cloud"
+    />
+  </CardGrid>
+</Frame>
