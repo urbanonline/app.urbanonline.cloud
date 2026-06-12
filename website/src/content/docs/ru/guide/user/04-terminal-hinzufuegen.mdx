@@ -1,0 +1,39 @@
+---
+title: "Шаг 4: Регистрация терминала"
+topic: user
+description: Подключите TouchTerminal к приложению Urban Feed Monitor.
+prev:
+  label: "Шаг 3: Создать стойло"
+  link: /ru/guide/user/03-stall-anlegen
+next:
+  label: "Шаг 5: Лицензировать автоматы"
+  link: /ru/guide/user/05-automaten-lizenzieren
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import QRCodeScannen from 'graphics/QRCodeScannen.png';
+
+:::note
+The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
+:::
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Подойдите к нужному TouchTerminal и откройте следующее меню.
+
+{/* TODO: Снимок экрана меню TouchTerminal – изображение ожидается */}
+
+Нажмите **Сканировать QR-код** и отсканируйте QR-код на TouchTerminal, который хотите добавить.
+
+</div>
+<Image src={QRCodeScannen} alt="Сканировать QR-код" width={300} />
+</div>
+
+Приложение автоматически добавляет автоматы TouchTerminal.
+
+{/* TODO: Снимок экрана нелицензированных автоматов – изображение ожидается */}
+
+<Aside type="caution">
+Синхронизация может занять несколько минут. При необходимости выйдите из системы и войдите снова через 5 минут.
+</Aside>

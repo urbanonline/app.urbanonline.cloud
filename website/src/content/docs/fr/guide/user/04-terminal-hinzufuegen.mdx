@@ -1,0 +1,39 @@
+---
+title: "Étape 4 : Enregistrer le terminal"
+topic: user
+description: Connectez votre TouchTerminal à l'application Urban Feed Monitor.
+prev:
+  label: "Étape 3 : Créer une étable"
+  link: /fr/guide/user/03-stall-anlegen
+next:
+  label: "Étape 5 : Licencier les distributeurs"
+  link: /fr/guide/user/05-automaten-lizenzieren
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import QRCodeScannen from 'graphics/QRCodeScannen.png';
+
+:::note
+The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
+:::
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Rendez-vous au TouchTerminal souhaité et ouvrez le menu suivant.
+
+{/* TODO: Capture d'écran menu TouchTerminal – image en attente */}
+
+Appuyez sur **Scanner le code QR** et scannez le code QR du TouchTerminal que vous souhaitez ajouter.
+
+</div>
+<Image src={QRCodeScannen} alt="Scanner le code QR" width={300} />
+</div>
+
+L'application ajoute automatiquement les distributeurs du TouchTerminal.
+
+{/* TODO: Capture d'écran distributeurs non licenciés – image en attente */}
+
+<Aside type="caution">
+La synchronisation peut prendre quelques minutes. Si nécessaire, déconnectez-vous et reconnectez-vous après 5 minutes.
+</Aside>

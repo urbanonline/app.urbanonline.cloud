@@ -1,0 +1,38 @@
+---
+title: "Step 4: Register Terminal"
+description: Connect your TouchTerminal to the Urban Feed Monitor App.
+prev:
+  label: "Step 3: Create Barn"
+  link: /en/guide/user/03-stall-anlegen
+next:
+  label: "Step 5: License Dispensers"
+  link: /en/guide/user/05-automaten-lizenzieren
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import QRCodeScannen from 'graphics/QRCodeScannen.png';
+
+:::note
+The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
+:::
+
+<div class="ufm-step-row">
+<div class="ufm-step-text">
+
+Go to the desired TouchTerminal and open the following menu.
+
+{/* TODO: Screenshot TouchTerminal menu – image pending */}
+
+Tap **Scan QR code** and scan the QR code on the TouchTerminal you want to add.
+
+</div>
+<Image src={QRCodeScannen} alt="Scan QR code" width={300} />
+</div>
+
+The app automatically adds the dispensers of the TouchTerminal.
+
+{/* TODO: Screenshot unlicensed dispensers – image pending */}
+
+<Aside type="caution">
+Synchronisation may take a few minutes. If necessary, log out and back in after 5 minutes.
+</Aside>
