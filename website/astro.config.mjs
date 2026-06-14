@@ -78,7 +78,7 @@ export default defineConfig({
 							fr: 'Documentation utilisateur',
 							ru: 'Документация для пользователей',
 						},
-						link: '/guide/',
+						link: '/guide/user',
 						icon: 'open-book',
 						id: 'user',
 						items: [
@@ -178,7 +178,7 @@ export default defineConfig({
 							navbarLinks: [
 								{
 									label: "Documentación",
-									href: "/es/guide/user/",
+									href: "/es/guide/",
 								},
 								{
 									label: "FAQ",
@@ -190,7 +190,7 @@ export default defineConfig({
 							navbarLinks: [
 								{
 									label: "Documentation",
-									href: "/fr/guide/user/",
+									href: "/fr/guide/",
 								},
 								{
 									label: "FAQ",
@@ -202,7 +202,7 @@ export default defineConfig({
 							navbarLinks: [
 								{
 									label: "Документация",
-									href: "/ru/guide/user/",
+									href: "/ru/guide/",
 								},
 								{
 									label: "FAQ",
