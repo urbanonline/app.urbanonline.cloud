@@ -1,0 +1,24 @@
+---
+title: Mindestvoraussetzungen für die Feedmonitor App
+description: Benutzer- und Serviceanleitungen für die App 'Urban Feed Monitor'.
+template: splash
+---
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import Preview from '/src/components/Frame.astro';
+
+#### Wählen Sie die gewünschte Kategorie:
+
+<Preview>
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Tränkeautomat"
+      href="/prerequisites/feeder/"
+      description="Mindestanforderungen an den Automaten" 
+   />
+    <LinkCard
+      title="Mobilgerät"
+      href="/prerequisites/mobile/"
+      description="Mindestanforderungen an das Smart Device"
+    />
+  </CardGrid>
+</Preview>

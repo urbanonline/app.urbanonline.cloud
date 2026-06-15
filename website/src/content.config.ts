@@ -5,21 +5,22 @@ import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
 import { topicSchema } from 'starlight-sidebar-topics/schema'
 
 export const collections = 	{
-								docs: defineCollection({
-									loader: docsLoader(),
-									schema: docsSchema({
+                docs: defineCollection({
+                  loader: docsLoader(),
+                  schema: docsSchema({
                     extend: topicSchema
                   })
-								}),
+                }),
                 i18n: defineCollection({
                   loader: i18nLoader(),
                   schema: i18nSchema({
                     extend: z.object({
                       'navbar.documentation': z.string().optional(),
                       'navbar.faq': z.string().optional(),
+                      'navbar.documentation.prerequisites': z.string().optional(),
                       'navbar.documentation.for-users': z.string().optional(),
                       'navbar.documentation.for-service': z.string().optional(),
                     }),
                   }),
                 }),
-							};
+              };
