@@ -34,4 +34,4 @@ jobs:
       - name: Hyperlink link checker
         uses: untitaker/hyperlink@1ae2cef25222e3307a82bc7388f0667137f4240b # 0.2.1
         with:
-          args: --check-anchors dist
+          args: --check-anchors website/dist
