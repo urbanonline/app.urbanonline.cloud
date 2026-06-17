@@ -1,0 +1,37 @@
+name: Check site for broken links
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  push:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo and perform a link check
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - name: Install, build, and upload your site
+        uses: withastro/action@b7d53628f8b666036b0238aadb0b984a2a489f26 # v6.1.1
+        with:
+          path: website # The root location of your Astro project inside the repository
+          node-version: 26
+          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site.
+          build-cmd: pnpm run build # The command to run to build your site.
+
+  linkcheck:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hyperlink link checker
+        uses: untitaker/hyperlink@1ae2cef25222e3307a82bc7388f0667137f4240b # 0.2.1
+        with:
+          args: --sources content --check-anchors public
