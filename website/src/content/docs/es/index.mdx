@@ -1,52 +1,52 @@
 ---
 title: Urban Feed Monitor App
-description: "Urban Cloud and Urban Feed Monitor App: home page."
+description: "Urban Cloud y la app Urban Feed Monitor: página de inicio."
 template: splash
 banner:
   content: |
-    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&gl=ES"><img src="../playstore-es.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../playstore-es.png'"/></a><a href="https://apps.apple.com/us/iphone/apps"><img src="../appstore.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../appstore.png'"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&gl=ES"><img src="../playstore-es.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../playstore-es.png'"/></a><a href="https://apps.apple.com/us/iphone/apps"><img src="../appstore-es.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../appstore-es.png'"/></a>
 hero:
-  tagline: Powered by Urban Cloud
+  tagline: Con tecnología de Urban Cloud
   image:
     file: ../../../../public/urban.svg
   actions:
-    - text: Documentation
-      link: /en/guide/
+    - text: Documentación
+      link: /es/guide/
       icon: right-arrow
       variant: primary
     - text: FAQ
-      link: /en/faq/
+      link: /es/faq/
       icon: right-arrow
       variant: secondary
 ---
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Introductory video
+## Video introductorio
 
-<lite-youtube videoid="aFFjDOyEEew" title="Urban Cloud & Urban Feed Monitor app. The next step into your digital future!" params="cc_lang_pref=en" ></lite-youtube>
+<lite-youtube videoid="aFFjDOyEEew" title="Urban Cloud y la app Urban Feed Monitor. ¡El siguiente paso hacia tu futuro digital!" params="cc_lang_pref=es" ></lite-youtube>
 
-## App Features
+## Funciones de la app
 
 <CardGrid stagger>
-	<Card title="Hierarchical Barn Structure" icon="farcaster" >
-		Create your `Barns` and assign `Feeders` to them.
+	<Card title="Estructura jerárquica de establos" icon="farcaster" >
+		Crea tus `Establos` y asígnales `Autómatas`.
 	</Card>
-	<Card title="Filters: Barns, Feeders" icon="question-circle">
-		View the animals from all barns, from a specific barn, or from a specific feeder.
+	<Card title="Filtros: establos, autómatas" icon="question-circle">
+		Consulta los animales de todos los establos, de un establo concreto o de un autómata concreto.
 	</Card>
-	<Card title="Animal search" icon="magnifier">
-		`Search` for a specific animal in your herd list using its `animal number`.
+	<Card title="Búsqueda de animales" icon="magnifier">
+		`Busca` un animal concreto en la lista de tu rebaño mediante su `número de animal`.
 	</Card>
-	<Card title="Individual animal information" icon="information">
-		Scroll through the individual animals and view the animal info or the feed overview.
+	<Card title="Información individual del animal" icon="information">
+		Recorre los animales de forma individual y consulta su información o el resumen de alimentación.
 	</Card>
-	<Card title="Operating status of feeders" icon="analytics">
-		View the `operating status` of all feeders, including any `error messages`.
+	<Card title="Estado operativo de los autómatas" icon="analytics">
+		Consulta el `estado operativo` de todos los autómatas, incluidos los `mensajes de error`.
 	</Card>
-	<Card title="Push notification in case of feeder errors" icon="comment-alt">
-		If an error occurs at a feeder, you will be notified via a `push notification`.
+	<Card title="Notificación push en caso de error del autómata" icon="comment-alt">
+		Si se produce un error en un autómata, recibirás un aviso mediante una `notificación push`.
 	</Card>
-	<Card title="Flexible user management" icon="setting">
-		Create as many `co-users` as you like and invite them to use the app together with you.
+	<Card title="Gestión flexible de usuarios" icon="setting">
+		Crea tantos `usuarios adicionales` como necesites e invítalos a usar la app contigo.
 	</Card>
 </CardGrid>
