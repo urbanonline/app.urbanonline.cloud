@@ -1,52 +1,52 @@
 ---
 title: Urban Feed Monitor App
-description: "Urban Cloud and Urban Feed Monitor App: home page."
+description: "Urban Cloud и приложение Urban Feed Monitor: главная страница."
 template: splash
 banner:
   content: |
-    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&gl=GB"><img src="../playstore-en.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../playstore-en.png'"/></a><a href="https://apps.apple.com/us/iphone/apps"><img src="../appstore.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../appstore.png'"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&gl=RU"><img src="../playstore-ru.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../playstore-ru.png'"/></a><a href="https://apps.apple.com/us/iphone/apps"><img src="../appstore-ru.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../appstore-ru.png'"/></a>
 hero:
-  tagline: Powered by Urban Cloud
+  tagline: Работает на базе Urban Cloud
   image:
     file: ../../../../public/urban.svg
   actions:
-    - text: Documentation
-      link: /en/guide/
+    - text: Документация
+      link: /ru/guide/
       icon: right-arrow
       variant: primary
     - text: FAQ
-      link: /en/faq/
+      link: /ru/faq/
       icon: right-arrow
       variant: secondary
 ---
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Introductory video
+## Вводное видео
 
-<lite-youtube videoid="aFFjDOyEEew" title="Urban Cloud & Urban Feed Monitor app. The next step into your digital future!" params="cc_lang_pref=en" ></lite-youtube>
+<lite-youtube videoid="aFFjDOyEEew" title="Urban Cloud и приложение Urban Feed Monitor. Следующий шаг в ваше цифровое будущее!" params="cc_lang_pref=ru" ></lite-youtube>
 
-## App Features
+## Возможности приложения
 
 <CardGrid stagger>
-	<Card title="Hierarchical Barn Structure" icon="farcaster" >
-		Create your `Barns` and assign `Feeders` to them.
+	<Card title="Иерархическая структура помещений" icon="farcaster" >
+		Создавайте `Помещения` и привязывайте к ним `Автоматы`.
 	</Card>
-	<Card title="Filters: Barns, Feeders" icon="question-circle">
-		View the animals from all barns, from a specific barn, or from a specific feeder.
+	<Card title="Фильтры: помещения, автоматы" icon="question-circle">
+		Просматривайте животных из всех помещений, из конкретного помещения или с конкретного автомата.
 	</Card>
-	<Card title="Animal search" icon="magnifier">
-		`Search` for a specific animal in your herd list using its `animal number`.
+	<Card title="Поиск животных" icon="magnifier">
+		`Найдите` нужное животное в списке стада по его `номеру`.
 	</Card>
-	<Card title="Individual animal information" icon="information">
-		Scroll through the individual animals and view the animal info or the feed overview.
+	<Card title="Информация по отдельному животному" icon="information">
+		Просматривайте животных по очереди и открывайте информацию о животном или сводку по кормлению.
 	</Card>
-	<Card title="Operating status of feeders" icon="analytics">
-		View the `operating status` of all feeders, including any `error messages`.
+	<Card title="Рабочее состояние автоматов" icon="analytics">
+		Просматривайте `рабочее состояние` всех автоматов, включая `сообщения об ошибках`.
 	</Card>
-	<Card title="Push notification in case of feeder errors" icon="comment-alt">
-		If an error occurs at a feeder, you will be notified via a `push notification`.
+	<Card title="Push-уведомление при ошибке автомата" icon="comment-alt">
+		При возникновении ошибки на автомате вы получите `push-уведомление`.
 	</Card>
-	<Card title="Flexible user management" icon="setting">
-		Create as many `co-users` as you like and invite them to use the app together with you.
+	<Card title="Гибкое управление пользователями" icon="setting">
+		Создавайте сколько угодно `дополнительных пользователей` и приглашайте их пользоваться приложением вместе с вами.
 	</Card>
 </CardGrid>
