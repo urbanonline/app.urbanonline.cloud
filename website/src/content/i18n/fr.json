@@ -1,6 +1,7 @@
 {
   "navbar.documentation": "Documentation",
   "navbar.faq": "FAQ",
+  "navbar.documentation.prerequisites": "Conditions préalables",
   "navbar.documentation.for-users": "Pour les utilisateurs",
   "navbar.documentation.for-service": "Pour le personnel de service"
 }

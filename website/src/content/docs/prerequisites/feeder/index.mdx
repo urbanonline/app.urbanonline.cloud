@@ -1,0 +1,44 @@
+---
+title: Voraussetzungen Tränkeautomat
+description: Benutzer- und Serviceanleitungen für die App 'Urban Feed Monitor'.
+tableOfContents: false
+sidebar:
+  label: Überblick
+  order: 10
+---
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import Preview from '/src/components/Frame.astro';
+
+Ein Nutzung der Urban Cloud und der Feed Monitor App ist nur möglich, wenn folgende **Mindestvoraussetzungen** erfüllt sind:
+
+<Preview>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Modell des Automaten"
+      href="model"
+      description="Alma Pro erforderlich" 
+   />
+
+    <LinkCard
+      title="Touchscreen Terminal"
+      href="terminal"
+      description="Touch der zweiten Generation erforderlich (ab 2020)"
+    />
+  </CardGrid>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Firmware"
+      href="firmware"
+      description="Firmwareversion 25-04_V08 oder höher erforderlich" 
+   />
+
+    <LinkCard
+      title="Netzwerk"
+      href="network"
+      description="Urban Router mit Internetverbidung erforderlich"
+    />
+  </CardGrid>
+
+</Preview>

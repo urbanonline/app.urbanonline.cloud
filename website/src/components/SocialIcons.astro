@@ -8,6 +8,7 @@ const t = Astro.locals.t;
     <div class="has-submenu">
       <a href={getRelativeLocaleUrl(Astro.currentLocale, 'guide')} class="custom-link">{t('navbar.documentation')}</a>
       <ul role="menu">
+        <li class="custom-link gh" role="none"><a href={getRelativeLocaleUrl(Astro.currentLocale, 'prerequisites')} role="menuitem">{t('navbar.documentation.prerequisites')}</a></li>
         <li class="custom-link gh" role="none"><a href={getRelativeLocaleUrl(Astro.currentLocale, 'guide/user')} role="menuitem">{t('navbar.documentation.for-users')}</a></li>
         <li  class="custom-link gh" role="none"><a href={getRelativeLocaleUrl(Astro.currentLocale, 'guide/service')} role="menuitem">{t('navbar.documentation.for-service')}</a></li>
       </ul>

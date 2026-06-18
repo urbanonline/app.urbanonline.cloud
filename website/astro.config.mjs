@@ -72,6 +72,38 @@ export default defineConfig({
 				starlightSidebarTopics([
 					{
 						label: {
+							de: 'Voraussetzungen',
+							en: 'Prerequisites',
+							es: 'Requisitos previos',
+							fr: 'Conditions préalables',
+							ru: 'Для сервисной службы',
+						},
+						link: 'prerequisites',
+						icon: 'approve-check-circle',
+						id: 'user',
+						items: [
+							{
+								label: 'Tränkeautomat',
+								translations: {
+									en: 'Installation of app',
+									es: 'Instalación de la aplicación',
+									fr: 'Installation de l\'application',
+									ru: 'Установка приложения',
+								},
+								items: [{ autogenerate: { directory: 'prerequisites/feeder' } }]},
+							{
+								label: 'Mobilgerät',
+								translations: {
+									en: 'Installation of app',
+									es: 'Instalación de la aplicación',
+									fr: 'Installation de l\'application',
+									ru: 'Установка приложения',
+								},
+								items: [ 'prerequisites/mobile' ]},
+							],
+					},
+					{
+						label: {
 							de: 'Doku für Anwender',
 							en: 'User documentation',
 							es: 'Documentación para usuarios',
