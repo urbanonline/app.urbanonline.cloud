@@ -1,9 +1,11 @@
-name: Check site for broken links
+name: Check website for broken links
 
 on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: [ main ]
+  # Run link check on any pull request.
+  pull_request:
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -16,22 +18,25 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./website
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - name: Install and build your site
-        uses: withastro/action@b7d53628f8b666036b0238aadb0b984a2a489f26 # v6.1.1
-        with:
-          path: website # The root location of your Astro project inside the repository
-          node-version: 26
-          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site.
-          build-cmd: pnpm run build # The command to run to build your site.
 
-  linkcheck:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Hyperlink link checker
+      - name: Install pnpm as package manager
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11
+          # cache: true
+          run_install: true
+            #- cwd: website
+
+      - name: Build website
+        run: pnpm build
+
+      - name: Check links using hyperlink
         uses: untitaker/hyperlink@1ae2cef25222e3307a82bc7388f0667137f4240b # 0.2.1
         with:
-          args: --check-anchors app.urbanonline.cloud/app.urbanonline.cloud/website/dist
+          args: --check-anchors website/dist
