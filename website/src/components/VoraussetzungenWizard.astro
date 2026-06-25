@@ -80,7 +80,7 @@
       hint: 'Prüfung am Gerät: Home-Schaltfläche → Hilfe-Symbol (oben rechts). Die Versionsnummer erscheint links neben der Sprachumschaltung. <a href="/prerequisites/feeder/firmware">Detaillierte Anleitung</a>',
       nein: {
         title: 'Firmware veraltet',
-        action: 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss.',
+        action: 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss. Starten Sie jetzt mit <a href="/guide/user/01-registrierung" style="color: #27500A; font-weight: 600;">Schritt 1: Registrierung</a>.</div>`',
       },
     },
     {
@@ -247,7 +247,7 @@
 
     if (neinAlma) {
       items.push(summaryItem('⚠ Kein Alma Pro vorhanden',
-        `Die Urban Feed Monitor App setzt eine Alma Pro voraus. <a href="https://www.urbanonline.de/produkte/detail/urban-alma-pro" target="_blank" rel="noopener">Mehr zur Urban Alma Pro</a> – wenden Sie sich an Urban oder Ihren Vertriebspartner.`));
+        `Die Urban Feed Monitor App setzt eine Alma Pro voraus. <a href="https://www.urbanonline.de/produkte/detail/urban-alma-pro" target="_blank" rel="noopener">Mehr zur Urban Alma Pro</a> – wenden Sie sich an Urban oder Ihren Vertriebspartner. Das passende TouchTerminal und die aktuelle Firmware sind im Lieferumfang enthalten. Den Urban Router müssen Sie separat bestellen.`));
     }
 
     if (!neinAlma && neinTerminal) {
@@ -256,7 +256,7 @@
     }
 
     if (!neinAlma && neinFirmware) {
-      let text = 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss.';
+      let text = 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss. Starten Sie jetzt mit <a href="/guide/user/01-registrierung" style="color: #27500A; font-weight: 600;">Schritt 1: Registrierung</a>.</div>`';
       if (neinRouter) text += ' Dieser Termin lässt sich mit der Router-Installation kombinieren.';
       items.push(summaryItem('⚠ Firmware veraltet', text));
     }
@@ -274,7 +274,7 @@
 
     let inner = '';
     if (items.length === 0) {
-      inner = `<div style="background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px;">✓ Alle Voraussetzungen erfüllt. Sie können direkt mit Schritt 1 starten.</div>`;
+      inner = `<div style="background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px;">✓ Alle Voraussetzungen erfüllt. Sie können direkt mit <a href="/guide/user/01-registrierung" style="color: #27500A; font-weight: 600;">Schritt 1: Registrierung</a> starten.</div>`;
     } else {
       const jaCount = Object.values(answers).filter(Boolean).length;
       if (jaCount > 0) inner = `<div style="font-size: 0.875rem; color: #3B6D11; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;">✓ ${jaCount} von ${Object.keys(answers).length} Voraussetzungen bereits erfüllt.</div>`;
