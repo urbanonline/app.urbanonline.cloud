@@ -5,50 +5,13 @@
 // <VoraussetzungenWizard />
 ---
 
-<div class="vw-wizard" id="vw-wizard">
-  <div class="vw-progress" id="vw-progress" aria-hidden="true"></div>
+<div style="padding: 1.5rem 0;" id="vw-wizard">
+  <div id="vw-progress" aria-hidden="true" style="display: flex; gap: 6px; margin-bottom: 2rem;"></div>
   <div id="vw-content"></div>
 </div>
 
-<style>
-  .vw-wizard { padding: 1.5rem 0; }
-  .vw-progress { display: flex; gap: 6px; margin-bottom: 2rem; }
-  .vw-dot { flex: 1; height: 4px; border-radius: 2px; background: var(--sl-color-gray-5); transition: background 0.3s; }
-  .vw-dot.done { background: #3B6D11; }
-  .vw-dot.active { background: #185FA5; }
-  .vw-card { background: var(--sl-color-bg); border: 1px solid var(--sl-color-gray-5); border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
-  .vw-step-label { font-size: 0.75rem; color: var(--sl-color-gray-3); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  .vw-step-title { font-size: 1.25rem; font-weight: 600; color: var(--sl-color-text); margin-bottom: 0.75rem; border-bottom: 1px solid var(--sl-color-gray-6); padding-bottom: 0.5rem; }
-  .vw-step-desc { font-size: 0.9375rem; color: var(--sl-color-text); line-height: 1.6; margin-bottom: 1.25rem; }
-  .vw-hint { font-size: 0.8125rem; color: var(--sl-color-gray-2); background: var(--sl-color-bg-sidebar); border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 1.25rem; line-height: 1.6; }
-  .vw-btn-row { display: flex; gap: 10px; }
-  .vw-btn { flex: 1; padding: 0.65rem 1rem; border-radius: 0.5rem; border: 1px solid var(--sl-color-gray-4); background: var(--sl-color-bg); color: var(--sl-color-text); font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.15s; }
-  .vw-btn:hover { background: var(--sl-color-bg-sidebar); }
-  .vw-btn.ja { border-color: #3B6D11; color: #3B6D11; }
-  .vw-btn.ja:hover { background: #EAF3DE; }
-  .vw-btn.nein { border-color: #A32D2D; color: #A32D2D; }
-  .vw-btn.nein:hover { background: #FCEBEB; }
-  .vw-abbruch { background: #FCEBEB; border: 1px solid #F09595; border-radius: 0.75rem; padding: 1.25rem 1.5rem; }
-  .vw-abbruch-title { font-size: 1rem; font-weight: 600; color: #A32D2D; margin-bottom: 0.5rem; }
-  .vw-abbruch-text { font-size: 0.875rem; color: #501313; line-height: 1.6; margin-bottom: 1rem; }
-  .vw-summary { background: var(--sl-color-bg); border: 1px solid var(--sl-color-gray-5); border-radius: 0.75rem; padding: 1.25rem 1.5rem; }
-  .vw-sum-title { font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: var(--sl-color-text); }
-  .vw-sum-ok { font-size: 0.875rem; color: #3B6D11; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
-  .vw-sum-item { border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem; border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; }
-  .vw-sum-item-title { font-weight: 600; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem; }
-  .vw-sum-item-action { font-size: 0.8125rem; color: #501313; line-height: 1.6; }
-  .vw-allgut { background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px; }
-  .vw-restart { margin-top: 1.25rem; width: 100%; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid var(--sl-color-gray-4); background: var(--sl-color-bg-sidebar); color: var(--sl-color-gray-2); font-size: 0.8125rem; cursor: pointer; }
-  .vw-restart:hover { background: var(--sl-color-bg); }
-</style>
-
 <script>
 (function () {
-  interface Abbruch {
-    title: string;
-    text: string;
-  }
-
   interface NeinAction {
     title: string;
     action: string;
@@ -60,10 +23,10 @@
     title: string;
     question: string;
     hint: string | null;
-    abbruch: Abbruch | null;
     nein: NeinAction | null;
   }
 
+  // Reihenfolge der IDs für den normalen Pfad
   const steps: Step[] = [
     {
       id: 'smartphone',
@@ -71,35 +34,32 @@
       title: 'Smartphone',
       question: 'Ist ein iPhone oder Android-Gerät vorhanden?',
       hint: null,
-      abbruch: {
+      nein: {
         title: 'Kein Smartphone vorhanden',
-        text: 'Die Urban Feed Monitor App erfordert ein iPhone (iOS) oder ein Android-Gerät.',
+        action: 'Die Urban Feed Monitor App erfordert ein iPhone (iOS) oder ein Android-Gerät.',
       },
-      nein: null,
     },
     {
-  id: 'appstore',
-  label: 'Checkpoint 2',
-  title: 'App installiert',
-  question: 'Ist die Urban Feed Monitor App bereits auf Ihrem Gerät installiert?',
-  hint: null,
-  abbruch: null,
-  nein: {
-    title: 'App noch nicht installiert',
-    action: 'Laden Sie die Urban Feed Monitor App herunter: <a href="https://apps.apple.com/de/app/urban-feed-monitor/id6746261090">App Store (iOS)</a> oder <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro">Google Play (Android)</a>',
-  },
-},
+      id: 'appstore',
+      label: 'Checkpoint 2',
+      title: 'App installiert',
+      question: 'Ist die Urban Feed Monitor App bereits auf Ihrem Gerät installiert?',
+      hint: null,
+      nein: {
+        title: 'App noch nicht installiert',
+        action: 'Laden Sie die Urban Feed Monitor App herunter: <a href="https://apps.apple.com/de/app/urban-feed-monitor/id6746261090" target="_blank" rel="noopener">App Store (iOS)</a> oder <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro" target="_blank" rel="noopener">Google Play (Android)</a>',
+      },
+    },
     {
       id: 'alma',
       label: 'Checkpoint 3',
       title: 'Automat',
       question: 'Ist ein Fütterungsautomat Alma Pro vorhanden?',
       hint: null,
-      abbruch: {
+      nein: {
         title: 'Kein Alma Pro vorhanden',
-        text: 'Die Urban Feed Monitor App setzt eine Alma Pro voraus, wenden Sie sich an Urban oder Ihren Vertriebspartner. Mit der Lieferung einer neuen Alma Pro erhalten Sie automatisch das passende TouchTerminal und die aktuelle Firmware.',
+        action: '',  // wird in renderSummary gesondert behandelt
       },
-      nein: null,
     },
     {
       id: 'terminal',
@@ -107,7 +67,6 @@
       title: 'TouchTerminal',
       question: 'Ist ein TouchTerminal der 2. Generation vorhanden?',
       hint: 'Terminals der 2. Generation wurden ab 2020 ausgeliefert.',
-      abbruch: null,
       nein: {
         title: 'TouchTerminal Gen 2 fehlt',
         action: 'Wenden Sie sich an Urban oder Ihren Vertriebspartner für einen Austausch.',
@@ -119,7 +78,6 @@
       title: 'Firmware',
       question: 'Ist Firmwareversion 25-04-V08 oder höher auf dem Alma Pro installiert?',
       hint: 'Prüfung am Gerät: Home-Schaltfläche → Hilfe-Symbol (oben rechts). Die Versionsnummer erscheint links neben der Sprachumschaltung. <a href="/prerequisites/feeder/firmware">Detaillierte Anleitung</a>',
-      abbruch: null,
       nein: {
         title: 'Firmware veraltet',
         action: 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss.',
@@ -131,11 +89,10 @@
       title: 'Internetverbindung im Stall',
       question: 'Ist im Stall eine Internetverbindung vorhanden?',
       hint: null,
-      abbruch: {
+      nein: {
         title: 'Keine Internetverbindung im Stall',
-        text: 'Eine Internetverbindung im Stall ist Voraussetzung für die Urban Cloud. Klären Sie dies mit Ihrem Internetanbieter, Urban kann hierbei nicht unterstützen.',
+        action: 'Eine Internetverbindung im Stall ist Voraussetzung für die Urban Cloud. Klären Sie dies mit Ihrem Internetanbieter – Urban kann hierbei nicht unterstützen.',
       },
-      nein: null,
     },
     {
       id: 'router',
@@ -143,13 +100,15 @@
       title: 'Urban Router',
       question: 'Ist ein Urban Router im Stall installiert?',
       hint: null,
-      abbruch: null,
       nein: {
         title: 'Kein Urban Router vorhanden',
-        action: 'Wenden Sie sich an Urban oder Ihren Vertriebspartner für die Installation des Urban Routers.',
+        action: '',  // wird in renderSummary kontextabhängig gesetzt
       },
     },
   ];
+
+  // Welche Step-IDs werden bei alma=nein übersprungen
+  const SKIP_IF_NO_ALMA = new Set(['terminal', 'firmware', 'router']);
 
   const total = steps.length;
   let current = 0;
@@ -158,31 +117,71 @@
   const progressEl = document.getElementById('vw-progress') as HTMLElement;
   const contentEl = document.getElementById('vw-content') as HTMLElement;
 
+  const cs = getComputedStyle(document.documentElement);
+  const C = {
+    bg:        cs.getPropertyValue('--sl-color-bg').trim()         || '#ffffff',
+    bgSidebar: cs.getPropertyValue('--sl-color-bg-sidebar').trim() || '#f5f5f5',
+    border:    cs.getPropertyValue('--sl-color-gray-5').trim()     || '#d1d5db',
+    borderSub: cs.getPropertyValue('--sl-color-gray-6').trim()     || '#e5e7eb',
+    text:      cs.getPropertyValue('--sl-color-text').trim()       || '#111827',
+    gray2:     cs.getPropertyValue('--sl-color-gray-2').trim()     || '#6b7280',
+    gray3:     cs.getPropertyValue('--sl-color-gray-3').trim()     || '#9ca3af',
+    gray4:     cs.getPropertyValue('--sl-color-gray-4').trim()     || '#d1d5db',
+  };
+
+  function visibleIndex(idx: number): number {
+    let skipped = 0;
+    if (answers['smartphone'] === false)
+      skipped += steps.slice(0, idx).filter(s => s.id === 'appstore').length;
+    if (answers['alma'] === false)
+      skipped += steps.slice(0, idx).filter(s => SKIP_IF_NO_ALMA.has(s.id)).length;
+    else if (answers['internet'] === false)
+      skipped += steps.slice(0, idx).filter(s => s.id === 'router').length;
+    return idx - skipped;
+  }
+
+  function visibleTotal(): number {
+    let skip = 0;
+    if (answers['smartphone'] === false) skip += 1;
+    if (answers['alma'] === false) skip += SKIP_IF_NO_ALMA.size;
+    else if (answers['internet'] === false) skip += 1;
+    return total - skip;
+  }
+
   function renderProgress(activeIdx: number, allDone: boolean): void {
-    progressEl.innerHTML = Array.from({ length: total }, (_, i) => {
-      let cls = 'vw-dot';
-      if (allDone || i < activeIdx) cls += ' done';
-      else if (i === activeIdx) cls += ' active';
-      return `<div class="${cls}"></div>`;
+    const vTotal = visibleTotal();
+    const vActive = visibleIndex(activeIdx);
+    progressEl.innerHTML = Array.from({ length: vTotal }, (_, i) => {
+      let bg = C.border;
+      if (allDone || i < vActive) bg = '#3B6D11';
+      else if (i === vActive) bg = '#185FA5';
+      return `<div style="flex: 1; height: 4px; border-radius: 2px; background: ${bg}; transition: background 0.3s;"></div>`;
     }).join('');
   }
 
   function renderStep(): void {
     const s = steps[current];
+    const vIdx = visibleIndex(current);
+    const vTot = visibleTotal();
     renderProgress(current, false);
-    const hintHtml = s.hint ? `<div class="vw-hint">${s.hint}</div>` : '';
+
+    const hintHtml = s.hint
+      ? `<div style="font-size: 0.8125rem; color: ${C.gray2}; background: ${C.bgSidebar}; border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 1.25rem; line-height: 1.6;">${s.hint}</div>`
+      : '';
+
     contentEl.innerHTML = `
-      <div class="vw-card">
-        <div class="vw-step-label">${s.label} von ${total}</div>
-        <div class="vw-step-title">${s.title}</div>
-        <div class="vw-step-desc">${s.question}</div>
+      <div style="background: ${C.bg}; border: 1px solid ${C.border}; border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1rem;">
+        <div style="font-size: 0.75rem; color: ${C.gray3}; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em;">Checkpoint ${vIdx + 1} von ${vTot}</div>
+        <div style="font-size: 1.25rem; font-weight: 600; color: ${C.text}; margin-bottom: 0.75rem; border-bottom: 1px solid ${C.borderSub}; padding-bottom: 0.5rem;">${s.title}</div>
+        <div style="font-size: 0.9375rem; color: ${C.text}; line-height: 1.6; margin-bottom: 1.25rem;">${s.question}</div>
         ${hintHtml}
-        <div class="vw-btn-row">
-          <button class="vw-btn nein" data-answer="false">✕ Nein</button>
-          <button class="vw-btn ja" data-answer="true">✓ Ja</button>
+        <div style="display: flex; gap: 10px;">
+          <button data-answer="false" style="flex: 1; padding: 0.65rem 1rem; border-radius: 0.5rem; border: 1px solid #A32D2D; background: ${C.bg}; color: #A32D2D; font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">✕ Nein</button>
+          <button data-answer="true"  style="flex: 1; padding: 0.65rem 1rem; border-radius: 0.5rem; border: 1px solid #3B6D11; background: ${C.bg}; color: #3B6D11; font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">✓ Ja</button>
         </div>
       </div>`;
-    contentEl.querySelectorAll('.vw-btn').forEach((btn) => {
+
+    contentEl.querySelectorAll('button[data-answer]').forEach((btn) => {
       const el = btn as HTMLButtonElement;
       el.addEventListener('click', () => answer(el.dataset['answer'] === 'true'));
     });
@@ -191,89 +190,105 @@
   function answer(ja: boolean): void {
     const s = steps[current];
     answers[s.id] = ja;
-    if (!ja && s.abbruch) { renderAbbruch(s.abbruch); return; }
-    current++;
+
+    // Nächsten Schritt ermitteln – ggf. überspringen
+    let next = current + 1;
+    while (next < total) {
+      const nextId = steps[next].id;
+      if (answers['smartphone'] === false && nextId === 'appstore') { next++; continue; }
+      if (answers['alma'] === false && SKIP_IF_NO_ALMA.has(nextId)) { next++; continue; }
+      if (answers['internet'] === false && nextId === 'router') { next++; continue; }
+      break;
+    }
+    current = next;
+
     if (current < total) { renderStep(); } else { renderSummary(); }
   }
 
-  function renderAbbruch(abbruch: Abbruch): void {
-    renderProgress(current, false);
-    contentEl.innerHTML = `
-      <div class="vw-abbruch">
-        <div class="vw-abbruch-title">⚠ ${abbruch.title}</div>
-        <div class="vw-abbruch-text">${abbruch.text}</div>
-        <button class="vw-restart">↺ Nochmal von vorne</button>
-      </div>`;
-    (contentEl.querySelector('.vw-restart') as HTMLButtonElement).addEventListener('click', restart);
-  }
-
-function renderSummary(): void {
-  renderProgress(0, true);
-
-  const neinAppstore = answers['appstore'] === false;
-  const neinTerminal = answers['terminal'] === false;
-  const neinFirmware = answers['firmware'] === false;
-  const neinRouter   = answers['router']   === false;
-
-  const items: string[] = [];
-
-  if (neinAppstore) {
-    items.push(`<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
-      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">↓ App noch nicht installiert</div>
-      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6; margin-bottom: 0.75rem;">Laden Sie die Urban Feed Monitor App herunter:</div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-        <a href="https://apps.apple.com/de/app/urban-feed-monitor/id6746261090" target="_blank" rel="noopener">
-          <img src="/appstore-de.svg" alt="Im App Store laden" style="height: 40px; width: auto;" />
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro" target="_blank" rel="noopener">
-          <img src="/playstore-de.svg" alt="Bei Google Play laden" style="height: 40px; width: auto;" />
-        </a>
-      </div>
-    </div>`);
-  }
-
-  if (neinTerminal) {
-    items.push(`<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
-      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">⚠ TouchTerminal Gen 2 fehlt</div>
-      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6;">Wenden Sie sich an Urban oder Ihren Vertriebspartner für einen Austausch.</div>
-    </div>`);
-  }
-
-  if (neinFirmware) {
-    let text = 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss.';
-    if (neinRouter) text += ' Dieser Termin lässt sich mit der Router-Installation kombinieren.';
-    items.push(`<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
-      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">⚠ Firmware veraltet</div>
-      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6;">${text}</div>
-    </div>`);
-  }
-
-  if (neinRouter) {
-    let text = 'Wenden Sie sich an Urban oder Ihren Vertriebspartner für die Installation des Urban Routers.';
-    if (neinFirmware) text += ' Die Installation lässt sich mit dem Firmware-Update kombinieren.';
-    items.push(`<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
-      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">⚠ Kein Urban Router vorhanden</div>
-      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6;">${text}</div>
-    </div>`);
-  }
-
-  let inner = '';
-  if (items.length === 0) {
-    inner = `<div style="background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px;">✓ Alle Voraussetzungen erfüllt. Sie können direkt mit Schritt 1 starten.</div>`;
-  } else {
-    const jaCount = Object.values(answers).filter(Boolean).length;
-    if (jaCount > 0) inner = `<div style="font-size: 0.875rem; color: #3B6D11; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;">✓ ${jaCount} von ${total} Voraussetzungen bereits erfüllt.</div>`;
-    inner += items.join('');
-  }
-
-  contentEl.innerHTML = `
-    <div style="background: var(--sl-color-bg); border: 1px solid var(--sl-color-gray-5); border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
-      <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: var(--sl-color-text);">Ergebnis</div>
-      ${inner}
-      <button class="vw-restart">↺ Nochmal von vorne</button>
+  function summaryItem(title: string, body: string): string {
+    return `<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
+      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">${title}</div>
+      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6;">${body}</div>
     </div>`;
-  (contentEl.querySelector('.vw-restart') as HTMLButtonElement).addEventListener('click', restart);
-}
+  }
+
+  function renderSummary(): void {
+    renderProgress(total, true);
+
+    const neinSmartphone = answers['smartphone'] === false;
+    const neinAppstore   = answers['appstore']   === false;
+    const neinAlma       = answers['alma']        === false;
+    const neinTerminal   = answers['terminal']    === false;
+    const neinFirmware   = answers['firmware']    === false;
+    const neinInternet   = answers['internet']    === false;
+    const neinRouter     = answers['router']      === false;
+
+    const items: string[] = [];
+
+    if (neinSmartphone) {
+      items.push(summaryItem('⚠ Kein Smartphone vorhanden',
+        'Die Urban Feed Monitor App erfordert ein iPhone (iOS) oder ein Android-Gerät.'));
+    }
+
+    if (neinAppstore && !neinSmartphone) {
+      items.push(`<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
+        <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">↓ App noch nicht installiert</div>
+        <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6; margin-bottom: 0.75rem;">Laden Sie die Urban Feed Monitor App herunter:</div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+          <a href="https://apps.apple.com/de/app/urban-feed-monitor/id6746261090" target="_blank" rel="noopener">
+            <img src="/appstore-de.svg" alt="Im App Store laden" style="height: 40px; width: auto;" />
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro" target="_blank" rel="noopener">
+            <img src="/playstore-de.svg" alt="Bei Google Play laden" style="height: 40px; width: auto;" />
+          </a>
+        </div>
+      </div>`);
+    }
+
+    if (neinAlma) {
+      items.push(summaryItem('⚠ Kein Alma Pro vorhanden',
+        `Die Urban Feed Monitor App setzt eine Alma Pro voraus. <a href="https://www.urbanonline.de/produkte/detail/urban-alma-pro" target="_blank" rel="noopener">Mehr zur Urban Alma Pro</a> – wenden Sie sich an Urban oder Ihren Vertriebspartner.`));
+    }
+
+    if (!neinAlma && neinTerminal) {
+      items.push(summaryItem('⚠ TouchTerminal Gen 2 fehlt',
+        'Wenden Sie sich an Urban oder Ihren Vertriebspartner für einen Austausch.'));
+    }
+
+    if (!neinAlma && neinFirmware) {
+      let text = 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin nur noch das Terminal hinzugefügt werden muss.';
+      if (neinRouter) text += ' Dieser Termin lässt sich mit der Router-Installation kombinieren.';
+      items.push(summaryItem('⚠ Firmware veraltet', text));
+    }
+
+    if (neinInternet) {
+      items.push(summaryItem('⚠ Keine Internetverbindung im Stall',
+        'Eine Internetverbindung im Stall ist Voraussetzung für die Urban Cloud. Klären Sie dies mit Ihrem Internetanbieter – Urban kann hierbei nicht unterstützen.'));
+    }
+
+    if (!neinAlma && !neinInternet && neinRouter) {
+      let text = 'Wenden Sie sich an Urban oder Ihren Vertriebspartner für die Installation des Urban Routers.';
+      if (neinFirmware) text += ' Die Installation lässt sich mit dem Firmware-Update kombinieren.';
+      items.push(summaryItem('⚠ Kein Urban Router vorhanden', text));
+    }
+
+    let inner = '';
+    if (items.length === 0) {
+      inner = `<div style="background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px;">✓ Alle Voraussetzungen erfüllt. Sie können direkt mit Schritt 1 starten.</div>`;
+    } else {
+      const jaCount = Object.values(answers).filter(Boolean).length;
+      if (jaCount > 0) inner = `<div style="font-size: 0.875rem; color: #3B6D11; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;">✓ ${jaCount} von ${Object.keys(answers).length} Voraussetzungen bereits erfüllt.</div>`;
+      inner += items.join('');
+    }
+
+    contentEl.innerHTML = `
+      <div style="background: ${C.bg}; border: 1px solid ${C.border}; border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
+        <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: ${C.text};">Ergebnis</div>
+        ${inner}
+        <button id="vw-restart-btn" style="margin-top: 1.25rem; width: 100%; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid ${C.gray4}; background: ${C.bgSidebar}; color: ${C.gray2}; font-size: 0.8125rem; cursor: pointer;">↺ Nochmal von vorne</button>
+      </div>`;
+    (document.getElementById('vw-restart-btn') as HTMLButtonElement).addEventListener('click', restart);
+  }
 
   function restart(): void {
     current = 0;
