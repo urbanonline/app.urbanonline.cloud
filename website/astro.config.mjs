@@ -138,21 +138,20 @@ export default defineConfig({
 						id: 'service',
 						items: [
 							{
-								label: 'Installation Cloud',
+								label: 'Installation Cloud-Service',
 								translations: {
-									en: 'Installation of cloud',
+									en: 'Installation of cloud service',
 									es: 'Instalación de la nube',
 									fr: 'Installation du cloud',
 									ru: 'Установка облака',
 								},
 								items: [
 									'guide/service',
-									'guide/service/check-version',
-									'guide/service/update-feeder',
+									'guide/service/callup-screen',
 								{
-									label: '③ Setup Cloud',
+									label: 'Installationsschritte',
 									translations: {
-										en: '③ Cloud setup',
+										en: 'Installation steps',
 									},
 									items: [
 										{ slug: 'guide/service/setup-cloud' },
