@@ -10,10 +10,14 @@ hero:
   image:
     file: ../../../public/urban.svg
   actions:
-    - text: Dokumentation
+    - text: Dokumentation und Anleitungen
       link: /guide/
       icon: right-arrow
       variant: primary
+    - text: Checkliste
+      link: /prerequisites/checklist
+      icon: right-arrow
+      variant: secondary	  
     - text: FAQ
       link: /faq
       icon: right-arrow
@@ -48,5 +52,8 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 	</Card>
 	<Card title="Flexible Benutzerverwaltung" icon="setting">
 		Legen Sie beliebig viele `Mitbenutzer` an und laden Sie diese zur Nutzung der App ein.
+	</Card>
+		<Card title="Alarmhistorie" icon="list-format">
+		Nutzen Sie die Alarmhistorie, um auch Vorgänge nachzuvollziehen.
 	</Card>
 </CardGrid>
