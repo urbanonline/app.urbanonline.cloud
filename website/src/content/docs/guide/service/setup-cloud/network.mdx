@@ -6,17 +6,35 @@ sidebar:
   order: 30
 ---
 import { Image } from 'astro:assets';
-import DE_Step1 from '../graphics/DE_Step1.png';
-import DE_Step2 from '../graphics/DE_Step2.png';
+import Aufruf from '../graphics/AufrufSetupCloud.png';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+import TouchGear from '../../../../../../public/icons/almapro/touchgear.svg';
+import Edit from '../../../../../../public/icons/almapro/edit.svg';
+
 import DE_Step3 from '../graphics/DE_Step3.png';
 import DE_Step3a from '../graphics/DE_Step3a.png';
 import VerbindungZumServer from '../graphics/VerbindungZumServer.png';
 
-## Anleitung Schritt 1
-Tippen Sie auf das Zahnrad, um die Einstellungen zu öffnen, dann auf "Zubehör" und "Urban Cloud Service".
-<Image src={DE_Step1} alt="Schritt 1" width={500} />
-Tippen Sie unten rechts auf "Einstellungen öffnen". 
-<Image src={DE_Step2} alt="Schritt 2" width={500} />
+## Einstellungsmenü `Urban Cloud Service` aufrufen
+
+### Kurzversion
+
+- Klicken Sie wie im untenstehenden Screenshot angezeigt nacheinander auf die Schaltflächen <span class="text-2xl">➀</span> bis <span class="text-2xl">⑤</span>.
+
+<Image src={Aufruf}  alt="Schritt 1" />
+
+### Langversion
+
+1. Klicken Sie in der linken Seitenliste des Touch-Terminals auf die unterste Schaltfläche <Gear width={20} class="inline ml-2 mb-0" /> `Einstellungen` <span class="text-2xl">➀</span>. Sollten Sie sich im Hauptmenü befinden, wo keine Seitenleiste sichtbar ist, drücken sie die Schaltfläche <Feeder width={20} class="inline ml-2 mb-0" /> `Automat`, um die Seitenleiste anzuzeigen.
+
+1. Klicken Sie in der unteren Symbolleiste des Touch-Terminals auf die zweite Schaltfläche von links <TouchGear width={30} class="inline ml-2 mb-0" /> `Einstellungen Touch-Terminal` <span class="text-2xl">➁</span>.
+
+1. In der linken Hälfte des zentralen Bildschirmbereichs erscheint jetzt einen Reihe von Menüpunkten. Klicken Sie auf die unterste Schaltfläche `Zubehör` <span class="text-2xl">➂</span>.
+
+1. In der rechten Hälfte des zentralen Bildschirmbereichs erscheint jetzt ein (oder ggf. auch mehrere) Menüpunkt(e). Klicken Sie auf die oberste Schaltfläche `VitalControl` <span style="font-size: 140%" id="Navigation_Digit_4">➃</span>. Die Schaltfläche wechselt jetzt auf die linke Bildschirmhälfte.
+
+1. Unten in der rechten Bildschirmhälfte wird nun die Schaltfläche <Edit width={20} class="inline ml-2 mb-0" /> `Einstellungen öffnen` <span style="font-size: 140%" id="Navigation_Digit_5">➄</span> angezeigt. Klicken Sie auf diese Schaltfläche, es öffnet sich dann ein Popup-Fenster, in welchem die [Schritte](#settings-menu-vitalcontrol-page-1) zur Einrichtung des Urban Cloud-Services aufgelistet sind.
 
 Die farbigen Punkte zeigen den Status an und sollten alle grün sein. Sind sie rot oder orange, besteht Handlungsbedarf. Tippen Sie auf das Zahnrad rechts neben "Verbindung zum Server", um das Menü zu öffnen.
 <Image src={DE_Step3} alt="Schritt 3" width={500} />
