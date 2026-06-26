@@ -6,15 +6,39 @@ sidebar:
   order: 30
 ---
 import { Image } from 'astro:assets';
-import DE_Step3 from '../graphics/DE_Step3.png';
-import DE_Step3a from '../graphics/DE_Step3a.png';
-import VerbindungZumServer from '../graphics/VerbindungZumServer.png';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import NetworkDetails from '../graphics/NetworkDetails.png';
+import ConnectionServer from '../graphics/ConnectionServer.png';
 
-## Einstellungsmenü `Urban Cloud Service` aufrufen
+## Erreichbarkeit des Cloud-Servers prüfen
 
-Die farbigen Punkte zeigen den Status an und sollten alle grün sein. Sind sie rot oder orange, besteht Handlungsbedarf. Tippen Sie auf das Zahnrad rechts neben "Verbindung zum Server", um das Menü zu öffnen.
-<Image src={DE_Step3} alt="Schritt 3" width={500} />
-Es gibt ein Problem mit der Verbindung zum Server.
-<Image src={DE_Step3a} alt="Schritt 3a" width={500} />
-Sie haben das Problem erfolgreich gelöst und der Punkt links neben "Verbindung zum Server" ist nun grün.
-<Image src={VerbindungZumServer} alt="VerbindungZumServer" width={500} />
+Zunächst wird geprüft, ob der Urban-Cloud-Server über das Internet erreicht werden kann. Die kreisförmige Statusanzeige <span class="text-2xl">➀</span> links neben dem obersten Punkt `Verbindung zum Server` im Installationsbildschirm gibt darüber Auskuft:
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ConnectionServer}  alt="Schritt 1" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud-Setup, Status zur Erreichbarkeit des Cloud-Servers
+  </figcaption>
+</figure>
+
+- Leuchtet die Statusanzeige grün, so kann der Cloud-Server erreicht werden. Alles ist in Ordnung, Sie können diese Seite verlassen und mit der [Registrierung des Terminals](../registration) fortfahren.
+
+- Leuchtet die Statusanzeige grün, so kann der Cloud-Server **nicht** erreicht werden, es besteht also Handlungsbedarf. Lesen Sie weiter und befolgen Sie die nachstehend aufgelisteten Handlungsschritte.
+
+## Details zur Erreichbarkeit einsehen
+
+- Tippen Sie auf die rechts befindliche Schaltfläche <span class="text-2xl">➁</span> &nbsp; <Gear width={20} class="inline ml-2 mb-0" /> (Screenshot 1) um Details zur Netzwerkverbindung einzusehen. Es wird zum einem Bildschirm umgeschaltet (Screenshot 2), der offenlegt, ob der Netzwerkrouter <span class="text-2xl">➀</span>, das Internet <span class="text-2xl">➁</span> und letzlich der Urban Cloud-Server <span class="text-2xl">③</span> ereicht werden kann :
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={NetworkDetails}  alt="Schritt 1" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> Alma Pro, Cloud-Setup, Details zur Erreichbarkeit des Cloud-Servers
+  </figcaption>
+</figure>
+
+Eine grüne Statusanzeige signalisiert jeweils, dass die Komponente erriecht werden kann, eine rote Statusanzeige zeigt Nichterreichbarkeit an. Nutzen Sie die aufgelisteten Details bei ihrer Fehleranalyse. Stellen Sie durch geeignete Verkabelung und Funktionstests der Netzwerkkomponenten sicher, dass nacheinander alle drei Statusanzeigen grün aufleuchten. Ist dies der Fall, so haben Sie Verbindungsproblem erfolgreich gelöst und sie können mit dem nächsten Schritt [`Registrierung des Terminals`](../registration) fortfahren.
+
