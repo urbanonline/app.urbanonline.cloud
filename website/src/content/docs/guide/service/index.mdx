@@ -1,30 +1,108 @@
 ---
-title: Installationsanleitung Urban Cloud
+title: Beschreibung des Installationsvorgangs beim Setup der Urban Cloud
 description: Auflistung der drei Schritte, die zum Setup der Urban Cloud zu durchlaufen sind.
 sidebar:
-  label: Überblick
+  label: Übersicht Installationsprozess 
   hidden: false
 tableOfContents: false
 ---
-import { Steps, Aside } from '@astrojs/starlight/components';
+import { Steps, Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
-Für die **Einrichtung und Aktivierung der Urban-Cloud** sind die folgenden **drei Schritte** erforderlich:
+<Tabs>
+<TabItem label="Kurzübersicht">
+
+Für die **Einrichtung und Aktivierung der Urban-Cloud** sind die folgenden **beiden Schritte** erforderlich:
 
 <Steps>
-    1. [Prüfung der Firmwareversion](check-version)
+    1. [Aufruf des Installationsbildschirms](callup-screen)
 
-        <Aside type="note" icon="information" title="Mindestvoraussetzung Firmware Alma Pro">
-            Version **25-04_V08 oder höher**
-        </Aside>
+    1. [Installation des Urban Cloud-Services](setup-cloud)
 
-    1. [Aktualisierung der Firmware Alma Pro](update-feeder) (optional)
+        In einem **vierstufigen Prozess** wird jetzt die Kommunikation der Alma Pro mit der Urban-Cloud eingerichtet:
 
-        <Aside type="caution" icon="setting" title="Zwingend erforderlich bei einer Version kleiner als 25-04_V08!"/>
+        <Steps>
 
-    1. [Einrichtung der Kommunikation mit der Urban-Cloud](setup-cloud)
+            1. [Prüfung der Netzwerkverbindung](setup-cloud/network)
 
-        <Aside type="note" icon="database" title="Setup des Synchronsiationsdienstes">
-            In einem **vierstufigen Prozess** wird die Kommunikation mit der Urban-Cloud eingerichtet.
-        </Aside>
+            1. [Registrierung des Touchscreen-Terminals](setup-cloud/registration) in der Urban Cloud (via Feed-Monitor-App)
+
+            1. [Aktivierung der REST-API](setup-cloud/rest)
+
+            1. [Einrichtung des Synchronisationsdiensts](setup-cloud/sync)
+
+        </Steps>
 
 </Steps>
+</TabItem>
+<TabItem label="Kurzbeschreibung">
+
+Für die **Einrichtung und Aktivierung der Urban-Cloud** sind die folgenden **beiden Schritte** erforderlich:
+
+<Steps>
+    1. [Aufruf des Installationsbildschirms](callup-screen)
+
+        Dieser Bildschirm kann nur mit einem Urban-Servicestick oder bei Kenntnis des tagesaktuellen Kurzzeit-Passworts aufgerufen werden.
+
+    1. [Installation des Urban Cloud-Services](setup-cloud)
+
+        In einem **vierstufigen Prozess** wird jetzt die Kommunikation der Alma Pro mit der Urban-Cloud eingerichtet:
+
+        <Steps>
+
+            1. [Prüfung der Netzwerkverbindung](setup-cloud/network)
+
+                Das Touchscreen-Terminal muss mit dem Internet verbunden sein und auf den Urban Cloud-Server zugreifen können.
+
+            1. [Registrierung des Touchscreen-Terminals](setup-cloud/registration) in der Urban Cloud (via Feed-Monitor-App)
+
+                Nur nach erfolgreicher Registrierung des Touchscreen-Terminal in der Urban Cloud können Tier- und Automatendaten zur Urban-Cloud übertragen werden können.
+
+            1. [Aktivierung der REST-API](setup-cloud/rest)
+
+                Nur bei aktivierter REST-API kann der Cloud-Synchronisationsdienst lokal Daten vom Touchscreen-Terminal abrufen und in die Cloud weiterleiten.
+
+            1. [Einrichtung des Synchronisationsdiensts](setup-cloud/sync)
+
+                Der Synchronisationdienst auf dem Terminal muss einmalig installiert und gestartet werden, er überträgt periodisch lokale Daten an den Urban-Cloudserver.
+
+        </Steps>
+
+</Steps>
+</TabItem>
+<TabItem label="Ausführliche Beschreibung">
+
+Bevor die App Urban Feed Monitor genutzt werden kann, muss auf der Alma Pro zwingend die Urban-Cloud installiert werden.
+Für die **Einrichtung und Aktivierung der Urban-Cloud** sind die folgenden **beiden Schritte** erforderlich:
+
+<Steps>
+    1. [Aufruf des Installationsbildschirms](callup-screen)
+
+        Zunächst muss der Installationsbildschirm aufgerufen werden, dazu ist ein Urban-Servicestick oder die Kenntnis des tagesaktuellen Kurzzeit-Passworts nötig.
+
+    1. [Installation des Urban Cloud-Services](setup-cloud)
+
+        In einem **vierstufigen Prozess** wird jetzt die Kommunikation der Alma Pro mit der Urban-Cloud eingerichtet:
+
+        <Steps>
+
+            1. [Prüfung der Netzwerkverbindung](setup-cloud/network)
+
+                Zunächst muss geprüft und sichergestellt werden, dass das Touchscreen-Terminal der Alma Pro mit dem Internet verbunden ist und auf den Urban Cloud-Server zugreifen kann.
+
+            1. [Registrierung des Touchscreen-Terminals](setup-cloud/registration) in der Urban Cloud (via Feed-Monitor-App)
+
+                Dass Touchscreen-Terminal muss in der Urban Cloud registriert sein, damit erfolgreich Tier- und Automatendaten zur Urban-Cloud übertragen werden können. Dies Registrierung in der Urban Feed-Monitor App, dabei muss ein auf dem Touchscreen angezeigter QR-Code mit der Kamera des Smartphones eingescannt werden.
+
+            1. [Aktivierung der REST-API](setup-cloud/rest)
+
+                Auf dem Touchscreen-Terminal muss zwingend die REST-API aktiviert werden. Nur bei aktiviertem Service kann der Cloud-Synchronisationsdienst die Tier-un Automatendaten lokal abrufen und in die Cloud weiterleiten.
+
+            1. [Einrichtung des Synchronisationsdiensts](setup-cloud/sync)
+
+                Der Synchronisationdienst ist ein auf dem Terminal ablaufender Hintergrundprozess, der periodisch Daten abfragt und an die Urban Cloud übertragen. Dieser Dienst muss einmalig installiert werden, das erforderliche Softwarepaket wird über das Internet vom Urban-Cloudserver bezogen. Nach der erfolgreichen Installation muss dieser Synchronisations-Dienst noch gestartet werden.
+
+        </Steps>
+
+</Steps>
+</TabItem>
+</Tabs>

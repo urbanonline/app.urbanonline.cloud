@@ -1,12 +1,23 @@
 ---
-title: Überblick
+title: Übersicht über die erforderlichen Installationsschritte
 description: Benötigte Schritte zum Setup des Cloud-Synchronisationdienstes
 sidebar:
-  label: Überblick
+  label: Übersicht Schritte
   order: 30
 tableOfContents: false
 ---
+import { Image } from 'astro:assets';
+import Uebersicht from '../graphics/Cloud-Uebersicht.png';
 import { Steps } from '@astrojs/starlight/components';
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Uebersicht}  alt="Schritt 1" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Alma Pro, Installationsbildschirm Urban Cloud-Service
+  </figcaption>
+</figure>
 
 <Steps>
 1. [Prüfung der Netzwerkverbindung zum Server](network)
