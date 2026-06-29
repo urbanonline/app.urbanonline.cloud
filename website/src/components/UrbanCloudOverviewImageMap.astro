@@ -13,16 +13,27 @@ interface Props {
     registration: string;
     rest: string;
     sync: string;
+    networkIcon: string;
+    registrationIcon: string;
+    restIcon: string;
+    syncIcon: string;
   };
 }
 
 const { src, alt, caption, captionPrefix, languagePrefix = "", labels } = Astro.props;
 
 const areas = [
-  { href: `${languagePrefix}/guide/service/setup-cloud/network`,      left: "13%", top: "17.8%", width: "74.5%", height: "11%", label: labels.network },
-  { href: `${languagePrefix}/guide/service/setup-cloud/registration`, left: "13%", top: "31.1%", width: "74.5%", height: "11%", label: labels.registration },
-  { href: `${languagePrefix}/guide/service/setup-cloud/rest`,         left: "13%", top: "44.4%", width: "74.5%", height: "11%", label: labels.rest },
-  { href: `${languagePrefix}/guide/service/setup-cloud/sync`,         left: "13%", top: "57.7%", width: "74.5%", height: "11%", label: labels.sync },
+  { href: `${languagePrefix}/guide/service/setup-cloud/network`,      left: "13%", top: "17.8%", width: "65%", height: "11%", label: labels.network },
+  { href: `${languagePrefix}/guide/service/setup-cloud/network`,      left: "81.9%", top: "17.8%", width: "5.3%", height: "11%", label: labels.networkIcon},
+
+  { href: `${languagePrefix}/guide/service/setup-cloud/registration`, left: "13%", top: "31.1%", width: "65%", height: "11%", label: labels.registration },
+  { href: `${languagePrefix}/guide/service/setup-cloud/registration`,      left: "81.9%", top: "31.1%", width: "5.3%", height: "11%", label: labels.registrationIcon},
+
+  { href: `${languagePrefix}/guide/service/setup-cloud/rest`,         left: "13%", top: "44.4%", width: "65%", height: "11%", label: labels.rest },
+  { href: `${languagePrefix}/guide/service/setup-cloud/rest`,      left: "81.9%", top: "44.4%", width: "5.3%", height: "11%", label: labels.restIcon},
+
+  { href: `${languagePrefix}/guide/service/setup-cloud/sync`,         left: "13%", top: "57.7%", width: "65%", height: "11%", label: labels.sync },
+  { href: `${languagePrefix}/guide/service/setup-cloud/sync`,      left: "81.9%", top: "57.7%", width: "5.3%", height: "11%", label: labels.syncIcon},
 ];
 ---
 
@@ -35,9 +46,11 @@ const areas = [
         <a
           href={area.href}
           aria-label={area.label}
+          title={area.label}
           class:list={[
             "absolute transition-colors",
-            "hover:bg-blue-400/20",
+            "border-2 border-transparent",
+            "hover:border-red-500 hover:bg-blue-400/20",
           ]}
           style={{ left: area.left, top: area.top, width: area.width, height: area.height }}
         />
