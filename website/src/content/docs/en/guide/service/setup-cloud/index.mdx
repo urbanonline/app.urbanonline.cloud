@@ -7,6 +7,22 @@ sidebar:
 tableOfContents: false
 ---
 import { Steps } from '@astrojs/starlight/components';
+import Uebersicht from '../graphics/Cloud-Uebersicht.png';
+import CloudOverviewImageMap from '../../../../../../components/UrbanCloudOverviewImageMap.astro';
+
+<CloudOverviewImageMap
+  src={Uebersicht}
+  alt="Schritt 1"
+  captionPrefix="Screenshot 1:"
+  caption="Alma Pro, Installationsbildschirm Urban Cloud-Service"
+  languagePrefix="/en"
+  labels={{
+    network: "Verbindung zum Server",
+    registration: "Registrierung am Server",
+    rest: "REST-API aktiv",
+    sync: "Datenübertragung aktiv",
+  }}
+/>
 
 <Steps>
 1. [Check the network connection to the server](network)
