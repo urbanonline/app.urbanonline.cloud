@@ -1,29 +1,38 @@
 ---
 title: Aktivierung der REST-Schnittstelle
-description: Die REST-Schnitstelle muss zwingend aktiviert sein, um Daten in die Cloud synchronisieren zu können.
+description: Die REST-Schnitstelle muss zwingend aktiviert sein, um Daten in die Urban-Cloud synchronisieren zu können.
 sidebar:
-  label: ③ Aktivierung REST-API
+  label: ③ Aktivierung REST-Schnittstelle
   order: 30
 ---
 import { Image } from 'astro:assets';
 import REST_API from '../graphics/REST-API.png';
-import DE_Step3c from '../graphics/DE_Step3c.png';
-import RESTAPIaktiv from '../graphics/RESTAPIaktiv.png';
+import ActivationREST from '../graphics/ActivationREST.png';
 
-## Status der REST-API prüfen
+## Status der REST-Schnittstelle prüfen
 
 <figure>
 <div class="border border-gray-300 rounded-xs p-4">
-<Image src={REST_API}  alt="Installation Urban-Cloud, Prüfung Netzwerkverbindung" />
+<Image src={REST_API}  alt="Installation Urban-Cloud, Rest-Schnittstelle" title="Rest-Schnittstelle" />
   </div>
   <figcaption class="text-sm mt-2">
-    <span class="">Screenshot 1:</span> Cloud-Setup, Aktivierung der REST-API
+    <span class="">Screenshot 1:</span> Cloud-Setup, Aktivierung der REST-Schnittstelle
   </figcaption>
 </figure>
 
+## REST-Schnitstelle aktivieren
+
 Tippen Sie auf das Zahnrad rechts neben "REST-API aktiv", um das Menü zu öffnen.
 
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ActivationREST}  alt="Installation Urban-Cloud, Aktivierung REST-Schnitstelle" title="Aktivierung REST-Schnitstelle" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> Cloud-Setup, Aktivierung der REST-Schnitstelle
+  </figcaption>
+</figure>
+
 Schieben Sie den Regler nach rechts auf "JA" und bestätigen Sie mit einem Tippen auf den grünen Haken.
-<Image src={DE_Step3c} alt="Schritt 3c" width={500} />
+
 Der Punkt links neben "REST-API aktiv" ist nun grün.
-<Image src={RESTAPIaktiv} alt="RESTAPIaktiv" width={500} />
