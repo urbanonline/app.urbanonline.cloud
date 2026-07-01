@@ -6,25 +6,36 @@ sidebar:
   order: 30
 ---
 import { Image } from 'astro:assets';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
 import REST_API from '../graphics/REST-API.png';
 import ActivationREST from '../graphics/ActivationREST.png';
 
 ## Status der REST-Schnittstelle prüfen
 
-<figure>
+im dritten Schritt der Installation muss geprüft werden, ob die REST-Schnittstelle des Touch-Terminal aktiviert ist und Anfragen entgegennehmen kann. Die Farbe der kreisförmigen Statusanzeige (Ziffer&nbsp;<span class="text-2xl">➀</span>) links neben dem dritten Listeneintrag `REST-API aktiv` im Installationsbildschirm gibt darüber Auskunft:
+
+<figure id="screenshot1">
 <div class="border border-gray-300 rounded-xs p-4">
 <Image src={REST_API}  alt="Installation Urban-Cloud, Rest-Schnittstelle" title="Rest-Schnittstelle" />
   </div>
   <figcaption class="text-sm mt-2">
-    <span class="">Screenshot 1:</span> Cloud-Setup, Aktivierung der REST-Schnittstelle
+    <span class="">Screenshot 1:</span> Cloud-Setup, Aktivierungsstatus der REST-Schnittstelle
   </figcaption>
 </figure>
 
+- Leuchtet die Statusanzeige <span class="text-2xl">➀&nbsp;</span><span class="p-0.5 bg-green-600 text-white">grün</span>, so wurde die REST-Schnitstelle bereits aktiviert. Alles ist in Ordnung, Sie können im letzten Installationsschritt die [Datenübertragung in die Cloud](../sync) aktivieren.
+
+- Leuchtet die Statusanzeige <span class="p-0.5 bg-red-500 text-white">rot</span>, so wurde die REST-Schnitstelle noch nicht aktiviert, es besteht also Handlungsbedarf. 
+
+    - Tippen Sie auf die rechts neben dem Listeneintrag `REST-API aktiv` befindliche Schaltfläche&nbsp;<Gear width={20} class="inline mb-0" /> (Ziffer <span class="text-2xl">➁</span>) um den Aktivierungsbildschirm für die REST-Schnittstelle aufzurufen ([Screenshot 2](#screenshot2))
+
+    - Aktivieren Sie die REST-Schnittstelle gemäß den Anweisungen im nächsten Abschnitt.
+
 ## REST-Schnitstelle aktivieren
 
-Tippen Sie auf das Zahnrad rechts neben "REST-API aktiv", um das Menü zu öffnen.
+Die Aktivierung der Rest-Schnittstelle erfolgt in folgendem Bildschirm:
 
-<figure>
+<figure id="screenshot2">
 <div class="border border-gray-300 rounded-xs p-4">
 <Image src={ActivationREST}  alt="Installation Urban-Cloud, Aktivierung REST-Schnitstelle" title="Aktivierung REST-Schnitstelle" />
   </div>
@@ -33,6 +44,14 @@ Tippen Sie auf das Zahnrad rechts neben "REST-API aktiv", um das Menü zu öffne
   </figcaption>
 </figure>
 
-Schieben Sie den Regler nach rechts auf "JA" und bestätigen Sie mit einem Tippen auf den grünen Haken.
+- Tippen Sie auf die Option `JA` des Schiebereglers (Ziffer <span class="text-2xl">➀</span>).
 
-Der Punkt links neben "REST-API aktiv" ist nun grün.
+- Tippen Sie auf die Schaltfläche <span class="p-0.5 bg-green-600 text-white">✓</span> `OK` (Ziffer <span class="text-2xl">➁</span>) damit die Änderung wirksam wird.
+
+- Der Inhalt des Popup-Fensters wechselt jetzt, es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den Erfolg der Aktivierung mitteilt.
+
+- Quittieren Sie dieses Erfolgsmeldung.
+
+- Die <span class="p-0.5 bg-green-600 text-white">grüne</span> Statusanzeige ([Screenshot 1](#screenshot1), Ziffer <span class="text-2xl">➀</span>) links neben dem Listeneintrag `REST-API aktiv` signalisiert jetzt, dass die REST-Schnittstelle erfolgreich aktiviert wurde.
+
+Sie können jetzt im letzten Installationsschritt die [Datenübertragung in die Cloud](../sync) aktivieren.
