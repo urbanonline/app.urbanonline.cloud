@@ -5,18 +5,77 @@ sidebar:
   label: ④ Setup Synchronisation
   order: 40
 ---
-
+import { Aside } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
 import SyncService from '../graphics/SyncService.png';
-import DE_Step3d from '../graphics/DE_Step3d.png';
-import AllesGruen from '../graphics/AllesGruen.png';
+import SyncInstallStart from '../graphics/SyncServiceInstallStart.png';
+import SyncInstall from '../graphics/SyncServiceInstall.png';
+import SyncStart from '../graphics/SyncServiceStart.png';
 
-<Image src={SyncService} alt="Datenübertragung inaktiv" />
+## Status des Synchronisationsdienstes prüfen
 
-## <a id="instructions-step-4"></a> Anleitung Schritt 4
+Im letzten Schritt der Installation muss geprüft werden, ob der Synchronisationdienst auf dem Touch-Terminal-PC installiert und gestartet ist. Dieser Dienst überträgt periodisch lokale Tier- und Automatendaten an den Urban Cloud-Server. Die Farbe der kreisförmigen Statusanzeige (Ziffer&nbsp;<span class="text-2xl">➀</span>) links neben dem vierten Listeneintrag `Datenübertragung aktiv` im Installationsbildschirm gibt darüber Auskunft:
 
-Tippen Sie auf das Zahnrad rechts neben "Datenübertragung aktiv", um das Menü zu öffnen.
-Tippen Sie auf das Dropdown-Menü unter "Verfügbare Versionen", tippen Sie auf "Installieren und anschließend auf "Neustart". Bestätigen Sie mit einem Tippen auf den grünen Haken.
-<Image src={DE_Step3d} alt="Schritt 3d" width={500} />
-Der Punkt links neben "Datenübertragung aktiv" ist nun grün.
-<Image src={AllesGruen} alt="AllesGruen" width={500} />
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncService} alt="Installation Urban-Cloud, Synchronisationsdienst" title="Synchronisationsdienst" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud-Setup, Aktivierungsstatus des Synchronisationsdienstes
+  </figcaption>
+</figure>
+
+- Leuchtet die Statusanzeige <span class="text-2xl">➀&nbsp;</span><span class="p-0.5 bg-green-600 text-white">grün</span>, so wurde der Synchronisationsdienst bereits installiert und gestartet. Glückwunsch, die Installation der Urban-Cloud ist damit abgeschlossen!
+
+- Leuchtet die Statusanzeige <span class="p-0.5 bg-red-500 text-white">rot</span>, so arbeitet der Synchronisationsdienst aktuell nicht korrekt, es besteht also Handlungsbedarf. 
+
+    - Tippen Sie auf die rechts neben dem Listeneintrag `Dstenübertragung aktiv` befindliche Schaltfläche&nbsp;<Gear width={20} class="inline mb-0" /> (Ziffer <span class="text-2xl">➁</span>) um den Installationsbildschirm für den Synchronisationsdienst aufzurufen ([Screenshot 2](#screenshot2)).
+
+    - Installieren und starten Sie den Synchronisationsdienst gemäß den Anweisungen im nächsten Abschnitt.
+
+## Synchronisationsdienst installieren und starten
+
+Die Installation und der Start des Synchronisationsdienstes erfolgt in folgendem Bildschirm:
+
+### Installation des Synchronisationsdienstes
+
+Zunächst muss das Softwarepaket für den Synchronisationsdienst installiert werden, dieses Paket wird über das Internet von der Urban Cloud abgerufen. 
+
+  <Aside type="caution" title="Version des Softwarepakets" icon="information">Die Versionsnummer des zu installierenden Softwarepakets wird in einem rot umrandeten Dropdown-Menü unterhalb des Titel `Verfügbare Versionen` (Buchstabe&nbsp;<span class="text-2xl">Ⓐ</span>) angezeigt, diese Versionsnummer hat die Form `prod — n.n.n — JJJJ-MM-DD HH:MM:SS`.</Aside>
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncInstall}  alt="Installation Urban-Cloud, Einrichtung Synchronisationsdienst" title="Einrichtung Synchronisationsdienst" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> Cloud-Setup, Installation des Synchronisationsdienstes
+  </figcaption>
+</figure>
+
+- Stellen Sie sicher, dass im Dropdown-Menü <span class="text-2xl">Ⓐ</span> `Verfügbare Versionen` die neueste Version des Softwarepakets ausgewählt ist. Tippen Sie hierzu auf die rot umrandete Schaltfläche (Ziffer <span class="text-2xl">➀</span>), um die Versionsliste des Dropdown-Menüs zu öffnen. Wählen Sie aus der angezeigten Liste anschließend die zeitlich neueste Versionsnummer aus.
+
+- Tippen Sie auf die Schaltfläche `Installieren` (Ziffer <span class="text-2xl">➁</span>), um die Installation des Synchronisationsdiensts zu starten.
+
+- Nach einer kurzen Installationszeit wechselt der Inhalt des Popup-Fensters und es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den Installationserfolg mitteilt. Quittieren Sie dieses Erfolgsmeldung.
+
+### Start des Synchronisationsdienstes
+
+Damit der soeben erfolgreich installierte Synchronisationsdienst seine Arbeit aufnimmt muss er in einem weiteren Schritt gestartet werden.
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncStart}  alt="Installation Urban-Cloud, Einrichtung Synchronisationsdienst" title="Einrichtung Synchronisationsdienst" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 3:</span> Cloud-Setup, Start des Synchronisationsdienstes
+  </figcaption>
+</figure>
+
+- Tippen Sie auf die Schaltfläche `Start` (Ziffer <span class="text-2xl">③</span>) unter der Überschrift <span class="text-2xl">Ⓑ</span> `Servicemanagement` um den Synchronisationsdienst zu starten.
+
+- Nach einer kurzen Startzeit wechselt der Inhalt des Popup-Fensters und es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den erfolgreichen Start des Dienstes  mitteilt. Quittieren Sie dieses Erfolgsmeldung.
+
+- Tippen Sie nach der erfolgreichen Einrichtung des Dienstes auf die Schaltfläche <span class="p-0.5 bg-green-600 text-white">✓</span> `OK` (Ziffer&nbsp;<span class="text-2xl">④</span>) um den Installationsbildschirm zu verlassen.
+
+Die Installation der Urban Cloud auf dem Alma Pro Tränkeautomaten ist damit erfolgreich abgeschlossen.
