@@ -1,18 +1,56 @@
 ---
-title: Registrierung des Terminals
-description: Die Registrierung des Terminals am Cloud-Server schafft die Voraussetzungen dafür, dass Daten in die Cloud übertragen werden können.
+title: Registrierung des Terminals beim Urban-Cloudserver
+description: Die Registrierung des Terminals am Urban-Cloudserver schafft die Voraussetzungen dafür, dass Daten in die Cloud übertragen werden können.
 sidebar:
   label: ② Registrierung Terminal
   order: 20
 ---
-
 import { Image } from 'astro:assets';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import QRCode from '../graphics/RegistrierungQRCode.png';
 import Registrierung from '../graphics/Registrierung.png';
-import DE_Step3b from '../graphics/DE_Step3b.png';
 
-<Image src={Registrierung} alt="Schritt 3b" />
+## Registrierungsstatus des Touch-Terminal prüfen
 
-## <a id="instructions-step-2"></a> Anleitung Schritt 2
+Im zweiten Schritt der Installation muss geprüft werden, ob das Touch-Terminal bereits bei Urban-Cloudserver registriert ist, nur dann können erfolgreich Daten an die Urban-Cloud übermittelt werden. Die Farbe der kreisförmigen Statusanzeige (Ziffer&nbsp;<span class="text-2xl">➀</span>) links neben dem dritten Listeneintrag `Registierung am Server` im Installationsbildschirm gibt darüber Auskunft:
 
-Hinweis: Der Terminal kann nur bei einer abgeschlossenen Registrierung hinzugefügt werden. Öffnen Sie die Urban Feed Monitor App auf Ihrem Smartphone, legen Sie einen Stall an und scannen Sie den QR-Code nach Anweisung auf dem Smartphone.
-<Image src={DE_Step3b} alt="Schritt 3b" width={500} />
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={Registrierung}  alt="Installation Urban-Cloud, Registrierungsstatus des Touch-Terminals" title="Registrierung Touch-Terminal" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud-Setup, Registrierungsstatus des Touch-Terminals
+  </figcaption>
+</figure>
+
+- Leuchtet die Statusanzeige <span class="text-2xl">➀&nbsp;</span><span class="p-0.5 bg-green-600 text-white">grün</span>, so wurde die REST-Schnitstelle bereits aktiviert. Alles ist in Ordnung, Sie können im dritten Installationsschritt die [REST-Schnitstelle](../rest) aktivieren.
+
+- Leuchtet die Statusanzeige <span class="p-0.5 bg-red-500 text-white">rot</span>, so wurde das Terminal noch nicht beim Cloudserver registriert, es besteht also Handlungsbedarf. 
+
+    - Tippen Sie auf die rechts neben dem Listeneintrag `Registrierung am Server` befindliche Schaltfläche&nbsp;<Gear width={20} class="inline mb-0" /> (Ziffer <span class="text-2xl">➁</span>) um den Bildschirm für die Registrierung des Touch-Terminals aufzurufen ([Screenshot 2](#screenshot2)).
+
+    - Folgen Sie den Anweisungen im nächsten Abschnitt und registrieren Sie das Touch Terminal beim Urban-Cloudserver.
+
+## Touch-Terminal beim Cloudserver registrieren
+
+:::caution[Benutzerkonto in der App zwingend erforderlich]
+Eine erfolgreiche Registrierung des Terminals am Cloudserver setzt voraus, dass in der Urban Feedmonitor App ein [**Benutzerkonto**](/guide/user/01-registrierung/) erstellt wurde.
+:::
+
+- [Melden](/guide/user/02-einloggen/) Sie sich mit ihrem Benutzerkonto in der Urban Feedmonitor-App an.
+
+- [Registrieren](/guide/user/04-terminal-hinzufuegen/) Sie das Touch-Terminal am Urban-Cloudserver, indem Sie den QR-Code auf dem Bildschirm mit dem mobilen Endgerät einscannen. 
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={QRCode}  alt="Installation Urban-Cloud, QR-Code zur Registrierung des Touch-Terminals" title="QR-Code Registrierung Touch" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> QR-Code mit [UUID](https://de.wikipedia.org/wiki/Universally_Unique_Identifier) zur Registrierung des Touch-Terminals
+  </figcaption>
+</figure>
+
+- Die Statusanzeige ([Screenshot 1](#screenshot1), Ziffer <span class="text-2xl">➀</span>) links neben dem Listeneintrag `Registrierung am Server` sollte jetzt <span class="p-0.5 bg-green-600 text-white">grün</span> leuchten und damit signalisieren, dass das Touch-Terminal erfolgreich am Urban-Clouserver registriert wurde.
+
+Aktivieren Sie jetzt im nächsten Installationsschritt die lokale [REST-Schnittstelle](../rest) des Touch-Terminals.
