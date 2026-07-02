@@ -1,12 +1,36 @@
 ---
 title: Validierung des Automatenmodells
-description: Ermittlung des Automatenmodells, Vergleich mit den Mindestvoraussetzungen
+description: Mindestanforderungen an den Tränkeautomaten für die Nutzung der Urban Feed Monitor App
 sidebar:
   label: Modell Tränkeautomat
   order: 20
 ---
-### Anforderungen an das Modell des Tränkeautomaten
+import { Image } from 'astro:assets';
+import AlmaVergleich from './Alma_vs_AlmaPro.png';
+
+### Anforderungen an das Automatenmodell
+
+Für die Nutzung der Urban Feed Monitor App ist ein Tränkeautomat des Typs **Alma Pro** zwingend erforderlich.
+
+### Ermittlung des Automatenmodells
+
+Der einfachste Weg ist die visuelle Unterscheidung anhand von Gehäuse und Terminal:
+
+<figure>
+  <Image src={AlmaVergleich} alt="Gegenüberstellung Alma (Vorgänger) und Alma Pro" />
+  <figcaption class="text-sm mt-2">
+    Abbildung 1: Erkennungsmerkmale Alma (links) und Alma Pro (rechts)
+  </figcaption>
+</figure>
+
+| Merkmal | Alma (Vorgänger) | Alma Pro |
+|---|---|---|
+| Gehäuse | Edelstahl, geperlt | Edelstahl, satiniert|
+| Aufschrift | "KälberMama Alma" | „ALMA PRO" |
+| Terminal | Kein separates Terminal | TouchTerminal auf Schwenkarm/separat |
 
 ### Weiteres Vorgehen
 
-* Handelt es sich bei ihrem Automaten nicht um eine Alma Pro, so können Sie die App leider nicht ausführen. Erwägen Sie eine Ersatzinvestition für ihren Tränkeautomaten und erwerben Sie einen Automaten der Modellreihe *Alm Pro*.
+* Haben Sie eine **Alma** oder andere Vorgänger (U40, U20), ist eine Nutzung der Urban Feed Monitor App nicht möglich. Wenden Sie sich an Urban oder Ihren Vertriebspartner.
+
+* Haben Sie eine **Alma Pro**, prüfen Sie als nächstes das [Touchscreen-Terminal](./terminal).
