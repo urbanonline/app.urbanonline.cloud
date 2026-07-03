@@ -1,39 +1,66 @@
 ---
-title: Prüfung des Touchscreen-Terminals 
-description: Ermittlung der Version des Touchscreen-Terminals
+title: Prüfung des Touchscreen-Terminals
+description: Ermittlung der Generation des Touchscreen-Terminals
 sidebar:
   label: Touchscreen-Terminal
   order: 30
 ---
 import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import TerminalGen from './TouchTerminalGen.png';
 import version_check from './version-checktouch.png';
 import Home from '../../../../../public/icons/almapro/home.svg';
 import QuestionMark from '../../../../../public/icons/almapro/questionmark.svg';
-import { Aside } from '@astrojs/starlight/components';
 
-### Anforderungen an den Touch-Terminal
+### Anforderungen an das Touchscreen-Terminal
 
-Für die Installation und das Setup der Urban-Cloud ist ein Terminal der  <span class="font-bold">Generation 2 </span> (verkauft ab 2020) oder höher zwingend erforderlich.
+Für die Installation und das Setup der Urban-Cloud ist ein TouchTerminal der <span class="font-bold">Generation 2</span> (verkauft ab 2020) oder höher zwingend erforderlich.
 
 ### Ermittlung der Generation
 
-So prüfen Sie, welche Generation des Touch-Terminals Sie haben:
+#### Visuelle Erkennung
 
-
-* Wechseln Sie zur Startseite des Automaten, klicken Sie dazu ggf. auf die oberste `Home`-Schaltfläche <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> in der Navigationsleiste im linken Bildschirmbereich.
-* Klicken Sie im Startbildschirm auf die `Hilfe`-Schaltfläche <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Icon Hilfemenü" /> im rechten oberen Bildschirmbereich.
-* Die installierte Hardware-Generation <span class="text-2xl">➂</span> wird jetzt links neben der Schaltfläche zur Sprachumschaltung neben "Hardware" angezeigt.
+Die einfachste Methode ist die visuelle Unterscheidung anhand des Gehäuses:
 
 <figure>
 <div class="border border-gray-300 rounded-xs p-4">
-<Image src={version_check} alt="Alma Pro: Versionsprüfung Firmware"  title="Alma Pro: Versionsprüfung Firmware" />
-  </div>
-  <figcaption class="text-sm mt-2">
-    <span class="">Abbildung 1:</span> Alma Pro, Überprüfung der Firmwareversion
-  </figcaption>
+<Image src={TerminalGen} alt="Übersicht TouchTerminal Generationen" title="Übersicht TouchTerminal Generationen" />
+</div>
+<figcaption class="text-sm mt-2">
+  Abbildung 1: TouchTerminal Generationen — links nicht kompatibel, rechts kompatibel
+</figcaption>
 </figure>
 
+| Generation | Erkennungsmerkmal | Kompatibel |
+|---|---|---|
+| Gen 1 | USB-Anschluss obere Kante vertikal zentriert, Pro-Face-Aufschrift  | ❌ |
+| 8" Terminal | Rotes Gehäuse | ❌ |
+| Gen 2 | USB-Anschluss mit darunter liegender blauer LED schließt unten bündig mit Bildschirm ab, Pro-face-Aufschrift  | ✅ |
+| Gen 3–4 | Grüner Rahmen um USB-Anschluss, schwarzer Rahmen um Bildschirm, Schneider-Aufschrift | ✅ |
 
-        <Aside type="note" icon="information" title="Hinweis">
-            Bei älteren Firmware-Versionen wird die installierte Hardware nicht angezeigt. Wenden Sie sich an Ihren Urban-Servicepartner.
-        </Aside>
+#### Bestätigung über das Firmware-Menü
+
+Falls die visuelle Zuordnung nicht eindeutig ist, können Sie die Generation direkt am Terminal ablesen:
+
+* Wechseln Sie zur Startseite des Automaten, klicken Sie dazu ggf. auf die oberste `Home`-Schaltfläche <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> in der Navigationsleiste im linken Bildschirmbereich.
+* Klicken Sie im Startbildschirm auf die `Hilfe`-Schaltfläche <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Icon Hilfemenü" /> im rechten oberen Bildschirmbereich.
+* Die installierte Hardware-Generation <span class="text-2xl">➂</span> wird jetzt links neben der Schaltfläche zur Sprachumschaltung neben „Hardware" angezeigt.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: Überprüfung der Terminal-Generation" title="Alma Pro: Überprüfung der Terminal-Generation" />
+</div>
+<figcaption class="text-sm mt-2">
+  Abbildung 2: Alma Pro, Überprüfung der Terminal-Generation
+</figcaption>
+</figure>
+
+<Aside type="note" icon="information" title="Hinweis">
+  Bei älteren Firmware-Versionen wird die installierte Hardware nicht angezeigt. Wenden Sie sich in diesem Fall an Ihren Urban-Servicepartner.
+</Aside>
+
+### Weiteres Vorgehen
+
+* Haben Sie ein **nicht kompatibles Terminal** (Gen 1 oder 8"), wenden Sie sich an Urban oder Ihren Vertriebspartner.
+
+* Haben Sie ein kompatibles Terminal (Gen 2 oder höher), prüfen Sie als nächstes die [Firmwareversion](/prerequisites/feeder/firmware).
