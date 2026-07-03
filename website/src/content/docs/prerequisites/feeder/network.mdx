@@ -6,6 +6,11 @@ sidebar:
   order: 50
 ---
 import { Image } from 'astro:assets';
+import Gear from '../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../public/icons/almapro/feeder.svg';
+import TouchGear from '../../../../../public/icons/almapro/touchgear.svg';
+import Edit from '../../../../../public/icons/almapro/edit.svg';
+
 import VNCParameters from 'graphics/vnc-parameters.png';
 
 ## Prüfung auf Urban Router
@@ -14,12 +19,16 @@ Das Alma Pro Fütterungssystem muss zwingend mit einem Urban Router ausgestattet
 
 ## Prüfung der Netzwerkverbindung Internetverbindung
 
-Der WAN-Port des Urban Routers musst zwingend mit dem Router des Betriebsnetzwerks verbunden sein.
+Der WAN-Port des Urban Routers muss zwingend mit dem Router des Betriebsnetzwerks verbunden sein.
 So ermitteln Sie, ob diese Voraussetzung erfüllt ist:
 
+1. Klicken Sie in der linken Seitenliste des Touch-Terminals auf die unterste Schaltfläche <Gear width={20} class="inline ml-2 mb-0" /> `Einstellungen` ([Screenshot 1](#screenshot-1), Ziffer <span class="text-2xl">➀</span>). Sollten Sie sich im Hauptmenü befinden, wo keine Seitenleiste sichtbar ist, drücken sie die Schaltfläche <Feeder width={20} class="inline ml-2 mb-0" /> `Automat`, um die Seitenleiste anzuzeigen.
+1. Klicken Sie in der unteren Symbolleiste des Touch-Terminals auf die dritte, mit `VNC` betitelte Schaltfläche (Ziffer&nbsp;<span class="text-2xl">➁</span>) um ein Popup-Fenster <span class="text-2xl">Ⓐ</span> mit den VNC-Verbindungsparmetern zu öffnen.
+1. In der oberen Hälfte des Popup-Fensters finden Sie die Überschrift `Dem WLAN-Router zugewiesene IP-Adresse (WAN)`:
+    - Ist dort eine <span class="text-2xl">Ⓑ</span> [IPv4-Adresse](https://de.wikipedia.org/wiki/IP-Adresse) in der Form `nnn.nnn.nnn.nnn` aufgeführt, so ist der Urban Router korrekt mit dem Router des Betriebsnetzwerks verbunden.
+    - Ist der unterhalb der Überschrift kein Text vorhanden, so ist der Urban Router <span class="font-bold">nicht</span> mit dem Router des Betriebsnetzwerks verbunden. 
 
-
-<figure>
+<figure id="screenshot-1">
 <div class="border border-gray-300 rounded-xs p-4">
 <Image src={VNCParameters}  alt="Installation Urban-Cloud, Validierung Netzwerkverbindung" title="Validierung Netzwerkverbindung" />
   </div>
@@ -30,7 +39,9 @@ So ermitteln Sie, ob diese Voraussetzung erfüllt ist:
 
 ## Prüfung der Internetverbindung
 
+Nutzen Sie die [Anleitung](/guide/service/setup-cloud/network/#view-connectivity-details) aus der Servicedokumentation um zu ermitteln, ob das Touchscreen-Terminal mit dem Internet verbunden ist.
+
 ## Weiteres Vorgehen
 
-* Verbinden Sie den Ist Urban-Router Ihres Fütterungssystems mit dem Internet falls nicht bereits geschehen.
+* Verbinden Sie den Urban-Router Ihres Fütterungssystems mit dem Internet falls nicht bereits geschehen.
 * Ist/sind ihr(e) Automat(en) noch nicht mit einem Urban Router ausgestattet, so beauftragen Sie ihren Vertriebspartner damit, ihr Fütterungssystem mit einem Urban-Router auszustatten.
