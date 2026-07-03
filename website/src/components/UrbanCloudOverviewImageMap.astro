@@ -21,46 +21,32 @@ interface Props {
   };
 }
 
-const { src, alt, title, caption, captionPrefix, languagePrefix = "", labels } = Astro.props;
-
+const { src, alt, title, languagePrefix = "", labels } = Astro.props;
 const areas = [
-  { href: `${languagePrefix}/guide/service/setup-cloud/network`,      left: "13%", top: "17.8%", width: "65%", height: "11%", label: labels.network },
-  { href: `${languagePrefix}/guide/service/setup-cloud/network#view-connectivity-details`,      left: "81.9%", top: "17.8%", width: "5.3%", height: "11%", label: labels.networkIcon},
+  { href: `${languagePrefix}/guide/service/setup-cloud/network`,      left: "13%", top: "27%", width: "65%", height: "11%", label: labels.network },
+  { href: `${languagePrefix}/guide/service/setup-cloud/network#view-connectivity-details`,      left: "81.9%", top: "27%", width: "5.3%", height: "11%", label: labels.networkIcon},
 
-  { href: `${languagePrefix}/guide/service/setup-cloud/registration`, left: "13%", top: "31.1%", width: "65%", height: "11%", label: labels.registration },
-  { href: `${languagePrefix}/guide/service/setup-cloud/registration#registration-terminal`,      left: "81.9%", top: "31.1%", width: "5.3%", height: "11%", label: labels.registrationIcon},
+  { href: `${languagePrefix}/guide/service/setup-cloud/registration`, left: "13%", top: "39%", width: "65%", height: "11%", label: labels.registration },
+  { href: `${languagePrefix}/guide/service/setup-cloud/registration#registration-terminal`,      left: "81.9%", top: "39%", width: "5.3%", height: "11%", label: labels.registrationIcon},
 
-  { href: `${languagePrefix}/guide/service/setup-cloud/rest`,         left: "13%", top: "44.4%", width: "65%", height: "11%", label: labels.rest },
-  { href: `${languagePrefix}/guide/service/setup-cloud/rest#activate-rest-api`,      left: "81.9%", top: "44.4%", width: "5.3%", height: "11%", label: labels.restIcon},
+  { href: `${languagePrefix}/guide/service/setup-cloud/rest`,         left: "13%", top: "50.5%", width: "65%", height: "11%", label: labels.rest },
+  { href: `${languagePrefix}/guide/service/setup-cloud/rest#activate-rest-api`,      left: "81.9%", top: "50.5%", width: "5.3%", height: "11%", label: labels.restIcon},
 
-  { href: `${languagePrefix}/guide/service/setup-cloud/sync`,         left: "13%", top: "57.7%", width: "65%", height: "11%", label: labels.sync },
-  { href: `${languagePrefix}/guide/service/setup-cloud/sync#installation-sync-service`,      left: "81.9%", top: "57.7%", width: "5.3%", height: "11%", label: labels.syncIcon},
+  { href: `${languagePrefix}/guide/service/setup-cloud/sync`,         left: "13%", top: "62.5%", width: "65%", height: "11%", label: labels.sync },
+  { href: `${languagePrefix}/guide/service/setup-cloud/sync#installation-sync-service`,      left: "81.9%", top: "62.5%", width: "5.3%", height: "11%", label: labels.syncIcon},
 ];
 ---
-
-<figure>
-  <div class="border border-gray-300 rounded-xs p-4">
-    <div class="relative inline-block">
-      <Image src={src} alt={alt} title={title} />
-
-      {areas.map((area) => (
-        <a
-          href={area.href}
-          aria-label={area.label}
-          title={area.label}
-          class:list={[
-            "absolute transition-colors",
-            "border-2 border-transparent",
-            "hover:border-red-500 hover:bg-blue-400/20",
-          ]}
-          style={{ left: area.left, top: area.top, width: area.width, height: area.height }}
-        />
-      ))}
-    </div>
-  </div>
-  {caption && (
-    <figcaption class="text-sm mt-2">
-      {captionPrefix && <span>{captionPrefix}</span>} {caption}
-    </figcaption>
-  )}
-</figure>
+<Image src={src} alt={alt} title={title} />
+{areas.map((area) => (
+  <a
+    href={area.href}
+    aria-label={area.label}
+    title={area.label}
+    class:list={[
+      "absolute transition-colors",
+      "border-2 border-transparent",
+      "hover:border-red-500 hover:bg-blue-400/20",
+    ]}
+    style={{ left: area.left, top: area.top, width: area.width, height: area.height }}
+  />
+))}

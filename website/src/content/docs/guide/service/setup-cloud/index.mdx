@@ -16,46 +16,52 @@ Screenshot 1 listet die vier Installationsschritte auf, die im Zuge des Setup f�
 
 Nach jedem Schritt muss eine weitere der vier linken, anfänglich <span class="p-0.5 bg-red-600 text-white">roten</span> Statusanzeigen <span class="p-0.5 bg-green-600 text-white">grün</span> aufleuchten. Nach dem erfolgreichen Setup signalisieren vier <span class="p-0.5 bg-green-600 text-white">grüne</span> Anzeigen, dass die CLoud funktionsfähig eingerichtet wurde.
 
-<Tabs>
-<TabItem label="Vor dem Setup">
-<CloudOverviewImageMap
-  src={UebersichtVorSetup}
-  alt="Installationsbildschirm Urban Cloud-Service"
-  title="Installationsschritte"
-  captionPrefix="Screenshot 1:"
-  caption="Alma Pro, Installationsbildschirm Urban Cloud-Service, vor und nach dem Setup"
-  labels={{
-    network: "Verbindung zum Server",
-    networkIcon: "Details zur Erreichbarkeit einsehen",
-    registration: "Registrierung am Server",
-    registrationIcon: "",
-    rest: "REST-API aktiv",
-    restIcon: "Status der REST-API prüfen",
-    sync: "Datenübertragung aktiv",
-    syncIcon: "",
-  }}
-/>
-</TabItem>
-<TabItem label="Nach erfolgreichem Setup">
-<CloudOverviewImageMap
-  src={UebersichtNachSetup}
-  alt="Installationsbildschirm Urban Cloud-Service"
-  title="Installationsschritte"
-  captionPrefix="Screenshot 1:"
-  caption="Alma Pro, Installationsbildschirm Urban Cloud-Service, vor und nach dem Setup"
-  labels={{
-    network: "Verbindung zum Server",
-    networkIcon: "Details zur Erreichbarkeit einsehen",
-    registration: "Registrierung am Server",
-    registrationIcon: "",
-    rest: "REST-API aktiv",
-    restIcon: "Status der REST-API prüfen",
-    sync: "Datenübertragung aktiv",
-    syncIcon: "",
-  }}
-/>
-</TabItem>
-</Tabs>
+
+<figure>
+  <div class="border border-gray-300 rounded-xs p-4">
+    <div class="relative inline-block">
+      <Tabs>
+      <TabItem label="Vor dem Setup">
+        <CloudOverviewImageMap
+          src={UebersichtVorSetup}
+          alt="Installationsbildschirm Urban Cloud-Service"
+          title="Installationsschritte"
+          labels={{
+            network: "Verbindung zum Server",
+            networkIcon: "Details zur Erreichbarkeit einsehen",
+            registration: "Registrierung am Server",
+            registrationIcon: "",
+            rest: "REST-API aktiv",
+            restIcon: "Status der REST-API prüfen",
+            sync: "Datenübertragung aktiv",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      <TabItem label="Nach erfolgreichem Setup">
+        <CloudOverviewImageMap
+          src={UebersichtNachSetup}
+          alt="Installationsbildschirm Urban Cloud-Service"
+          title="Installationsschritte"
+          labels={{
+            network: "Verbindung zum Server",
+            networkIcon: "Details zur Erreichbarkeit einsehen",
+            registration: "Registrierung am Server",
+            registrationIcon: "",
+            rest: "REST-API aktiv",
+            restIcon: "Status der REST-API prüfen",
+            sync: "Datenübertragung aktiv",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      </Tabs>
+    </div>
+  </div>
+  <figcaption class="text-sm mt-2">
+    Screenshot 1: Alma Pro, Installationsbildschirm Urban Cloud-Service, vor und nach dem Setup
+  </figcaption>
+</figure>
 
 <Aside type="caution" title="Klickbare Elemente im obigen Screenshot 1" icon="information">
 Die vier Textelemente der Liste sowie die rechts daneben befindlichen Schaltflächen &nbsp;<Gear width={20} class="inline mb-0" /> sind als klickbare, interaktive Elemente ausgeführt. Tippen Sie auf oder bewegen Sie die Maus über diese Elemente, um zur Seite mit den jeweiligen Detailinformationen zu springen.
