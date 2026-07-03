@@ -6,16 +6,24 @@ sidebar:
   order: 30
 tableOfContents: false
 ---
-import { Image } from 'astro:assets';
-import Uebersicht from '../graphics/Cloud-Uebersicht.png';
-import { Steps } from '@astrojs/starlight/components';
+import { Aside, TabItem, Tabs } from '@astrojs/starlight/components';
+import UebersichtVorSetup from '../graphics/Cloud-Uebersicht.png';
+import UebersichtNachSetup from '../graphics/Cloud-Uebersicht-Running.png';
 import CloudOverviewImageMap from '../../../../../components/UrbanCloudOverviewImageMap.astro';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
 
+Screenshot 1 listet die vier Installationsschritte auf, die im Zuge des Setup für den Urban Cloud- Service nacheinander durchlaufen werden müssen. Klicken Sie nacheinander jeweils auf die rechts neben dem Listenelement befindlichen Schaltflächen &nbsp;<Gear width={20} class="inline mb-0" /> und nehmen Sie in dem nun aufgerufenen Bildschirm die jeweils notwendigen Aktionen vor.
+
+Nach jedem Schritt muss eine weitere der vier linken, anfänglich <span class="p-0.5 bg-red-600 text-white">roten</span> Statusanzeigen <span class="p-0.5 bg-green-600 text-white">grün</span> aufleuchten. Nach dem erfolgreichen Setup signalisieren vier <span class="p-0.5 bg-green-600 text-white">grüne</span> Anzeigen, dass die CLoud funktionsfähig eingerichtet wurde.
+
+<Tabs>
+<TabItem label="Vor dem Setup">
 <CloudOverviewImageMap
-  src={Uebersicht}
+  src={UebersichtVorSetup}
   alt="Installationsbildschirm Urban Cloud-Service"
+  title="Installationsschritte"
   captionPrefix="Screenshot 1:"
-  caption="Alma Pro, Installationsbildschirm Urban Cloud-Service"
+  caption="Alma Pro, Installationsbildschirm Urban Cloud-Service, vor und nach dem Setup"
   labels={{
     network: "Verbindung zum Server",
     networkIcon: "Details zur Erreichbarkeit einsehen",
@@ -27,13 +35,28 @@ import CloudOverviewImageMap from '../../../../../components/UrbanCloudOverviewI
     syncIcon: "",
   }}
 />
+</TabItem>
+<TabItem label="Nach erfolgreichem Setup">
+<CloudOverviewImageMap
+  src={UebersichtNachSetup}
+  alt="Installationsbildschirm Urban Cloud-Service"
+  title="Installationsschritte"
+  captionPrefix="Screenshot 1:"
+  caption="Alma Pro, Installationsbildschirm Urban Cloud-Service, vor und nach dem Setup"
+  labels={{
+    network: "Verbindung zum Server",
+    networkIcon: "Details zur Erreichbarkeit einsehen",
+    registration: "Registrierung am Server",
+    registrationIcon: "",
+    rest: "REST-API aktiv",
+    restIcon: "Status der REST-API prüfen",
+    sync: "Datenübertragung aktiv",
+    syncIcon: "",
+  }}
+/>
+</TabItem>
+</Tabs>
 
-<Steps>
-1. [Prüfung der Netzwerkverbindung zum Server](network)
- 
-1. [Registrierung des Terminals in der Feed Monitor-App](registration)
-
-1. [Aktivierung der REST-Schnittstelle](rest)
-
-1. [Installation und Aktivierung des Synchronisationsdienstes](sync)
-</Steps>
+<Aside type="caution" title="Klickbare Elemente im obigen Screenshot 1" icon="information">
+Die vier Textelemente der Liste sowie die rechts daneben befindlichen Schaltflächen &nbsp;<Gear width={20} class="inline mb-0" /> sind als klickbare, interaktive Elemente ausgeführt. Tippen Sie auf oder bewegen Sie die Maus über diese Elemente, um zur Seite mit den jeweiligen Detailinformationen zu springen.
+</Aside>
