@@ -7,13 +7,16 @@ import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 import Preview from '/src/components/Frame.astro';
 
 <Preview>
-  <CardGrid slot="cards" stagger>
+  <CardGrid slot="cards" >
     <LinkCard
       title="Checkliste"
       href="/prerequisites/checklist/"
       description="Voraussetzungen mit wenigen Klicks prüfen" 
-   />
-       <LinkCard
+    />
+    <div style="visibility: hidden;">
+      <LinkCard/>
+    </div>
+    <LinkCard
       title="Alma Pro"
       href="/prerequisites/feeder/"
       description="Mindestanforderungen an den Tränkeautomaten"
