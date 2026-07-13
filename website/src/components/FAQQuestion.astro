@@ -8,16 +8,16 @@ export interface FaqItem {
 interface Props {
   items: FaqItem[];
   groupName?: string;
-  copyLinkLabel?: string;
-  copiedLabel?: string;
 }
 
 const {
   items,
   groupName = "faq-group",
-  copyLinkLabel = "Copy link",
-  copiedLabel = "Link copied!",
 } = Astro.props;
+
+const t = Astro.locals.t;
+const copyLinkLabel = t("faq.component.copy-link");
+const copiedLabel = t("faq.component.link-copied");
 
 function slugify(text: string): string {
   return text
@@ -39,7 +39,7 @@ function slugify(text: string): string {
           <summary class="faq-summary flex items-center justify-between gap-4 cursor-pointer w-full">
             <div class="flex items-center gap-2 min-w-0">
               <h3 class="text-base font-medium">{faq.question}</h3>
-              
+
                <a href={`#${anchorId}`}
                 class="faq-share shrink-0 p-1 -m-1 rounded text-slate-400 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-200 hover:text-indigo-600"
                 data-anchor={anchorId}
@@ -207,12 +207,13 @@ function slugify(text: string): string {
       const linkIcon = link.querySelector(".faq-share-link");
       const checkIcon = link.querySelector(".faq-share-check");
 
+      // Übersetzte Labels aus den serverseitig gesetzten Attributen lesen.
+      const copiedLabel = link.dataset.copiedLabel ?? "Link copied!";
+      const copyLabel = link.getAttribute("aria-label") ?? "Copy link";
+
       link.classList.add("copied");
       linkIcon?.classList.add("hidden");
       checkIcon?.classList.remove("hidden");
-
-      const copiedLabel = link.dataset.copiedLabel ?? "Link copied!";
-      const copyLabel = link.getAttribute("aria-label") ?? "Copy link";
       link.setAttribute("title", copiedLabel);
 
       setTimeout(() => {

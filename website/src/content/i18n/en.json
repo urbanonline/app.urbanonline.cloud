@@ -3,5 +3,7 @@
   "navbar.faq": "FAQ",
   "navbar.documentation.prerequisites": "Prerequisites",
   "navbar.documentation.for-users": "For users",
-  "navbar.documentation.for-service": "For service"
+  "navbar.documentation.for-service": "For service",
+  "faq.component.copy-link": "Copy link",
+  "faq.component.link-copied": "Link copied!"
 }

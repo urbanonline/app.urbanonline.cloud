@@ -3,5 +3,7 @@
   "navbar.faq": "FAQ",
   "navbar.documentation.prerequisites": "Необходимые условия",
   "navbar.documentation.for-users": "Для пользователей",
-  "navbar.documentation.for-service": "Для сервисной службы"
+  "navbar.documentation.for-service": "Для сервисной службы",
+  "faq.component.copy-link": "Скопировать ссылку",
+  "faq.component.link-copied": "Ссылка скопирована!"
 }
