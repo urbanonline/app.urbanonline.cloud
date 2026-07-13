@@ -8,11 +8,15 @@ export interface FaqItem {
 interface Props {
   items: FaqItem[];
   groupName?: string;
+  copyLinkLabel?: string;
+  copiedLabel?: string;
 }
 
 const {
   items,
   groupName = "faq-group",
+  copyLinkLabel = "Copy link",
+  copiedLabel = "Link copied!",
 } = Astro.props;
 
 function slugify(text: string): string {
@@ -39,8 +43,9 @@ function slugify(text: string): string {
                <a href={`#${anchorId}`}
                 class="faq-share shrink-0 p-1 -m-1 rounded text-slate-400 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-200 hover:text-indigo-600"
                 data-anchor={anchorId}
-                aria-label="Copy link for this question"
-                title="Copy link"
+                data-copied-label={copiedLabel}
+                aria-label={copyLinkLabel}
+                title={copyLinkLabel}
               >
                 <svg class="faq-share-link" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
@@ -205,13 +210,16 @@ function slugify(text: string): string {
       link.classList.add("copied");
       linkIcon?.classList.add("hidden");
       checkIcon?.classList.remove("hidden");
-      link.setAttribute("title", "Link copied!");
+
+      const copiedLabel = link.dataset.copiedLabel ?? "Link copied!";
+      const copyLabel = link.getAttribute("aria-label") ?? "Copy link";
+      link.setAttribute("title", copiedLabel);
 
       setTimeout(() => {
         link.classList.remove("copied");
         linkIcon?.classList.remove("hidden");
         checkIcon?.classList.add("hidden");
-        link.setAttribute("title", "Link copied");
+        link.setAttribute("title", copyLabel);
       }, 1500);
 
       history.replaceState(null, "", `#${anchor}`);
