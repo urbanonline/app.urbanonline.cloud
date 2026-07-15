@@ -1,0 +1,229 @@
+---
+export interface FaqItem {
+  question: string;
+  answer: string;
+  id?: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  groupName?: string;
+}
+
+const {
+  items,
+  groupName = "faq-group",
+} = Astro.props;
+
+const t = Astro.locals.t;
+const copyLinkLabel = t("faq.component.copy-link");
+const copiedLabel = t("faq.component.link-copied");
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+---
+
+<div class="faq-wrapper max-w-xl mx-auto flex flex-col items-center px-4 md:px-0">
+
+  <div class="faq-container w-full">
+    {items.map((faq) => {
+      const anchorId = faq.id ?? slugify(faq.question);
+      return (
+        <details id={anchorId} name={groupName} class="faq-item group border-b border-slate-200 py-4 w-full">
+          <summary class="faq-summary flex items-center justify-between gap-4 cursor-pointer w-full">
+            <div class="flex items-center gap-2 min-w-0">
+              <h3 class="text-base font-medium">{faq.question}</h3>
+
+               <a href={`#${anchorId}`}
+                class="faq-share shrink-0 p-1 -m-1 rounded text-slate-400 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-200 hover:text-indigo-600"
+                data-anchor={anchorId}
+                data-copied-label={copiedLabel}
+                aria-label={copyLinkLabel}
+                title={copyLinkLabel}
+              >
+                <svg class="faq-share-link" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                <svg class="faq-share-check hidden" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </a>
+            </div>
+
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="faq-icon shrink-0 transition-transform duration-500 ease-in-out group-open:rotate-180"
+            >
+              <path
+                d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2"
+                stroke="#1D293D"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </summary>
+
+          <div class="faq-answer text-sm text-slate-500 max-w-md pt-4" set:html={faq.answer} />
+        </details>
+      );
+    })}
+  </div>
+</div>
+
+<style>
+  details.faq-item {
+    border-left: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    background: none !important;
+  }
+
+  details.faq-item > summary.faq-summary {
+    list-style: none !important;
+  }
+  details.faq-item > summary.faq-summary::-webkit-details-marker {
+    display: none !important;
+  }
+  details.faq-item > summary.faq-summary::marker {
+    content: "" !important;
+    display: none !important;
+  }
+
+  details.faq-item > summary.faq-summary::before,
+  details.faq-item > summary.faq-summary::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .faq-answer :global(strong) {
+    font-weight: 600;
+    color: inherit;
+  }
+  .faq-answer :global(a) {
+    color: #4f46e5; /* indigo-600 */
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .faq-answer :global(.faq-highlight) {
+    color: #4f46e5;
+    font-weight: 600;
+  }
+
+  /* Sanfter Farbwechsel beim Hover über die Frage. */
+  .faq-summary:hover h3 {
+    color: #4f46e5;
+  }
+  .faq-summary h3 {
+    transition: color 200ms ease;
+  }
+
+  .faq-share {
+    text-decoration: none !important;
+  }
+
+  .faq-share.copied {
+    opacity: 1 !important;
+    color: #4f46e5;
+  }
+
+  /* Touch-devices: No hover, showing icon with opacity. */
+  @media (hover: none) {
+    .faq-share {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes faqFlash {
+    0%, 100% { background-color: transparent; }
+    30% { background-color: rgba(79, 70, 229, 0.06); }
+  }
+  details.faq-item.faq-flash {
+    animation: faqFlash 1.6s ease;
+    border-radius: 6px;
+  }
+</style>
+
+<script>
+  function openFromHash() {
+    const hash = decodeURIComponent(location.hash.slice(1));
+    if (!hash) return;
+
+    const el = document.getElementById(hash);
+    if (!(el instanceof HTMLDetailsElement)) return;
+
+    el.open = true;
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.classList.add("faq-flash");
+      setTimeout(() => el.classList.remove("faq-flash"), 1600);
+    });
+  }
+
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+
+  async function copyText(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Fallback for older browsers
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand("copy");
+      ta.remove();
+      return ok;
+    }
+  }
+
+  document.querySelectorAll<HTMLAnchorElement>(".faq-share").forEach((link) => {
+    link.addEventListener("click", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const anchor = link.dataset.anchor;
+      if (!anchor) return;
+
+      const url = `${location.origin}${location.pathname}#${anchor}`;
+      const ok = await copyText(url);
+      if (!ok) return;
+
+      const linkIcon = link.querySelector(".faq-share-link");
+      const checkIcon = link.querySelector(".faq-share-check");
+
+      // Übersetzte Labels aus den serverseitig gesetzten Attributen lesen.
+      const copiedLabel = link.dataset.copiedLabel ?? "Link copied!";
+      const copyLabel = link.getAttribute("aria-label") ?? "Copy link";
+
+      link.classList.add("copied");
+      linkIcon?.classList.add("hidden");
+      checkIcon?.classList.remove("hidden");
+      link.setAttribute("title", copiedLabel);
+
+      setTimeout(() => {
+        link.classList.remove("copied");
+        linkIcon?.classList.remove("hidden");
+        checkIcon?.classList.add("hidden");
+        link.setAttribute("title", copyLabel);
+      }, 1500);
+
+      history.replaceState(null, "", `#${anchor}`);
+    });
+  });
+</script>
