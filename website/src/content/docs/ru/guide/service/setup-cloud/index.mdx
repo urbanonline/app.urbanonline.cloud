@@ -1,0 +1,68 @@
+---
+title: Обзор необходимых шагов установки
+description: Необходимые шаги для настройки службы облачной синхронизации
+sidebar:
+  label: Обзор шагов
+  order: 30
+tableOfContents: false
+---
+import { Aside, TabItem, Tabs } from '@astrojs/starlight/components';
+import UebersichtVorSetup from '../graphics/Cloud-Uebersicht_RU_T.png';
+import UebersichtNachSetup from '../graphics/Cloud-Uebersicht-Running_RU_T.png';
+import CloudOverviewImageMap from '../../../../../../components/UrbanCloudOverviewImageMap.astro';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+
+На скриншоте 1 перечислены четыре шага установки, которые необходимо выполнить последовательно в ходе настройки службы Urban Cloud. Нажимайте поочерёдно на кнопки &nbsp;<Gear width={20} class="inline mb-0" />, расположенные справа от каждого пункта списка, и выполняйте на открывшемся экране необходимые действия.
+
+После каждого шага один из четырёх индикаторов состояния слева, изначально красных, должен загореться зелёным. После успешной настройки четыре зелёных индикатора сигнализируют о том, что облако настроено корректно и работает.
+
+
+<figure>
+  <div class="border border-gray-300 rounded-xs p-4">
+    <div class="relative inline-block">
+      <Tabs>
+      <TabItem label="До настройки">
+        <CloudOverviewImageMap
+          src={UebersichtVorSetup}
+          alt="Экран установки службы Urban Cloud"
+          title="Шаги установки"
+          labels={{
+            network: "Connection to server",
+            networkIcon: "Просмотреть детали подключения",
+            registration: "Registration at server",
+            registrationIcon: "",
+            rest: "REST-API active",
+            restIcon: "Проверить статус REST-API",
+            sync: "Data transmission active",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      <TabItem label="После успешной настройки">
+        <CloudOverviewImageMap
+          src={UebersichtNachSetup}
+          alt="Экран установки службы Urban Cloud"
+          title="Шаги установки"
+          labels={{
+            network: "Connection to server",
+            networkIcon: "Просмотреть детали подключения",
+            registration: "Registration at server",
+            registrationIcon: "",
+            rest: "REST-API active",
+            restIcon: "Проверить статус REST-API",
+            sync: "Data transmission active",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      </Tabs>
+    </div>
+  </div>
+  <figcaption class="text-sm mt-2">
+    Скриншот 1: Alma Pro, экран установки службы Urban Cloud, до и после настройки
+  </figcaption>
+</figure>
+
+<Aside type="caution" title="Интерактивные элементы на скриншоте 1 выше" icon="information">
+Четыре текстовых элемента списка, а также расположенные справа от них кнопки &nbsp;<Gear width={20} class="inline mb-0" />, реализованы как интерактивные элементы, на которые можно нажать. Коснитесь этих элементов или наведите на них курсор мыши, чтобы перейти на страницу с соответствующей подробной информацией.
+</Aside>

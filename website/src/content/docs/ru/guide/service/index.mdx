@@ -1,14 +1,79 @@
 ---
-topic: service
-title: Service guidelines
-description: A guide in my new Starlight docs site.
+title: Описание процесса установки при настройке Urban Cloud
+description: Перечень трёх шагов, которые необходимо выполнить для настройки Urban Cloud.
 sidebar:
-  hidden: true
+  label: Обзор процесса установки
+  hidden: false
+tableOfContents: false
 ---
+import { Steps, Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+<Tabs>
+<TabItem label="Краткий обзор">
 
-## Further reading
+Для **настройки и активации Urban Cloud** необходимо выполнить следующие **два шага**:
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+<Steps>
+    1. [Открытие экрана установки](callup-screen)
+    1. [Установка сервиса Urban Cloud](setup-cloud)
+
+        Теперь в **четыре этапа** настраивается связь Alma Pro с Urban Cloud:
+        <Steps>
+            1. [Проверка сетевого соединения](setup-cloud/network)
+            1. [Регистрация сенсорного терминала](setup-cloud/registration) в Urban Cloud (через приложение Feed Monitor)
+            1. [Активация REST-API](setup-cloud/rest)
+            1. [Настройка службы синхронизации](setup-cloud/sync)
+        </Steps>
+
+</Steps>
+</TabItem>
+<TabItem label="Краткое описание">
+
+Для **настройки и активации Urban Cloud** необходимо выполнить следующие **два шага**:
+
+<Steps>
+    1. [Открытие экрана установки](callup-screen) \
+        Этот экран можно открыть только с помощью сервисного USB-накопителя Urban или зная актуальный на сегодня временный пароль.
+    1. [Установка сервиса Urban Cloud](setup-cloud)
+
+        Теперь в **четыре этапа** настраивается связь Alma Pro с Urban Cloud:
+
+        <Steps>
+            1. [Проверка сетевого соединения](setup-cloud/network) \
+                Сенсорный терминал должен быть подключён к интернету и иметь доступ к серверу Urban Cloud.
+            1. [Регистрация сенсорного терминала](setup-cloud/registration) в Urban Cloud (через приложение Feed Monitor) \
+                Только после успешной регистрации сенсорного терминала в Urban Cloud данные о животных и автомате могут передаваться в Urban Cloud.
+            1. [Активация REST-API](setup-cloud/rest) \
+                Только при активном REST-API служба облачной синхронизации может локально получать данные с сенсорного терминала и передавать их в облако.
+            1. [Настройка службы синхронизации](setup-cloud/sync) \
+                Служба синхронизации на терминале должна быть один раз установлена и запущена; она периодически передаёт локальные данные на сервер Urban Cloud.
+        </Steps>
+
+</Steps>
+</TabItem>
+<TabItem label="Подробное описание">
+
+Прежде чем можно будет использовать приложение Urban Feed Monitor, на Alma Pro обязательно должен быть установлен Urban Cloud.
+Для **настройки и активации Urban Cloud** необходимо выполнить следующие **два шага**:
+
+<Steps>
+    1. [Открытие экрана установки](callup-screen) \
+        Сначала необходимо открыть экран установки; для этого нужен сервисный USB-накопитель Urban или знание актуального на сегодня временного пароля.
+    1. [Установка сервиса Urban Cloud](setup-cloud)
+
+        Теперь в **четыре этапа** настраивается связь Alma Pro с Urban Cloud:
+
+        <Steps>
+
+            1. [Проверка сетевого соединения](setup-cloud/network) \
+                Сначала необходимо проверить и убедиться, что сенсорный терминал Alma Pro подключён к интернету и имеет доступ к серверу Urban Cloud.
+            1. [Регистрация сенсорного терминала](setup-cloud/registration) в Urban Cloud (через приложение Feed Monitor) \
+                Сенсорный терминал должен быть зарегистрирован в Urban Cloud, чтобы данные о животных и автомате могли успешно передаваться в Urban Cloud. Регистрация выполняется в приложении Urban Feed Monitor: для этого нужно отсканировать камерой смартфона QR-код, отображаемый на сенсорном терминале.
+            1. [Активация REST-API](setup-cloud/rest) \
+                На сенсорном терминале обязательно должен быть активирован REST-API. Только при активном сервисе служба облачной синхронизации может локально получать данные о животных и автомате и передавать их в облако. \
+            1. [Настройка службы синхронизации](setup-cloud/sync) \
+                Служба синхронизации — это фоновый процесс на терминале, который периодически запрашивает данные и передаёт их в Urban Cloud. Эту службу нужно установить один раз; необходимый программный пакет загружается через интернет с сервера Urban Cloud. После успешной установки эту службу синхронизации ещё нужно запустить.
+        </Steps>
+</Steps>
+</TabItem>
+</Tabs>

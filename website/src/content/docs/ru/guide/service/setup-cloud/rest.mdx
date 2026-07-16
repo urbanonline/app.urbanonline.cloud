@@ -1,0 +1,50 @@
+---
+title: Активация REST-интерфейса
+description: REST-интерфейс обязательно должен быть активирован для синхронизации данных с Urban Cloud.
+sidebar:
+  label: ③ Активация REST-интерфейса
+  order: 30
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import REST_API from '../graphics/REST-API_RU_T.png';
+import ActivationREST from '../graphics/ActivationREST_RU.png';
+
+## Проверка статуса REST-интерфейса
+
+На третьем шаге установки необходимо проверить, активирован ли REST-интерфейс сенсорного терминала и может ли он принимать запросы. Цвет круглого индикатора состояния (цифра&nbsp;<span class="text-2xl">➀</span>) слева от третьего пункта списка `REST-API active` на экране установки информирует Вас об этом:
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={REST_API}  alt="Установка Urban Cloud, REST-интерфейс" title="REST-интерфейс" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 1:</span> Настройка облака, статус активации REST-интерфейса
+  </figcaption>
+</figure>
+
+- Если индикатор состояния <span class="text-2xl">➀&nbsp;</span> горит <span class="p-0.5 bg-green-600 text-white">зелёным</span>, REST-интерфейс уже активирован. Всё в порядке, и на последнем шаге установки Вы можете активировать [передачу данных в облако](../sync).
+- Если индикатор состояния горит <span class="p-0.5 bg-red-500 text-white">красным</span>, REST-интерфейс ещё не активирован, и требуется вмешательство. 
+    - Нажмите кнопку&nbsp;<Gear width={20} class="inline mb-0" /> (цифра <span class="text-2xl">➁</span>) справа от пункта списка `REST-API active`, чтобы открыть экран активации REST-интерфейса ([скриншот 2](#screenshot2)).
+    - Активируйте REST-интерфейс согласно инструкциям в следующем разделе.
+
+## <a id="activate-rest-api"></a> Активация REST-интерфейса
+
+Активация REST-интерфейса выполняется на следующем экране:
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ActivationREST}  alt="Установка Urban Cloud, активация REST-интерфейса" title="Активация REST-интерфейса" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 2:</span> Настройка облака, активация REST-интерфейса
+  </figcaption>
+</figure>
+
+- Нажмите на опцию `ДА` на переключателе (цифра <span class="text-2xl">➀</span>).
+- Нажмите кнопку с символом <span class="p-0.5 bg-green-600 text-white">✓</span> (цифра&nbsp;<span class="text-2xl">➁</span>), чтобы применить изменение.
+- Содержимое всплывающего окна теперь изменится, появится большая зелёная галочка <span class="p-0.5 bg-green-600 text-white">✓</span>, сообщающая об успешной активации.
+- Подтвердите это сообщение об успехе.
+- Индикатор состояния ([скриншот 1](#screenshot1), цифра <span class="text-2xl">➀</span>) слева от пункта списка `REST-API active` теперь должен гореть <span class="p-0.5 bg-green-600 text-white">зелёным</span>, сигнализируя об успешной активации REST-интерфейса.
+
+Теперь активируйте на последнем шаге установки [передачу данных в облако](../sync).

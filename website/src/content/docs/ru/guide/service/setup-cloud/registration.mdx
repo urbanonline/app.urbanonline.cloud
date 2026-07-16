@@ -1,0 +1,50 @@
+---
+title: Регистрация терминала на сервере Urban Cloud
+description: Регистрация терминала на сервере Urban Cloud создаёт условия для передачи данных в облако.
+sidebar:
+  label: ② Регистрация терминала
+  order: 20
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import QRCode from '../graphics/RegistrierungQRCode_RU_T.png';
+import Registrierung from '../graphics/Registrierung_RU_T.png';
+
+## Проверка статуса регистрации сенсорного терминала
+
+На втором шаге установки необходимо проверить, зарегистрирован ли сенсорный терминал на сервере Urban Cloud; только в этом случае данные могут успешно передаваться в Urban Cloud. Цвет круглого индикатора состояния (цифра&nbsp;<span class="text-2xl">➀</span>) слева от второго пункта списка `Registration at server` на экране установки информирует Вас об этом:
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={Registrierung}  alt="Установка Urban Cloud, статус регистрации сенсорного терминала" title="Регистрация сенсорного терминала" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 1:</span> Настройка облака, статус регистрации сенсорного терминала
+  </figcaption>
+</figure>
+
+- Если индикатор состояния <span class="text-2xl">➀&nbsp;</span> горит <span class="p-0.5 bg-green-600 text-white">зелёным</span>, сенсорный терминал уже активирован. Всё в порядке, и на третьем шаге установки Вы можете активировать [REST-интерфейс](../rest).
+- Если индикатор состояния горит <span class="p-0.5 bg-red-500 text-white">красным</span>, терминал ещё не зарегистрирован на облачном сервере, и требуется вмешательство. 
+    - Нажмите кнопку&nbsp;<Gear width={20} class="inline mb-0" /> (цифра <span class="text-2xl">➁</span>) справа от пункта списка `Registration at server`, чтобы открыть экран регистрации сенсорного терминала ([скриншот 2](#screenshot2)).
+    - Следуйте инструкциям в следующем разделе, чтобы зарегистрировать сенсорный терминал на сервере Urban Cloud.
+
+## <a id="registration-terminal"></a>Регистрация сенсорного терминала на облачном сервере
+
+:::caution[Обязательна учётная запись в приложении]
+Успешная регистрация терминала на облачном сервере предполагает, что в приложении Urban Feed Monitor уже создана [**учётная запись**](/guide/user/01-registrierung/).
+:::
+- [Войдите](/guide/user/02-einloggen/) в приложение Urban Feed Monitor с помощью своей учётной записи.
+- [Зарегистрируйте](/guide/user/04-terminal-hinzufuegen/) сенсорный терминал на сервере Urban Cloud, отсканировав QR-код на экране мобильным устройством.
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={QRCode}  alt="Установка Urban Cloud, QR-код для регистрации сенсорного терминала" title="QR-код для регистрации сенсорного терминала" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 2:</span> QR-код с [UUID](https://de.wikipedia.org/wiki/Universally_Unique_Identifier) для регистрации сенсорного терминала
+  </figcaption>
+</figure>
+
+- Индикатор состояния ([скриншот 1](#screenshot1), цифра <span class="text-2xl">➀</span>) слева от пункта списка `Registration at server` теперь должен гореть <span class="p-0.5 bg-green-600 text-white">зелёным</span>, сигнализируя об успешной регистрации сенсорного терминала на сервере Urban Cloud.
+
+Теперь активируйте на следующем шаге установки локальный [REST-интерфейс](../rest) сенсорного терминала.
