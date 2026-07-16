@@ -1,0 +1,46 @@
+---
+title: Vérification de la connexion réseau au serveur
+description: Au début de l'installation, le système vérifie si le serveur Urban Cloud peut être joint via le réseau.
+sidebar:
+  label: ① Connexion au serveur
+  order: 10
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import NetworkDetails from '../graphics/NetworkDetails_FR_T.png';
+import ConnectionServer from '../graphics/ConnectionServer_FR_T.png';
+
+## Vérifier l'accessibilité du serveur cloud
+
+Au début de l'installation, il faut vérifier si le serveur Urban Cloud peut être joint via internet. La couleur du voyant d'état circulaire (chiffre&nbsp;<span class="text-2xl">➀</span>) situé à gauche du premier élément de la liste `Connection to server` sur l'écran d'installation vous renseigne à ce sujet :
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ConnectionServer}  alt="Installation d'Urban Cloud, vérification de la connexion réseau" title="Vérification de la connexion réseau" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 1 :</span> Configuration cloud, état d'accessibilité du serveur cloud
+  </figcaption>
+</figure>
+
+- Si le voyant d'état <span class="text-2xl">➀&nbsp;</span> est <span class="p-0.5 bg-green-600 text-white">vert</span>, le serveur cloud peut être joint. Tout est en ordre, vous pouvez poursuivre avec l'étape d'installation suivante, [l'enregistrement du terminal](../registration).
+- Si le voyant d'état est <span class="p-0.5 bg-red-500 text-white">rouge</span>, le serveur cloud **ne peut pas** être joint, une action est donc nécessaire. Appuyez sur le bouton&nbsp;<Gear width={20} class="inline ml-2 mb-0" /> (chiffre <span class="text-2xl">➁</span>) situé à droite de l'élément de la liste pour passer à un écran de détail ([capture d'écran 2](#screenshot2)) dont le contenu vous aidera pour le dépannage
+
+## <a id="view-connectivity-details"></a> Vérification de l'accessibilité des composants réseau
+
+La [capture d'écran](#screenshot2) suivante indique si le routeur réseau Urban&nbsp;<span class="text-2xl">➀</span>, internet&nbsp;<span class="text-2xl">➁</span>, puis enfin le serveur Urban Cloud (chiffre&nbsp;<span class="text-2xl">➂</span>) peuvent être joints successivement :
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={NetworkDetails}  alt="Installation d'Urban Cloud, état de la connexion réseau" title="État de la connexion réseau" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 2 :</span> Alma Pro, configuration cloud, détails d'accessibilité du serveur cloud
+  </figcaption>
+</figure>
+
+- Un voyant d'état <span class="p-0.5 bg-green-600 text-white">vert</span> signale à chaque fois que le composant est accessible, un voyant d'état <span class="p-0.5 bg-red-500 text-white">rouge</span> signale une inaccessibilité. Utilisez les détails affichés pour votre analyse d'erreur.
+- Assurez-vous, l'un après l'autre, par un câblage approprié et des tests de fonctionnement des composants réseau, que les trois voyants d'état soient <span class="p-0.5 bg-green-600 text-white">verts</span>.
+  <div class="pt-4"><Aside type="caution" title="Remarque" >Consultez le cas échéant le technicien réseau responsable du réseau et de la connexion internet de votre exploitation.</Aside></div>
+- Si les trois voyants d'état sont <span class="p-0.5 bg-green-600 text-white">verts</span>, vous avez résolu avec succès le problème de connexion et pouvez poursuivre avec l'étape suivante, [`Enregistrement du terminal`](../registration).

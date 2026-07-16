@@ -1,14 +1,79 @@
 ---
-topic: service
-title: Service guidelines
-description: A guide in my new Starlight docs site.
+title: Description du processus d'installation lors de la configuration d'Urban Cloud
+description: Liste des trois étapes à suivre pour configurer Urban Cloud.
 sidebar:
-  hidden: true
+  label: Vue d'ensemble du processus d'installation
+  hidden: false
+tableOfContents: false
 ---
+import { Steps, Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
-Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
-Writing a good guide requires thinking about what your users are trying to do.
+<Tabs>
+<TabItem label="Aperçu rapide">
 
-## Further reading
+Pour la **configuration et l'activation d'Urban Cloud**, les **deux étapes suivantes** sont nécessaires :
 
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+<Steps>
+    1. [Accès à l'écran d'installation](callup-screen)
+    1. [Installation du service Urban Cloud](setup-cloud)
+
+        Un **processus en quatre étapes** met maintenant en place la communication entre l'Alma Pro et Urban Cloud :
+        <Steps>
+            1. [Vérification de la connexion réseau](setup-cloud/network)
+            1. [Enregistrement du terminal tactile](setup-cloud/registration) dans Urban Cloud (via l'application Feed Monitor)
+            1. [Activation de l'API REST](setup-cloud/rest)
+            1. [Configuration du service de synchronisation](setup-cloud/sync)
+        </Steps>
+
+</Steps>
+</TabItem>
+<TabItem label="Description succincte">
+
+Pour la **configuration et l'activation d'Urban Cloud**, les **deux étapes suivantes** sont nécessaires :
+
+<Steps>
+    1. [Accès à l'écran d'installation](callup-screen) \
+        Cet écran ne peut être ouvert qu'avec une clé de service Urban ou en connaissant le mot de passe temporaire du jour.
+    1. [Installation du service Urban Cloud](setup-cloud)
+
+        Un **processus en quatre étapes** met maintenant en place la communication entre l'Alma Pro et Urban Cloud :
+
+        <Steps>
+            1. [Vérification de la connexion réseau](setup-cloud/network) \
+                Le terminal tactile doit être connecté à internet et pouvoir accéder au serveur Urban Cloud.
+            1. [Enregistrement du terminal tactile](setup-cloud/registration) dans Urban Cloud (via l'application Feed Monitor) \
+                Ce n'est qu'une fois le terminal tactile enregistré avec succès dans Urban Cloud que les données des animaux et du distributeur peuvent être transmises à Urban Cloud.
+            1. [Activation de l'API REST](setup-cloud/rest) \
+                Ce n'est que lorsque l'API REST est active que le service de synchronisation cloud peut récupérer les données du terminal tactile localement et les transmettre au cloud.
+            1. [Configuration du service de synchronisation](setup-cloud/sync) \
+                Le service de synchronisation sur le terminal doit être installé et démarré une seule fois ; il transmet périodiquement les données locales au serveur Urban Cloud.
+        </Steps>
+
+</Steps>
+</TabItem>
+<TabItem label="Description détaillée">
+
+Avant de pouvoir utiliser l'application Urban Feed Monitor, Urban Cloud doit impérativement être installé sur l'Alma Pro.
+Pour la **configuration et l'activation d'Urban Cloud**, les **deux étapes suivantes** sont nécessaires :
+
+<Steps>
+    1. [Accès à l'écran d'installation](callup-screen) \
+        Il faut d'abord ouvrir l'écran d'installation ; cela nécessite une clé de service Urban ou la connaissance du mot de passe temporaire du jour.
+    1. [Installation du service Urban Cloud](setup-cloud)
+
+        Un **processus en quatre étapes** met maintenant en place la communication entre l'Alma Pro et Urban Cloud :
+
+        <Steps>
+
+            1. [Vérification de la connexion réseau](setup-cloud/network) \
+                Il faut d'abord vérifier et s'assurer que le terminal tactile de l'Alma Pro est connecté à internet et peut accéder au serveur Urban Cloud.
+            1. [Enregistrement du terminal tactile](setup-cloud/registration) dans Urban Cloud (via l'application Feed Monitor) \
+                Le terminal tactile doit être enregistré dans Urban Cloud pour que les données des animaux et du distributeur puissent être transmises avec succès à Urban Cloud. L'enregistrement s'effectue dans l'application Urban Feed Monitor, où un code QR affiché sur le terminal tactile doit être scanné avec l'appareil photo du smartphone.
+            1. [Activation de l'API REST](setup-cloud/rest) \
+                L'API REST doit impérativement être activée sur le terminal tactile. Ce n'est qu'avec le service actif que le service de synchronisation cloud peut récupérer localement les données des animaux et du distributeur et les transmettre au cloud. \
+            1. [Configuration du service de synchronisation](setup-cloud/sync) \
+                Le service de synchronisation est un processus en arrière-plan exécuté sur le terminal, qui interroge périodiquement les données et les transmet à Urban Cloud. Ce service doit être installé une seule fois ; le paquet logiciel nécessaire est récupéré via internet depuis le serveur Urban Cloud. Une fois l'installation réussie, ce service de synchronisation doit encore être démarré.
+        </Steps>
+</Steps>
+</TabItem>
+</Tabs>

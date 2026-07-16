@@ -1,0 +1,50 @@
+---
+title: Enregistrement du terminal auprès du serveur Urban Cloud
+description: L'enregistrement du terminal auprès du serveur Urban Cloud crée les conditions nécessaires à la transmission des données vers le cloud.
+sidebar:
+  label: ② Enregistrement du terminal
+  order: 20
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import QRCode from '../graphics/RegistrierungQRCode_FR_T.png';
+import Registrierung from '../graphics/Registrierung_FR_T.png';
+
+## Vérifier l'état d'enregistrement du terminal tactile
+
+Dans la deuxième étape de l'installation, il faut vérifier si le terminal tactile est déjà enregistré auprès du serveur Urban Cloud ; ce n'est qu'à cette condition que les données pourront être transmises avec succès à Urban Cloud. La couleur du voyant d'état circulaire (chiffre&nbsp;<span class="text-2xl">➀</span>) situé à gauche du deuxième élément de la liste `Registration at server` sur l'écran d'installation vous renseigne à ce sujet :
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={Registrierung}  alt="Installation d'Urban Cloud, état d'enregistrement du terminal tactile" title="Enregistrement du terminal tactile" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 1 :</span> Configuration cloud, état d'enregistrement du terminal tactile
+  </figcaption>
+</figure>
+
+- Si le voyant d'état <span class="text-2xl">➀&nbsp;</span> est <span class="p-0.5 bg-green-600 text-white">vert</span>, le terminal tactile a déjà été activé. Tout est en ordre, et lors de la troisième étape d'installation vous pouvez activer [l'interface REST](../rest).
+- Si le voyant d'état est <span class="p-0.5 bg-red-500 text-white">rouge</span>, le terminal n'est pas encore enregistré auprès du serveur cloud, une action est donc nécessaire. 
+    - Appuyez sur le bouton&nbsp;<Gear width={20} class="inline mb-0" /> (chiffre <span class="text-2xl">➁</span>) situé à droite de l'élément de la liste `Registration at server` pour accéder à l'écran d'enregistrement du terminal tactile ([capture d'écran 2](#screenshot2)).
+    - Suivez les instructions de la section suivante pour enregistrer le terminal tactile auprès du serveur Urban Cloud.
+
+## <a id="registration-terminal"></a>Enregistrer le terminal tactile auprès du serveur cloud
+
+:::caution[Un compte utilisateur dans l'application est impérativement requis]
+Un enregistrement réussi du terminal auprès du serveur cloud suppose qu'un [**compte utilisateur**](/guide/user/01-registrierung/) ait été créé dans l'application Urban Feed Monitor.
+:::
+- [Connectez-vous](/guide/user/02-einloggen/) à l'application Urban Feed Monitor avec votre compte utilisateur.
+- [Enregistrez](/guide/user/04-terminal-hinzufuegen/) le terminal tactile auprès du serveur Urban Cloud en scannant le code QR affiché à l'écran avec votre appareil mobile.
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={QRCode}  alt="Installation d'Urban Cloud, code QR pour l'enregistrement du terminal tactile" title="Code QR pour l'enregistrement du terminal tactile" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 2 :</span> Code QR avec [UUID](https://de.wikipedia.org/wiki/Universally_Unique_Identifier) pour l'enregistrement du terminal tactile
+  </figcaption>
+</figure>
+
+- Le voyant d'état ([capture d'écran 1](#screenshot1), chiffre <span class="text-2xl">➀</span>) situé à gauche de l'élément de la liste `Registration at server` devrait maintenant être <span class="p-0.5 bg-green-600 text-white">vert</span>, signalant que le terminal tactile a été enregistré avec succès auprès du serveur Urban Cloud.
+
+Activez maintenant, lors de l'étape d'installation suivante, [l'interface REST](../rest) locale du terminal tactile.

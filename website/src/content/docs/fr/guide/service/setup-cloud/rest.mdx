@@ -1,0 +1,50 @@
+---
+title: Activation de l'interface REST
+description: L'interface REST doit impérativement être activée pour pouvoir synchroniser les données avec Urban Cloud.
+sidebar:
+  label: ③ Activation de l'interface REST
+  order: 30
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import REST_API from '../graphics/REST-API_FR_T.png';
+import ActivationREST from '../graphics/ActivationREST_FR.png';
+
+## Vérifier l'état de l'interface REST
+
+Dans la troisième étape de l'installation, il faut vérifier si l'interface REST du terminal tactile est activée et peut accepter des requêtes. La couleur du voyant d'état circulaire (chiffre&nbsp;<span class="text-2xl">➀</span>) situé à gauche du troisième élément de la liste `REST-API active` sur l'écran d'installation vous renseigne à ce sujet :
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={REST_API}  alt="Installation d'Urban Cloud, interface REST" title="Interface REST" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 1 :</span> Configuration cloud, état d'activation de l'interface REST
+  </figcaption>
+</figure>
+
+- Si le voyant d'état <span class="text-2xl">➀&nbsp;</span> est <span class="p-0.5 bg-green-600 text-white">vert</span>, l'interface REST a déjà été activée. Tout est en ordre, et lors de la dernière étape d'installation vous pouvez activer le [transfert de données vers le cloud](../sync).
+- Si le voyant d'état est <span class="p-0.5 bg-red-500 text-white">rouge</span>, l'interface REST n'est pas encore activée, une action est donc nécessaire. 
+    - Appuyez sur le bouton&nbsp;<Gear width={20} class="inline mb-0" /> (chiffre <span class="text-2xl">➁</span>) situé à droite de l'élément de la liste `REST-API active` pour accéder à l'écran d'activation de l'interface REST ([capture d'écran 2](#screenshot2)).
+    - Activez l'interface REST en suivant les instructions de la section suivante.
+
+## <a id="activate-rest-api"></a> Activer l'interface REST
+
+L'activation de l'interface REST s'effectue sur l'écran suivant :
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ActivationREST}  alt="Installation d'Urban Cloud, activation de l'interface REST" title="Activation de l'interface REST" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 2 :</span> Configuration cloud, activation de l'interface REST
+  </figcaption>
+</figure>
+
+- Appuyez sur l'option `OUI` du curseur (chiffre <span class="text-2xl">➀</span>).
+- Appuyez sur le bouton avec le symbole <span class="p-0.5 bg-green-600 text-white">✓</span> (chiffre&nbsp;<span class="text-2xl">➁</span>) pour valider la modification.
+- Le contenu de la fenêtre contextuelle change alors, et une grande coche verte <span class="p-0.5 bg-green-600 text-white">✓</span> apparaît, confirmant le succès de l'activation.
+- Validez ce message de succès.
+- Le voyant d'état ([capture d'écran 1](#screenshot1), chiffre <span class="text-2xl">➀</span>) situé à gauche de l'élément de la liste `REST-API active` devrait maintenant être <span class="p-0.5 bg-green-600 text-white">vert</span>, signalant que l'interface REST a été activée avec succès.
+
+Activez maintenant, lors de la dernière étape d'installation, le [transfert de données vers le cloud](../sync).
