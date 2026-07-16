@@ -38,7 +38,7 @@ function slugify(text: string): string {
         <details id={anchorId} name={groupName} class="faq-item group border-b border-slate-200 py-4 w-full">
           <summary class="faq-summary flex items-center justify-between gap-4 cursor-pointer w-full">
             <div class="flex items-center gap-2 min-w-0">
-              <h3 class="text-base font-medium">{faq.question}</h3>
+              <h3 id={"question-" + anchorId} class="text-base font-medium" set:html={faq.question}/>
 
                <a href={`#${anchorId}`}
                 class="faq-share shrink-0 p-1 -m-1 rounded text-slate-400 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity duration-200 hover:text-indigo-600"
@@ -75,7 +75,7 @@ function slugify(text: string): string {
             </svg>
           </summary>
 
-          <div class="faq-answer text-sm text-slate-500 max-w-md pt-4" set:html={faq.answer} />
+          <div id={"answer-" + anchorId} class="faq-answer text-sm text-slate-500 max-w-md pt-4" set:html={faq.answer} />
         </details>
       );
     })}
@@ -157,8 +157,12 @@ function slugify(text: string): string {
 
 <script>
   function openFromHash() {
-    const hash = decodeURIComponent(location.hash.slice(1));
+    let hash = decodeURIComponent(location.hash.slice(1));
     if (!hash) return;
+
+    if (hash.startsWith("question-")) {
+      hash = hash.slice(9);
+    }
 
     const el = document.getElementById(hash);
     if (!(el instanceof HTMLDetailsElement)) return;
