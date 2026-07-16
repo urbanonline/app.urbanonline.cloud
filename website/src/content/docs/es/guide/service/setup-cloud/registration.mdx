@@ -1,0 +1,50 @@
+---
+title: Registro del terminal en el servidor de Urban Cloud
+description: El registro del terminal en el servidor de Urban Cloud crea las condiciones necesarias para poder transmitir datos a la nube.
+sidebar:
+  label: ② Registro del terminal
+  order: 20
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import QRCode from '../graphics/RegistrierungQRCode_ES_T.png';
+import Registrierung from '../graphics/Registrierung_ES_T.png';
+
+## Comprobar el estado de registro del terminal táctil
+
+En el segundo paso de la instalación hay que comprobar si el terminal táctil ya está registrado en el servidor de Urban Cloud; solo entonces se podrán transmitir correctamente los datos a Urban Cloud. El color del indicador de estado circular (número&nbsp;<span class="text-2xl">➀</span>) a la izquierda de la segunda entrada de la lista `Registration at server` en la pantalla de instalación te informa sobre esto:
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={Registrierung}  alt="Instalación de Urban Cloud, estado de registro del terminal táctil" title="Registro del terminal táctil" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Captura 1:</span> Configuración de la nube, estado de registro del terminal táctil
+  </figcaption>
+</figure>
+
+- Si el indicador de estado <span class="text-2xl">➀&nbsp;</span> está en <span class="p-0.5 bg-green-600 text-white">verde</span>, el terminal táctil ya se ha activado. Todo está en orden y en el tercer paso de instalación puedes activar la [interfaz REST](../rest).
+- Si el indicador de estado está en <span class="p-0.5 bg-red-500 text-white">rojo</span>, el terminal aún no se ha registrado en el servidor en la nube, por lo que hay que actuar. 
+    - Toca el botón&nbsp;<Gear width={20} class="inline mb-0" /> (número <span class="text-2xl">➁</span>) situado a la derecha de la entrada de la lista `Registration at server` para acceder a la pantalla de registro del terminal táctil ([captura 2](#screenshot2)).
+    - Sigue las instrucciones de la siguiente sección para registrar el terminal táctil en el servidor de Urban Cloud.
+
+## <a id="registration-terminal"></a>Registrar el terminal táctil en el servidor en la nube
+
+:::caution[Se requiere una cuenta de usuario en la app]
+Para registrar correctamente el terminal en el servidor en la nube es imprescindible haber creado una [**cuenta de usuario**](/guide/user/01-registrierung/) en la app Urban Feed Monitor.
+:::
+- [Inicia sesión](/guide/user/02-einloggen/) en la app Urban Feed Monitor con tu cuenta de usuario.
+- [Registra](/guide/user/04-terminal-hinzufuegen/) el terminal táctil en el servidor de Urban Cloud escaneando el código QR de la pantalla con tu dispositivo móvil.
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={QRCode}  alt="Instalación de Urban Cloud, código QR para el registro del terminal táctil" title="Código QR para el registro del terminal táctil" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Captura 2:</span> Código QR con [UUID](https://de.wikipedia.org/wiki/Universally_Unique_Identifier) para el registro del terminal táctil
+  </figcaption>
+</figure>
+
+- El indicador de estado ([captura 1](#screenshot1), número <span class="text-2xl">➀</span>) a la izquierda de la entrada de la lista `Registration at server` debería ponerse ahora en <span class="p-0.5 bg-green-600 text-white">verde</span>, indicando que el terminal táctil se ha registrado correctamente en el servidor de Urban Cloud.
+
+Ahora activa, en el siguiente paso de instalación, la [interfaz REST](../rest) local del terminal táctil.
