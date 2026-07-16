@@ -1,0 +1,54 @@
+---
+title: Opening the screen for installing the Urban Cloud service
+description: This page describes how to open the screen for installing the Urban Cloud service
+sidebar:
+  label: Open Installation Screen
+  order: 20
+---
+import { Image } from 'astro:assets';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Aufruf from './graphics/AufrufSetupCloud_EN.png';
+import Uebersicht from './graphics/Cloud-Uebersicht_EN.png';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+import TouchGear from '../../../../../../public/icons/almapro/touchgear.svg';
+import Edit from '../../../../../../public/icons/almapro/edit.svg';
+
+To begin the installation, you must first open the installation screen for the Urban Cloud service:
+
+### Opening the installation screen
+
+<Tabs>
+<TabItem label="Quick version">
+Click, as shown in [Screenshot 1](#screenshot1) below, on buttons <span class="text-2xl">➀</span>&nbsp;through&nbsp;<span class="text-2xl">⑤</span> in sequence.
+</TabItem>
+<TabItem label="Detailed description">
+1. In the left-hand sidebar of the touch terminal, click the bottom button <Gear width={20} class="inline ml-2 mb-0" /> `Settings` <span class="text-2xl">➀</span>. If you are in the main menu, where no sidebar is visible, press the button <Feeder width={20} class="inline ml-2 mb-0" /> `Feeder` to display the sidebar.
+1. In the bottom toolbar of the touch terminal, click the second button from the left <TouchGear width={30} class="inline ml-2 mb-0" /> `Touch-Terminal Settings` <span class="text-2xl">➁</span>.
+1. A series of menu items now appears in the left half of the central screen area. Click the bottom button `Accessories` <span class="text-2xl">➂</span>.
+1. One (or possibly several) menu item(s) now appears in the right half of the central screen area. Click the bottom button `Urban Cloud Service` <span style="font-size: 140%" id="Navigation_Digit_4">➃</span>. The button now moves to the left half of the screen.
+1. At the bottom of the right half of the screen, the button <Edit width={20} class="inline ml-2 mb-0" /> `Open settings` <span style="font-size: 140%" id="Navigation_Digit_5">➄</span> is now displayed. Click this button; a popup window opens listing the [steps](../setup-cloud) for setting up the Urban Cloud service.
+</TabItem>
+</Tabs>
+
+<figure id="screenshot1">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Aufruf}  alt="Opening the Urban Cloud installation menu" title="Opening Urban Cloud Installation" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Alma Pro, opening the installation screen for the Urban Cloud service
+  </figcaption>
+</figure>
+
+### Result of opening the screen
+
+A popup window now opens showing an overview screen listing four installation steps:
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Uebersicht}  alt="Urban Cloud installation menu" title="Urban Cloud Installation Menu" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> Alma Pro, Urban Cloud service installation screen
+  </figcaption>
+</figure>

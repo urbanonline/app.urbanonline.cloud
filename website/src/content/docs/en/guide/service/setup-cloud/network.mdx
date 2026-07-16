@@ -1,9 +1,46 @@
 ---
-title: Check the network connection to the server
-description: At the start of the installation, the system checks whether the Urban Cloud server can be reached via the network.
+title: Checking the network connection to the server
+description: At the start of the installation, it is checked whether the Urban Cloud server can be reached over the network.
 sidebar:
-  label: ① Connection to server
+  label: ① Connection to the Server
   order: 10
 ---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import NetworkDetails from '../graphics/NetworkDetails_EN.png';
+import ConnectionServer from '../graphics/ConnectionServer_EN.png';
 
-## Installation guide, Step 1
+## Checking whether the Cloud server can be reached
+
+At the start of the installation, it must be checked whether the Urban Cloud server can be reached over the internet. The color of the circular status indicator (digit&nbsp;<span class="text-2xl">➀</span>) to the left of the top list entry `Connection to server` on the installation screen provides this information:
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ConnectionServer}  alt="Urban Cloud installation, checking the network connection" title="Checking the Network Connection" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud setup, status of the Cloud server's reachability
+  </figcaption>
+</figure>
+
+- If the status indicator <span class="text-2xl">➀&nbsp;</span><span class="p-0.5 bg-green-600 text-white">green</span> lights up, the Cloud server can be reached. Everything is fine, and you can continue with the next installation step, [registering the terminal](../registration).
+- If the status indicator lights up <span class="p-0.5 bg-red-500 text-white">red</span>, the Cloud server **cannot** be reached, and action is required. Tap the button&nbsp;<Gear width={20} class="inline ml-2 mb-0" /> (digit <span class="text-2xl">➁</span>) to the right of the list entry to switch to a detail screen ([Screenshot 2](#screenshot2)) whose contents will help you troubleshoot
+
+## <a id="view-connectivity-details"></a> Checking the reachability of network components
+
+The following [screenshot](#screenshot2) shows whether the Urban network router&nbsp;<span class="text-2xl">➀</span>, the internet&nbsp;<span class="text-2xl">➁</span> and finally the Urban Cloud server (digit&nbsp;<span class="text-2xl">➂</span>) can each be reached in turn:
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={NetworkDetails}  alt="Urban Cloud installation, network connection status" title="Network Connection Status" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> Alma Pro, Cloud setup, details on the Cloud server's reachability
+  </figcaption>
+</figure>
+
+- A <span class="p-0.5 bg-green-600 text-white">green</span> status indicator signals that the component can be reached; a <span class="p-0.5 bg-red-500 text-white">red</span> status indicator signals that it cannot be reached. Use the listed details for your troubleshooting.
+- Make sure, one after another, through appropriate cabling and function tests of the network components, that all three status indicators light up <span class="p-0.5 bg-green-600 text-white">green</span>.
+  <div class="pt-4"><Aside type="caution" title="Note" >If necessary, consult the network technician responsible for the network and internet connection at your operation.</Aside></div>
+- Once all three status indicators light up <span class="p-0.5 bg-green-600 text-white">green</span>, you have successfully resolved the connection problem and can continue with the next step, [`Registering the terminal`](../registration).

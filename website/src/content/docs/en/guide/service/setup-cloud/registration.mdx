@@ -1,9 +1,50 @@
 ---
-title: Registration of terminal inside the feed monitor app
-description: A guide in my new Starlight docs site.
+title: Registering the terminal with the Urban Cloud server
+description: Registering the terminal with the Urban Cloud server creates the prerequisites for data to be transmitted to the Cloud.
 sidebar:
-  label: ② Registration Terminal
+  label: ② Terminal Registration
   order: 20
 ---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import QRCode from '../graphics/RegistrierungQRCode_EN.png';
+import Registrierung from '../graphics/Registrierung_EN.png';
 
-## Installation guide, Step 2
+## Checking the touch terminal's registration status
+
+In the second installation step, it must be checked whether the touch terminal is already registered with the Urban Cloud server; only then can data be successfully transmitted to the Urban Cloud. The color of the circular status indicator (digit&nbsp;<span class="text-2xl">➀</span>) to the left of the second list entry `Registration at server` on the installation screen provides this information:
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={Registrierung}  alt="Urban Cloud installation, touch terminal registration status" title="Touch Terminal Registration" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud setup, touch terminal registration status
+  </figcaption>
+</figure>
+
+- If the status indicator <span class="text-2xl">➀&nbsp;</span><span class="p-0.5 bg-green-600 text-white">green</span> lights up, the touch terminal has already been activated. Everything is fine, and in the third installation step you can activate the [REST interface](../rest).
+- If the status indicator lights up <span class="p-0.5 bg-red-500 text-white">red</span>, the terminal has not yet been registered with the Cloud server, and action is required. 
+    - Tap the button&nbsp;<Gear width={20} class="inline mb-0" /> (digit <span class="text-2xl">➁</span>) to the right of the `Registration at server` list entry to open the screen for registering the touch terminal ([Screenshot 2](#screenshot2)).
+    - Follow the instructions in the next section to register the touch terminal with the Urban Cloud server.
+
+## <a id="registration-terminal"></a>Registering the touch terminal with the Cloud server
+
+:::caution[A user account in the app is required]
+Successfully registering the terminal with the Cloud server requires that a [**user account**](/guide/user/01-registrierung/) has been created in the Urban Feed Monitor app.
+:::
+- [Log in](/guide/user/02-einloggen/) to the Urban Feed Monitor app with your user account.
+- [Register](/guide/user/04-terminal-hinzufuegen/) the touch terminal with the Urban Cloud server by scanning the QR code on the screen with your mobile device.
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={QRCode}  alt="Urban Cloud installation, QR code for registering the touch terminal" title="QR Code Touch Terminal Registration" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> QR code with [UUID](https://de.wikipedia.org/wiki/Universally_Unique_Identifier) for registering the touch terminal
+  </figcaption>
+</figure>
+
+- The status indicator ([Screenshot 1](#screenshot1), digit <span class="text-2xl">➀</span>) to the left of the `Registration at server` list entry should now light up <span class="p-0.5 bg-green-600 text-white">green</span>, signaling that the touch terminal has been successfully registered with the Urban Cloud server.
+
+Now activate the local [REST interface](../rest) of the touch terminal in the next installation step.
