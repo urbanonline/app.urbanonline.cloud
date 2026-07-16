@@ -1,0 +1,54 @@
+---
+title: Открытие экрана установки сервиса Urban Cloud
+description: На этой странице описано, как открыть экран установки сервиса Urban Cloud
+sidebar:
+  label: Открытие экрана установки
+  order: 20
+---
+import { Image } from 'astro:assets';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Aufruf from './graphics/AufrufSetupCloud_RU.png';
+import Uebersicht from './graphics/Cloud-Uebersicht_RU_T.png';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+import TouchGear from '../../../../../../public/icons/almapro/touchgear.svg';
+import Edit from '../../../../../../public/icons/almapro/edit.svg';
+
+В начале установки Вам необходимо сначала открыть экран установки сервиса Urban Cloud:
+
+### Открытие экрана установки
+
+<Tabs>
+<TabItem label="Краткое описание">
+Нажмите поочерёдно, как показано на [скриншоте 1](#screenshot1) ниже, на кнопки <span class="text-2xl">➀</span>&nbsp;–&nbsp;<span class="text-2xl">⑤</span>.
+</TabItem>
+<TabItem label="Подробное описание">
+1. В левой боковой панели сенсорного терминала нажмите нижнюю кнопку <Gear width={20} class="inline ml-2 mb-0" /> `Настройки` <span class="text-2xl">➀</span>. Если Вы находитесь в главном меню, где боковая панель не отображается, нажмите кнопку <Feeder width={20} class="inline ml-2 mb-0" /> `Автомат`, чтобы отобразить боковую панель.
+1. В нижней панели инструментов сенсорного терминала нажмите вторую кнопку слева <TouchGear width={30} class="inline ml-2 mb-0" /> `Настройки сенсорного терминала` <span class="text-2xl">➁</span>.
+1. В левой половине центральной области экрана теперь появится ряд пунктов меню. Нажмите нижнюю кнопку `аксессуары` <span class="text-2xl">➂</span>.
+1. В правой половине центральной области экрана теперь появится один (или, при необходимости, несколько) пункт(ов) меню. Нажмите нижнюю кнопку `Городской Облачный Сервис` <span style="font-size: 140%" id="Navigation_Digit_4">➃</span>. Кнопка переместится теперь в левую половину экрана.
+1. Внизу правой половины экрана теперь отображается кнопка <Edit width={20} class="inline ml-2 mb-0" /> `Открыть настройки` <span style="font-size: 140%" id="Navigation_Digit_5">➄</span>. Нажмите эту кнопку — откроется всплывающее окно со списком [шагов](../setup-cloud) настройки сервиса Urban Cloud.
+</TabItem>
+</Tabs>
+
+<figure id="screenshot1">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Aufruf}  alt="Открытие меню установки Urban Cloud" title="Открытие установки Urban Cloud" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 1:</span> Alma Pro, открытие экрана установки сервиса Urban Cloud
+  </figcaption>
+</figure>
+
+### Результат открытия
+
+Теперь откроется всплывающее окно с обзорным экраном, на котором перечислены четыре шага установки:
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Uebersicht}  alt="Меню установки Urban Cloud" title="Меню установки Urban Cloud" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 2:</span> Alma Pro, экран установки сервиса Urban Cloud
+  </figcaption>
+</figure>

@@ -1,0 +1,64 @@
+---
+title: Instalación e inicio del servicio de sincronización
+description: Por último, hay que configurar e iniciar el servicio de sincronización, que transmite periódicamente datos a la nube.
+sidebar:
+  label: ➃ Configurar la sincronización
+  order: 40
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import SyncService from '../graphics/SyncService_ES_T.png';
+import SyncInstallStart from '../graphics/SyncServiceInstallStart_ES.png';
+
+## Comprobar el estado del servicio de sincronización
+
+En el último paso de la instalación hay que comprobar si el servicio de sincronización está instalado e iniciado en el PC del terminal táctil. Este servicio transmite periódicamente los datos locales de animales y del autómata al servidor de Urban Cloud. El color del indicador de estado circular (número&nbsp;<span class="text-2xl">➀</span>) a la izquierda de la cuarta entrada de la lista `Data transmission active` en la pantalla de instalación te informa sobre esto:
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncService} alt="Instalación de Urban Cloud, servicio de sincronización" title="Servicio de sincronización" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Captura 1:</span> Configuración de la nube, estado de activación del servicio de sincronización
+  </figcaption>
+</figure>
+
+- Si el indicador de estado <span class="text-2xl">➀&nbsp;</span> está en <span class="p-0.5 bg-green-600 text-white">verde</span>, el servicio de sincronización ya se ha instalado e iniciado. ¡Enhorabuena, la instalación de Urban Cloud ha finalizado!
+- Si el indicador de estado está en <span class="p-0.5 bg-red-500 text-white">rojo</span>, el servicio de sincronización no está funcionando correctamente en este momento, por lo que hay que actuar. 
+    - Toca el botón&nbsp;<Gear width={20} class="inline mb-0" /> (número <span class="text-2xl">➁</span>) situado a la derecha de la entrada de la lista `Data transmission active` para acceder a la pantalla de instalación del servicio de sincronización ([captura 2](#screenshot2)).
+    - Instala e inicia el servicio de sincronización siguiendo las instrucciones de la siguiente sección.
+
+## Instalar e iniciar el servicio de sincronización
+
+La instalación y el inicio del servicio de sincronización se realizan en una única pantalla, que se muestra a continuación:
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncInstallStart}  alt="Instalación de Urban Cloud, instalación e inicio del servicio de sincronización" title="Instalación e inicio del servicio de sincronización" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Captura 2:</span> Configuración de la nube, instalación e inicio del servicio de sincronización
+  </figcaption>
+</figure>
+
+### <a id="installation-sync-service"></a>Instalación del servicio de sincronización
+
+Primero hay que instalar el paquete de software del servicio de sincronización; este paquete se obtiene por internet desde Urban Cloud. 
+
+  <Aside type="caution" title="Versión del paquete de software" icon="information">El número de versión del paquete de software que se va a instalar se muestra en un menú desplegable con borde rojo, debajo del título `Versiones disponibles` (letra&nbsp;<span class="text-2xl">Ⓐ</span>); este número de versión tiene el formato `prod - n.n.n - AAAA-MM-DD HH:MM:SS`.</Aside>
+
+- Asegúrate de que en el menú desplegable <span class="text-2xl">Ⓐ</span> `Versiones disponibles` esté seleccionada la versión más reciente del paquete de software. Para ello, toca el botón con borde rojo (número <span class="text-2xl">➀</span>) para abrir la lista de versiones del menú desplegable. Después, selecciona en la lista mostrada el número de versión más reciente.
+- Toca el botón `Instalar` (número <span class="text-2xl">➁</span>) para iniciar la instalación del servicio de sincronización.
+- Tras un breve tiempo de instalación, el contenido de la ventana emergente cambia y aparece una gran marca de verificación verde <span class="p-0.5 bg-green-600 text-white">✓</span> que confirma que la instalación se ha realizado con éxito. Confirma este mensaje de éxito.
+
+### Iniciar el servicio de sincronización
+
+Para que el servicio de sincronización que acabas de instalar correctamente empiece a funcionar, es necesario iniciarlo en otro paso, en la misma pantalla ([captura 2](#screenshot2)).
+
+- Toca el botón `Empezar` (número <span class="text-2xl">➂</span>) bajo el título <span class="text-2xl">Ⓑ</span> `Gestión de servicios` para iniciar el servicio de sincronización.
+- Tras un breve tiempo de inicio, el contenido de la ventana emergente cambia y aparece una gran marca de verificación verde <span class="p-0.5 bg-green-600 text-white">✓</span> que confirma el inicio correcto del servicio. Confirma este mensaje de éxito.
+- Tras configurar correctamente el servicio, toca el botón con el símbolo <span class="p-0.5 bg-green-600 text-white">✓</span> (número&nbsp;<span class="text-2xl">➃</span>) para salir de la pantalla de instalación.
+- El indicador de estado ([captura 1](#screenshot1), número <span class="text-2xl">➀</span>) a la izquierda de la entrada de la lista `Data transmission active` debería ponerse ahora en <span class="p-0.5 bg-green-600 text-white">verde</span>, indicando que el servicio de sincronización se ha instalado e iniciado correctamente.
+
+Con esto, la instalación de Urban Cloud en el autómata de alimentación Alma Pro ha finalizado con éxito.

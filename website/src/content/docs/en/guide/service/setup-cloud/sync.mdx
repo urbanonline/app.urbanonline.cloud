@@ -1,9 +1,64 @@
 ---
-title: Installation and Activation of Synchronisation Service
-description: Finally, the synchronization service, which periodically transfers data to the cloud, must be set up and started.
+title: Installing and starting the synchronization service
+description: Finally, the synchronization service, which periodically transmits data to the Cloud, must be set up and started.
 sidebar:
-  label: ④ Setup Synchronisation
+  label: ➃ Set Up Synchronization
   order: 40
 ---
+import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import SyncService from '../graphics/SyncService_EN.png';
+import SyncInstallStart from '../graphics/SyncServiceInstallStart_EN.png';
 
-## Installation guide, Step 4
+## Checking the status of the synchronization service
+
+In the final installation step, it must be checked whether the synchronization service is installed and started on the touch terminal PC. This service periodically transmits local animal and feeder data to the Urban Cloud server. The color of the circular status indicator (digit&nbsp;<span class="text-2xl">➀</span>) to the left of the fourth list entry `Data transmission active` on the installation screen provides this information:
+
+<figure id="screenshot1">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncService} alt="Urban Cloud installation, synchronization service" title="Synchronization Service" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud setup, synchronization service activation status
+  </figcaption>
+</figure>
+
+- If the status indicator <span class="text-2xl">➀&nbsp;</span><span class="p-0.5 bg-green-600 text-white">green</span> lights up, the synchronization service has already been installed and started. Congratulations, the Urban Cloud installation is now complete!
+- If the status indicator lights up <span class="p-0.5 bg-red-500 text-white">red</span>, the synchronization service is currently not working correctly, and action is required. 
+    - Tap the button&nbsp;<Gear width={20} class="inline mb-0" /> (digit <span class="text-2xl">➁</span>) to the right of the `Data transmission active` list entry to open the installation screen for the synchronization service ([Screenshot 2](#screenshot2)).
+    - Install and start the synchronization service according to the instructions in the next section.
+
+## Installing and starting the synchronization service
+
+Installing and starting the synchronization service is done on a single screen, shown below:
+
+<figure id="screenshot2">
+  <div class="border border-gray-300 rounded-xs p-4">
+    <Image src={SyncInstallStart}  alt="Urban Cloud installation, installing and starting the synchronization service" title="Installing and Starting the Synchronization Service" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 2:</span> Cloud setup, installing and starting the synchronization service
+  </figcaption>
+</figure>
+
+### <a id="installation-sync-service"></a>Installing the synchronization service
+
+First, the software package for the synchronization service must be installed; this package is retrieved from the Urban Cloud over the internet. 
+
+  <Aside type="caution" title="Software Package Version" icon="information">The version number of the software package to be installed is shown in a red-outlined dropdown menu below the heading `Available Versions` (letter&nbsp;<span class="text-2xl">Ⓐ</span>); this version number has the form `prod - n.n.n - YYYY-MM-DD HH:MM:SS`.</Aside>
+
+- Make sure that the latest version of the software package is selected in the <span class="text-2xl">Ⓐ</span> `Available Versions` dropdown menu. To do this, tap the red-outlined button (digit <span class="text-2xl">➀</span>) to open the version list of the dropdown menu. Then select the most recent version number from the displayed list.
+- Tap the `Install` button (digit <span class="text-2xl">➁</span>), to start installing the synchronization service.
+- After a short installation time, the content of the popup window changes and a large green checkmark <span class="p-0.5 bg-green-600 text-white">✓</span> appears, confirming the successful installation. Acknowledge this success message.
+
+### Starting the synchronization service
+
+For the synchronization service that has just been successfully installed to begin its work, it must be started in a further step, on the same screen ([Screenshot 2](#screenshot2)).
+
+- Tap the `Start` button (digit <span class="text-2xl">➂</span>) under the heading <span class="text-2xl">Ⓑ</span> `Service management` to start the synchronization service.
+- After a short start-up time, the content of the popup window changes and a large green checkmark <span class="p-0.5 bg-green-600 text-white">✓</span> appears, confirming the successful start of the service. Acknowledge this success message.
+- After successfully setting up the service, tap the <span class="p-0.5 bg-green-600 text-white">✓</span> checkmark button (digit&nbsp;<span class="text-2xl">➃</span>) to leave the installation screen.
+- The status indicator ([Screenshot 1](#screenshot1), digit <span class="text-2xl">➀</span>) to the left of the `Data transmission active` list entry should now light up <span class="p-0.5 bg-green-600 text-white">green</span>, signaling that the synchronization service has been successfully installed and started.
+
+The installation of the Urban Cloud on the Alma Pro feeding terminal is now successfully complete.

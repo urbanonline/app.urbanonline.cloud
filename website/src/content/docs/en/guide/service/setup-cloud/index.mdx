@@ -1,35 +1,68 @@
 ---
-title: Overview
-description: Steps required to set up the cloud synchronization service
+title: Overview of required installation steps
+description: Required steps for setting up the cloud synchronization service
 sidebar:
-  label: Overview
+  label: Steps overview
   order: 30
 tableOfContents: false
 ---
-import { Steps } from '@astrojs/starlight/components';
-import Uebersicht from '../graphics/Cloud-Overview.png';
+import { Aside, TabItem, Tabs } from '@astrojs/starlight/components';
+import UebersichtVorSetup from '../graphics/Cloud-Uebersicht_EN.png';
+import UebersichtNachSetup from '../graphics/Cloud-Uebersicht-Running_EN.png';
 import CloudOverviewImageMap from '../../../../../../components/UrbanCloudOverviewImageMap.astro';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
 
-<CloudOverviewImageMap
-  src={Uebersicht}
-  alt="Installation screen Urban Cloud Service"
-  captionPrefix="Screenshot 1:"
-  caption="Alma Pro, Installation screen Urban Cloud-Service"
-  languagePrefix="/en"
-  labels={{
-    network: "Connection to server",
-    registration: "Registration at server",
-    rest: "REST-API active",
-    sync: "Data transmission active",
-  }}
-/>
+Screenshot 1 lists the four installation steps that must be completed one after another during setup of the Urban Cloud service. Click the button &nbsp;<Gear width={20} class="inline mb-0" /> next to each list item in turn, and perform the required actions on the screen that then opens.
 
-<Steps>
-1. [Check the network connection to the server](network)
- 
-1. [Register the terminal inside the feed monitor app](registration)
+After each step, one more of the four status indicators on the left, initially red, must light up green. Once setup has been completed successfully, four green indicators signal that the cloud has been set up and is working correctly.
 
-1. [Enable the REST interface of the feeder](rest)
 
-1. [Install and enable the synchronization service](sync)
-</Steps>
+<figure>
+  <div class="border border-gray-300 rounded-xs p-4">
+    <div class="relative inline-block">
+      <Tabs>
+      <TabItem label="Before setup">
+        <CloudOverviewImageMap
+          src={UebersichtVorSetup}
+          alt="Urban Cloud service installation screen"
+          title="Installation steps"
+          labels={{
+            network: "Connection to server",
+            networkIcon: "View connection details",
+            registration: "Registration at server",
+            registrationIcon: "",
+            rest: "REST-API active",
+            restIcon: "Check REST-API status",
+            sync: "Data transmission active",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      <TabItem label="After successful setup">
+        <CloudOverviewImageMap
+          src={UebersichtNachSetup}
+          alt="Urban Cloud service installation screen"
+          title="Installation steps"
+          labels={{
+            network: "Connection to server",
+            networkIcon: "View connection details",
+            registration: "Registration at server",
+            registrationIcon: "",
+            rest: "REST-API active",
+            restIcon: "Check REST-API status",
+            sync: "Data transmission active",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      </Tabs>
+    </div>
+  </div>
+  <figcaption class="text-sm mt-2">
+    Screenshot 1: Alma Pro, Urban Cloud service installation screen, before and after setup
+  </figcaption>
+</figure>
+
+<Aside type="caution" title="Clickable elements in Screenshot 1 above" icon="information">
+The four text elements of the list, as well as the buttons &nbsp;<Gear width={20} class="inline mb-0" /> next to them, are implemented as clickable, interactive elements. Tap or hover over these elements to jump to the page with the corresponding detailed information.
+</Aside>

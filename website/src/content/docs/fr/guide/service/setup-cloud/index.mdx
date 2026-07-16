@@ -1,0 +1,68 @@
+---
+title: Vue d'ensemble des étapes d'installation nécessaires
+description: Étapes nécessaires à la configuration du service de synchronisation cloud
+sidebar:
+  label: Vue d'ensemble des étapes
+  order: 30
+tableOfContents: false
+---
+import { Aside, TabItem, Tabs } from '@astrojs/starlight/components';
+import UebersichtVorSetup from '../graphics/Cloud-Uebersicht_FR_T.png';
+import UebersichtNachSetup from '../graphics/Cloud-Uebersicht-Running_FR_T.png';
+import CloudOverviewImageMap from '../../../../../../components/UrbanCloudOverviewImageMap.astro';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+
+La capture d'écran 1 répertorie les quatre étapes d'installation à effectuer les unes après les autres lors de la configuration du service Urban Cloud. Cliquez successivement sur les boutons &nbsp;<Gear width={20} class="inline mb-0" /> situés à droite de chaque élément de la liste, puis effectuez les actions nécessaires sur l'écran qui s'affiche alors.
+
+Après chaque étape, l'un des quatre voyants d'état situés à gauche, initialement rouges, doit passer au vert. Une fois la configuration terminée avec succès, quatre voyants verts indiquent que le cloud a été configuré correctement et qu'il fonctionne.
+
+
+<figure>
+  <div class="border border-gray-300 rounded-xs p-4">
+    <div class="relative inline-block">
+      <Tabs>
+      <TabItem label="Avant la configuration">
+        <CloudOverviewImageMap
+          src={UebersichtVorSetup}
+          alt="Écran d'installation du service Urban Cloud"
+          title="Étapes d'installation"
+          labels={{
+            network: "Connection to server",
+            networkIcon: "Consulter les détails de la connexion",
+            registration: "Registration at server",
+            registrationIcon: "",
+            rest: "REST-API active",
+            restIcon: "Vérifier l'état de la REST-API",
+            sync: "Data transmission active",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      <TabItem label="Après une configuration réussie">
+        <CloudOverviewImageMap
+          src={UebersichtNachSetup}
+          alt="Écran d'installation du service Urban Cloud"
+          title="Étapes d'installation"
+          labels={{
+            network: "Connection to server",
+            networkIcon: "Consulter les détails de la connexion",
+            registration: "Registration at server",
+            registrationIcon: "",
+            rest: "REST-API active",
+            restIcon: "Vérifier l'état de la REST-API",
+            sync: "Data transmission active",
+            syncIcon: "",
+          }}
+        />
+      </TabItem>
+      </Tabs>
+    </div>
+  </div>
+  <figcaption class="text-sm mt-2">
+    Capture d'écran 1 : Alma Pro, écran d'installation du service Urban Cloud, avant et après la configuration
+  </figcaption>
+</figure>
+
+<Aside type="caution" title="Éléments cliquables dans la capture d'écran 1 ci-dessus" icon="information">
+Les quatre éléments de texte de la liste, ainsi que les boutons &nbsp;<Gear width={20} class="inline mb-0" /> situés à leur droite, sont conçus comme des éléments interactifs cliquables. Touchez ces éléments ou passez la souris dessus pour accéder à la page contenant les informations détaillées correspondantes.
+</Aside>

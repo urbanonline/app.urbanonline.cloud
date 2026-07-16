@@ -1,0 +1,54 @@
+---
+title: Acceso a la pantalla de instalación del servicio Urban Cloud
+description: Esta página describe cómo acceder a la pantalla de instalación del servicio Urban Cloud
+sidebar:
+  label: Acceder a la pantalla de instalación
+  order: 20
+---
+import { Image } from 'astro:assets';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import Aufruf from './graphics/AufrufSetupCloud_ES.png';
+import Uebersicht from './graphics/Cloud-Uebersicht_ES_T.png';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+import TouchGear from '../../../../../../public/icons/almapro/touchgear.svg';
+import Edit from '../../../../../../public/icons/almapro/edit.svg';
+
+Para empezar la instalación, primero debes acceder a la pantalla de instalación del servicio Urban Cloud:
+
+### Acceso a la pantalla de instalación
+
+<Tabs>
+<TabItem label="Resumen rápido">
+Haz clic, tal como se muestra en la [captura 1](#screenshot1) de abajo, sucesivamente en los botones <span class="text-2xl">➀</span>&nbsp;a&nbsp;<span class="text-2xl">⑤</span>.
+</TabItem>
+<TabItem label="Descripción detallada">
+1. En la barra lateral izquierda del terminal táctil, haz clic en el botón inferior <Gear width={20} class="inline ml-2 mb-0" /> `Ajustes` <span class="text-2xl">➀</span>. Si estás en el menú principal, donde no se ve la barra lateral, pulsa el botón <Feeder width={20} class="inline ml-2 mb-0" /> `Autómata` para mostrarla.
+1. En la barra de herramientas inferior del terminal táctil, haz clic en el segundo botón desde la izquierda <TouchGear width={30} class="inline ml-2 mb-0" /> `Ajustes de la pantalla táctil` <span class="text-2xl">➁</span>.
+1. Ahora aparece una serie de opciones de menú en la mitad izquierda de la zona central de la pantalla. Haz clic en el botón inferior `Accesorios` <span class="text-2xl">➂</span>.
+1. Ahora aparece una (o, en su caso, varias) opción(es) de menú en la mitad derecha de la zona central de la pantalla. Haz clic en el botón inferior `Servicio de Nube Urbana` <span style="font-size: 140%" id="Navigation_Digit_4">➃</span>. El botón pasa ahora a la mitad izquierda de la pantalla.
+1. Abajo, en la mitad derecha de la pantalla, aparece ahora el botón <Edit width={20} class="inline ml-2 mb-0" /> `Abrir ajustes` <span style="font-size: 140%" id="Navigation_Digit_5">➄</span>. Haz clic en este botón; se abre entonces una ventana emergente con los [pasos](../setup-cloud) para configurar el servicio Urban Cloud.
+</TabItem>
+</Tabs>
+
+<figure id="screenshot1">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Aufruf}  alt="Acceso al menú de instalación de Urban Cloud" title="Acceso a la instalación de Urban Cloud" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Captura 1:</span> Alma Pro, acceso a la pantalla de instalación del servicio Urban Cloud
+  </figcaption>
+</figure>
+
+### Resultado del acceso
+
+Ahora se abre una ventana emergente con una pantalla de resumen que muestra cuatro pasos de instalación:
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={Uebersicht}  alt="Menú de instalación de Urban Cloud" title="Menú de instalación de Urban Cloud" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Captura 2:</span> Alma Pro, pantalla de instalación del servicio Urban Cloud
+  </figcaption>
+</figure>

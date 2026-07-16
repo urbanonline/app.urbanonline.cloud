@@ -1,0 +1,46 @@
+---
+title: Проверка сетевого соединения с сервером
+description: В начале установки проверяется, доступен ли сервер Urban Cloud через сеть.
+sidebar:
+  label: ① Соединение с сервером
+  order: 10
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import Gear from '../../../../../../../public/icons/almapro/gear.svg';
+import NetworkDetails from '../graphics/NetworkDetails_RU_T.png';
+import ConnectionServer from '../graphics/ConnectionServer_RU_T.png';
+
+## Проверка доступности облачного сервера
+
+В начале установки необходимо проверить, доступен ли сервер Urban Cloud через интернет. Цвет круглого индикатора состояния (цифра&nbsp;<span class="text-2xl">➀</span>) слева от верхнего пункта списка `Connection to server` на экране установки информирует Вас об этом:
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={ConnectionServer}  alt="Установка Urban Cloud, проверка сетевого соединения" title="Проверка сетевого соединения" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 1:</span> Настройка облака, статус доступности облачного сервера
+  </figcaption>
+</figure>
+
+- Если индикатор состояния <span class="text-2xl">➀&nbsp;</span> горит <span class="p-0.5 bg-green-600 text-white">зелёным</span>, облачный сервер доступен. Всё в порядке, Вы можете перейти к следующему шагу установки — [регистрации терминала](../registration).
+- Если индикатор состояния горит <span class="p-0.5 bg-red-500 text-white">красным</span>, облачный сервер **недоступен**, и требуется вмешательство. Нажмите кнопку&nbsp;<Gear width={20} class="inline ml-2 mb-0" /> (цифра <span class="text-2xl">➁</span>) справа от пункта списка, чтобы перейти к экрану с подробностями ([скриншот 2](#screenshot2)), содержимое которого поможет Вам в поиске неисправности
+
+## <a id="view-connectivity-details"></a> Проверка доступности сетевых компонентов
+
+Следующий [скриншот](#screenshot2) показывает, доступны ли поочерёдно сетевой маршрутизатор Urban&nbsp;<span class="text-2xl">➀</span>, интернет&nbsp;<span class="text-2xl">➁</span> и, наконец, сервер Urban Cloud (цифра&nbsp;<span class="text-2xl">➂</span>):
+
+<figure id="screenshot2">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={NetworkDetails}  alt="Установка Urban Cloud, статус сетевого соединения" title="Статус сетевого соединения" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Скриншот 2:</span> Alma Pro, настройка облака, подробности доступности облачного сервера
+  </figcaption>
+</figure>
+
+- <span class="p-0.5 bg-green-600 text-white">Зелёный</span> индикатор состояния сигнализирует, что компонент доступен, <span class="p-0.5 bg-red-500 text-white">красный</span> индикатор состояния — что он недоступен. Используйте приведённые подробности при поиске неисправности.
+- Поочерёдно убедитесь с помощью соответствующей кабельной разводки и функциональных тестов сетевых компонентов, что все три индикатора состояния горят <span class="p-0.5 bg-green-600 text-white">зелёным</span>.
+  <div class="pt-4"><Aside type="caution" title="Примечание" >При необходимости обратитесь к сетевому специалисту, отвечающему за сеть и интернет-соединение на Вашем предприятии.</Aside></div>
+- Если все три индикатора состояния горят <span class="p-0.5 bg-green-600 text-white">зелёным</span>, значит Вы успешно устранили проблему с соединением и можете перейти к следующему шагу — [`регистрации терминала`](../registration).

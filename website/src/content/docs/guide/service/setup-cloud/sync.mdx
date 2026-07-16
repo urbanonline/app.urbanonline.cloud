@@ -2,7 +2,7 @@
 title: Installation und Start des Synchronisationsdienstes
 description: Zum Abschluss muss der Synchronisationsdienst, welcher periodisch Daten an die Cloud übertragt, eingerichtet und gestartet werden.
 sidebar:
-  label: ④ Setup Synchronisation
+  label: ➃ Setup Synchronisation
   order: 40
 ---
 import { Aside } from '@astrojs/starlight/components';
@@ -15,7 +15,7 @@ import SyncStart from '../graphics/SyncServiceStart.png';
 
 ## Status des Synchronisationsdienstes prüfen
 
-Im letzten Schritt der Installation muss geprüft werden, ob der Synchronisationsdienst auf dem Touch-Terminal-PC installiert und gestartet ist. Dieser Dienst überträgt periodisch lokale Tier- und Automatendaten an den Urban Cloud-Server. Die Farbe der kreisförmigen Statusanzeige (Ziffer&nbsp;<span class="text-2xl">➀</span>) links neben dem vierten Listeneintrag `Datenübertragung aktiv` im Installationsbildschirm gibt darüber Auskunft:
+Im letzten Schritt der Installation muss geprüft werden, ob der Synchronisationsdienst auf dem Touch-Terminal-PC installiert und gestartet ist. Dieser Dienst überträgt periodisch lokale Tier- und Automatendaten an den Urban-Cloud-Server. Die Farbe der kreisförmigen Statusanzeige (Ziffer&nbsp;<span class="text-2xl">➀</span>) links neben dem vierten Listeneintrag `Datenübertragung aktiv` im Installationsbildschirm gibt darüber Auskunft:
 
 <figure id="screenshot1">
   <div class="border border-gray-300 rounded-xs p-4">
@@ -52,13 +52,13 @@ Zunächst muss das Softwarepaket für den Synchronisationsdienst installiert wer
 
 - Stellen Sie sicher, dass im Dropdown-Menü <span class="text-2xl">Ⓐ</span> `Verfügbare Versionen` die neueste Version des Softwarepakets ausgewählt ist. Tippen Sie hierzu auf die rot umrandete Schaltfläche (Ziffer <span class="text-2xl">➀</span>), um die Versionsliste des Dropdown-Menüs zu öffnen. Wählen Sie aus der angezeigten Liste anschließend die zeitlich neueste Versionsnummer aus.
 - Tippen Sie auf die Schaltfläche `Installieren` (Ziffer <span class="text-2xl">➁</span>), um die Installation des Synchronisationsdiensts zu starten.
-- Nach einer kurzen Installationszeit wechselt der Inhalt des Popup-Fensters und es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den Installationserfolg mitteilt. Quittieren Sie dieses Erfolgsmeldung.
+- Nach einer kurzen Installationszeit wechselt der Inhalt des Popup-Fensters und es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den Installationserfolg mitteilt. Quittieren Sie diese Erfolgsmeldung.
 
 ### Start des Synchronisationsdienstes
 
 Damit der soeben erfolgreich installierte Synchronisationsdienst seine Arbeit aufnimmt muss er in einem weiteren Schritt gestartet werden.
 
-<figure id="screenshot2">
+<figure id="screenshot3">
   <div class="border border-gray-300 rounded-xs p-4">
     <Image src={SyncStart}  alt="Installation Urban-Cloud, Einrichtung Synchronisationsdienst" title="Einrichtung Synchronisationsdienst" />
   </div>
@@ -67,9 +67,9 @@ Damit der soeben erfolgreich installierte Synchronisationsdienst seine Arbeit au
   </figcaption>
 </figure>
 
-- Tippen Sie auf die Schaltfläche `Start` (Ziffer <span class="text-2xl">③</span>) unter der Überschrift <span class="text-2xl">Ⓑ</span> `Servicemanagement` um den Synchronisationsdienst zu starten.
-- Nach einer kurzen Startzeit wechselt der Inhalt des Popup-Fensters und es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den erfolgreichen Start des Dienstes  mitteilt. Quittieren Sie dieses Erfolgsmeldung.
-- Tippen Sie nach der erfolgreichen Einrichtung des Dienstes auf die Schaltfläche <span class="p-0.5 bg-green-600 text-white">✓</span> `OK` (Ziffer&nbsp;<span class="text-2xl">④</span>) um den Installationsbildschirm zu verlassen.
+- Tippen Sie auf die Schaltfläche `Start` (Ziffer <span class="text-2xl">➂</span>) unter der Überschrift <span class="text-2xl">Ⓑ</span> `Servicemanagement` um den Synchronisationsdienst zu starten.
+- Nach einer kurzen Startzeit wechselt der Inhalt des Popup-Fensters und es erscheint ein großes grünes Häkchen <span class="p-0.5 bg-green-600 text-white">✓</span>, welches den erfolgreichen Start des Dienstes  mitteilt. Quittieren Sie diese Erfolgsmeldung.
+- Tippen Sie nach der erfolgreichen Einrichtung des Dienstes auf die Schaltfläche <span class="p-0.5 bg-green-600 text-white">✓</span> `OK` (Ziffer&nbsp;<span class="text-2xl">➃</span>) um den Installationsbildschirm zu verlassen.
 - Die Statusanzeige ([Screenshot 1](#screenshot1), Ziffer <span class="text-2xl">➀</span>) links neben dem Listeneintrag `Datenübertragung aktiv` sollte jetzt <span class="p-0.5 bg-green-600 text-white">grün</span> leuchten und damit signalisieren, dass der Synchronisationsdienst erfolgreich installiert und gestartet wurde.
 
 Die Installation der Urban Cloud auf dem Alma Pro Tränkeautomaten ist damit erfolgreich abgeschlossen.
