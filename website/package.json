@@ -14,12 +14,12 @@
     "@astrojs/starlight": "^0.41.3",
     "@astrojs/starlight-tailwind": "^5.0.0",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.1.1",
+    "astro": "^7.1.2",
     "sharp": "^0.35.3",
     "starlight-sidebar-swipe": "^0.2.0",
     "starlight-sidebar-topics": "^0.8.0",
     "starlight-sidebar-topics-dropdown": "^0.6.0",
     "starlight-ui-tweaks": "^0.2.2"
   },
-  "packageManager": "pnpm@11.13.1"
+  "packageManager": "pnpm@11.15.0"
 }
