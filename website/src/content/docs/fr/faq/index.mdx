@@ -1,14 +1,13 @@
 ---
-title: Frequently asked questions (FAQ)
-description: Frequently asked questions about Urban Cloud und Feed Monitor App.
+title: Foire aux questions (FAQ)
+description: Foire aux questions sur Urban Cloud et l'application Feed Monitor.
 template: doc
 tableOfContents: false
-topic: faq
 sidebar:
-  label: Frequently asked questions
+  label: Foire aux questions
 banner:
   content: |
-    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=FR&gl=FR"><img src="../../playstore-fr.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../../playstore-fr.png'"/></a><a href="https://apps.apple.com/fr/app/urban-feed-monitor/id6746261090"><img src="../../appstore-fr.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../../appstore-fr.png'"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=EN&gl=GB"><img src="../../playstore-en.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../../playstore-en.png'"/></a><a href="https://apps.apple.com/us/app/urban-feed-monitor/id6746261090"><img src="../../appstore.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../../appstore.png'"/></a>
 hero:
   tagline: Urban Cloud / Urban Feed Monitor App
   image:
@@ -16,3 +15,63 @@ hero:
 prev: false
 next: false
 ---
+import FaqAccordion from '../../../../components/FAQQuestion.astro';
+
+export const faqs = [
+  {
+    question:
+      "Quelles exigences techniques le distributeur doit-il remplir pour pouvoir utiliser l'application ?",
+    answer: `Le modèle du distributeur doit être un <em>Alma Pro</em>. La plupart des distributeurs <em>Alma Pro</em> sont compatibles avec l'application, mais les distributeurs <em>Alma Pro</em> suivants <strong>ne peuvent pas utiliser</strong> l'application :<br/><br/>
+• Distributeurs équipés d'un <strong>terminal tactile de première génération</strong>.<br/>
+• Distributeurs équipés d'une <strong>alimentation parallèle par gobelets</strong>.<br/>
+• Distributeurs équipés d'un <strong>module GSM</strong>.`,
+    id: "feeder-technical-requirements"
+  },
+  {
+    question: "Quelles sont les exigences concernant le routeur et la connexion internet ?",
+    answer: `• Le terminal à écran tactile doit être connecté à un <strong>routeur Urban</strong>. Tous les routeurs Urban, <strong>même les modèles plus anciens</strong>, sont pris en charge et peuvent être utilisés.<br/><br/>
+• Le routeur Urban installé doit être connecté à <strong>internet</strong> via le réseau de la ferme. Une connexion internet <strong>stable</strong> est requise à tout moment.<br/><br/>
+• Le terminal à écran tactile doit établir une connexion sortante sécurisée par HTTPS vers le serveur de la base de données Urban Cloud (via le port 443). Aucun trafic entrant ne sera généré, c'est pourquoi <strong>aucun</strong> service de DNS dynamique (<a href="https://en.wikipedia.org/wiki/Dynamic_DNS">DDNS</a>) ni connexion VPN n'est nécessaire. L'ordinateur de la ferme peut communiquer vers l'extérieur avec n'importe quelle adresse IP (IPv4, IPv6), et cette adresse peut également changer.`,
+    id: "router-and-internet-requirements"
+  },
+  {
+    question:
+      "L'application Urban Feed Monitor est-elle disponible aussi bien sur les appareils Google (Android) qu'Apple (iOS) ?",
+    answer:
+      'Oui, l\'application peut être téléchargée et installée depuis le <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=EN&gl=GB">Google Play Store</a> (<em>Android</em>) ainsi que depuis l\'<a href="https://apps.apple.com/us/app/urban-feed-monitor/id6746261090">Apple App Store</a> (<em>iOS</em>)',
+    id: "app-availability-android-ios"
+  },
+  {
+    question:
+      "Pourquoi devrais-je autoriser les notifications (messages push) pour l'application ?",
+    answer: `L'application Urban Feed Monitor ne fonctionne de manière fiable que si vous autorisez les <strong>notifications push</strong> sur votre appareil mobile. Sans cette autorisation, vous manquerez des alertes importantes concernant votre système d'alimentation.<br/><br/>
+- <strong>iOS :</strong> Ouvrez Réglages → Notifications → Feed Monitor et activez « Autoriser les notifications ».<br/><br/>
+- <strong>Android :</strong> Ouvrez Paramètres → Applications → Feed Monitor → Notifications et activez les notifications.`,
+    id: "benachrichtigungen-aktivieren"
+  },
+  {
+    question:
+      "Puis-je essayer l'application gratuitement avant de choisir un abonnement ?",
+    answer:
+      'Oui, une fois que vous vous êtes <a href="../guide/user/01-registrierung/">inscrit(e)</a> gratuitement dans l\'application, vous pouvez charger les données de machines et d\'animaux d\'une ferme de démonstration et explorer l\'application.',
+    id: "try-the-app"
+  },
+  {
+    question:
+      "Puis-je continuer à piloter le terminal à écran tactile à distance à l'aide d'un client VNC ?",
+    answer:
+      "Oui, cette option reste disponible. Vous pouvez utiliser l'application et accéder au système via VNC en même temps.",
+    id: "vnc-client-parallel-use"
+  },
+  {
+    question:
+      "La <em>Feed Monitor App</em> propose-t-elle la fonctionnalité de sauvegarde et de restauration des données d'animaux et de machines vers ou depuis le serveur cloud ?",
+    answer:
+      "Non, cette fonctionnalité n'est <strong>pas</strong> disponible dans la version actuelle de l'application.",
+    id: "backup-and-restore"
+  },
+];
+
+<FaqAccordion 
+  items={faqs}
+/>
