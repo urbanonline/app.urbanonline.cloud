@@ -1,14 +1,13 @@
 ---
-title: Frequently asked questions (FAQ)
-description: Frequently asked questions about Urban Cloud und Feed Monitor App.
+title: Часто задаваемые вопросы (FAQ)
+description: Часто задаваемые вопросы об Urban Cloud и приложении Feed Monitor.
 template: doc
 tableOfContents: false
-topic: faq
 sidebar:
-  label: Frequently asked questions
+  label: Часто задаваемые вопросы
 banner:
   content: |
-    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=RU&gl=RU"><img src="../../playstore-ru.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../../playstore-ru.png'"/></a><a href="https://apps.apple.com/ru/app/urban-feed-monitor/id6746261090"><img src="../../appstore-ru.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../../appstore-ru.png'"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=EN&gl=GB"><img src="../../playstore-en.svg" alt="Google Playstore" onerror="this.removeAttribute('onerror'); this.src='../../playstore-en.png'"/></a><a href="https://apps.apple.com/us/app/urban-feed-monitor/id6746261090"><img src="../../appstore.svg" alt="Apple App Store" onerror="this.removeAttribute('onerror'); this.src='../../appstore.png'"/></a>
 hero:
   tagline: Urban Cloud / Urban Feed Monitor App
   image:
@@ -16,3 +15,63 @@ hero:
 prev: false
 next: false
 ---
+import FaqAccordion from '../../../../components/FAQQuestion.astro';
+
+export const faqs = [
+  {
+    question:
+      "Каким техническим требованиям должен соответствовать кормовой автомат, чтобы можно было использовать приложение?",
+    answer: `Модель кормового автомата должна быть <em>Alma Pro</em>. Большинство автоматов <em>Alma Pro</em> совместимы с приложением, однако следующие автоматы <em>Alma Pro</em> <strong>не могут использовать</strong> приложение:<br/><br/>
+• Автоматы, оснащённые <strong>сенсорным терминалом первого поколения</strong>.<br/>
+• Автоматы, оснащённые <strong>параллельным кормлением через стаканы</strong>.<br/>
+• Автоматы, оснащённые <strong>модулем GSM</strong>.`,
+    id: "feeder-technical-requirements"
+  },
+  {
+    question: "Какие требования предъявляются к роутеру и подключению к интернету?",
+    answer: `• Сенсорный терминал должен быть подключён к <strong>роутеру Urban</strong>. Поддерживаются все роутеры Urban, <strong>включая более старые модели</strong>, и они могут использоваться без ограничений.<br/><br/>
+• Установленный роутер Urban должен быть подключён к <strong>интернету</strong> через сеть фермы. Постоянно требуется <strong>стабильное</strong> подключение к интернету.<br/><br/>
+• Сенсорному терминалу необходимо установить исходящее защищённое соединение по HTTPS с сервером базы данных Urban Cloud (через порт 443). Входящий трафик не возникает, поэтому <strong>не</strong> требуется ни служба динамического DNS (<a href="https://en.wikipedia.org/wiki/Dynamic_DNS">DDNS</a>), ни VPN-соединение. Компьютер фермы может обмениваться данными с внешними серверами через любой IP-адрес (IPv4, IPv6), и этот адрес может изменяться.`,
+    id: "router-and-internet-requirements"
+  },
+  {
+    question:
+      "Доступно ли приложение Urban Feed Monitor как для устройств Google (Android), так и для Apple (iOS)?",
+    answer:
+      'Да, приложение можно загрузить и установить как из <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=EN&gl=GB">Google Play Store</a> (<em>Android</em>), так и из <a href="https://apps.apple.com/us/app/urban-feed-monitor/id6746261090">Apple App Store</a> (<em>iOS</em>)',
+    id: "app-availability-android-ios"
+  },
+  {
+    question:
+      "Почему следует разрешить уведомления (push-сообщения) для приложения?",
+    answer: `Приложение Urban Feed Monitor работает надёжно только в том случае, если Вы разрешите <strong>push-уведомления</strong> на своём мобильном устройстве. Без этого разрешения Вы будете пропускать важные оповещения о своей системе кормления.<br/><br/>
+- <strong>iOS:</strong> Откройте Настройки → Уведомления → Feed Monitor и включите пункт «Разрешить уведомления».<br/><br/>
+- <strong>Android:</strong> Откройте Настройки → Приложения → Feed Monitor → Уведомления и включите уведомления.`,
+    id: "benachrichtigungen-aktivieren"
+  },
+  {
+    question:
+      "Могу ли я бесплатно опробовать приложение перед оформлением подписки?",
+    answer:
+      'Да, после бесплатной <a href="../guide/user/01-registrierung/">регистрации</a> в приложении Вы можете загрузить данные о технике и животных с демонстрационной фермы и ознакомиться с приложением.',
+    id: "try-the-app"
+  },
+  {
+    question:
+      "Могу ли я по-прежнему управлять сенсорным терминалом удалённо с помощью VNC-клиента?",
+    answer:
+      "Да, эта возможность по-прежнему доступна. Вы можете использовать приложение и одновременно получать доступ к системе через VNC.",
+    id: "vnc-client-parallel-use"
+  },
+  {
+    question:
+      "Предлагает ли <em>Feed Monitor App</em> функцию резервного копирования и восстановления данных о животных и технике на облачный сервер или с него?",
+    answer:
+      "Нет, эта функция <strong>не</strong> доступна в текущей версии приложения.",
+    id: "backup-and-restore"
+  },
+];
+
+<FaqAccordion 
+  items={faqs}
+/>
