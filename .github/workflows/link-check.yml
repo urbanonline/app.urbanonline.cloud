@@ -30,7 +30,7 @@ jobs:
         with:
           runtime: node@26
           version: 11
-          cache: true
+          cache: false
 
       - name: Build website
         run: pnpm build
