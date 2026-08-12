@@ -29,8 +29,13 @@ jobs:
         uses: pnpm/setup@84cb39b217b10273981911c288cd62326dc7c6d2 # v2.0.2
         with:
           runtime: node@26
-          version: 11
-          cache: false
+          cache-dependency-path: website/pnpm-lock.yaml
+          package-json-file: website/package.json
+          install: false
+          cache: true
+
+      - name: Install pnpm
+        run: pnpm install
 
       - name: Build website
         run: pnpm build
