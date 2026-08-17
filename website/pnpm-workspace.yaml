@@ -2,5 +2,3 @@ allowBuilds:
   esbuild: true
   sharp: true
 minimumReleaseAge: 1440
-minimumReleaseAgeExclude:
-  - astro@7.2.0
