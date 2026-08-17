@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import starlightSidebarTopics from 'starlight-sidebar-topics'
 import starlightSidebarSwipe from 'starlight-sidebar-swipe'
 import starlightUiTweaks from 'starlight-ui-tweaks'
+import starlightLlmsTxt from 'starlight-llms-txt'
 
 export default defineConfig({
 	site: 'https://app.urbanonline.cloud',
@@ -72,6 +73,7 @@ export default defineConfig({
 				},
 			],
 			plugins: [
+				starlightLlmsTxt(),
 				starlightSidebarTopics([
 					{
 						label: {
