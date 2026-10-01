@@ -85,7 +85,7 @@ export default defineConfig({
 						},
 						link: 'prerequisites',
 						icon: 'approve-check-circle',
-						id: 'user',
+						id: 'prerequisites',
 						items: [
 							
 							{
@@ -100,18 +100,18 @@ export default defineConfig({
 							{
 								label: 'Tränkeautomat',
 								translations: {
-									en: 'Installation of app',
-									es: 'Instalación de la aplicación',
-									fr: 'Installation de l\'application',
-									ru: 'Установка приложения',
+									en: 'Feeder',
+									es: 'Autómata',
+									fr: 'Distributeur',
+									ru: 'Автомат',
 								},
 								items: [{ autogenerate: { directory: 'prerequisites/feeder' } }]},
 								{
 								label: 'Mobilgerät',
 								translations: {
-									en: 'Installation of app',
-									es: 'Instalación de la aplicación',
-									fr: 'Installation de l\'application',
+									en: 'Mobile device',
+									es: 'Dispositivo móvil',
+									fr: 'Appareil mobile',
 									ru: 'Установка приложения',
 								},
 								items: [{ autogenerate: { directory: 'prerequisites/mobile' } }]},
