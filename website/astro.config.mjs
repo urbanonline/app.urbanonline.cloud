@@ -112,7 +112,7 @@ export default defineConfig({
 									en: 'Mobile device',
 									es: 'Dispositivo móvil',
 									fr: 'Appareil mobile',
-									ru: 'Установка приложения',
+									ru: 'Мобильное устройство',
 								},
 								items: [{ autogenerate: { directory: 'prerequisites/mobile' } }]},
 							
@@ -220,7 +220,7 @@ export default defineConfig({
 								},
 								{
 									label: "FAQ",
-									href: "/faq/",
+									href: "/en/faq/",
 								},
 							],
 						},
@@ -232,7 +232,7 @@ export default defineConfig({
 								},
 								{
 									label: "FAQ",
-									href: "/faq/",
+									href: "/es/faq/",
 								},
 							],
 						},
@@ -244,7 +244,7 @@ export default defineConfig({
 								},
 								{
 									label: "FAQ",
-									href: "/faq/",
+									href: "/fr/faq/",
 								},
 							],
 						},
