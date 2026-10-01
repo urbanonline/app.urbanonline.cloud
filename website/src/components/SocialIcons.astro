@@ -15,7 +15,7 @@ const t = Astro.locals.t;
         <li  class="custom-link gh" role="none"><a href={getRelativeLocaleUrl(locale, 'guide/service')} role="menuitem">{t('navbar.documentation.for-service')}</a></li>
       </ul>
     </div>
-    <a href="/faq/" class="custom-link">{t('navbar.faq')}</a>
+    <a href={getRelativeLocaleUrl(locale, 'faq')} class="custom-link">{t('navbar.faq')}</a>
   </div>
   <DefaultSocialIcons />
 </div>
