@@ -1,0 +1,51 @@
+---
+title: "Step 5: Adding feeders"
+description: Connect your Alma Pro to the Urban Feed Monitor app via the TouchTerminal.
+prev:
+  label: "Step 4: Logging in"
+  link: /en/guide/user/04-einloggen
+next:
+  label: "Step 6: Licensing feeders"
+  link: /en/guide/user/06-automaten-lizenzieren
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import AufrufSetupCloud from '../service/graphics/AufrufSetupCloud_EN.png';
+import Registrierung from '../service/graphics/Registrierung_EN.png';
+import RegistrierungQRCode from '../service/graphics/RegistrierungQRCode_EN.png';
+
+<Aside type="note">
+This step can only be carried out by administrators.
+</Aside>
+
+Navigate to **Settings → Feeders** and tap the **+** to the right of **Feeders**.
+
+Go to the TouchTerminal of the Alma Pro that you want to add and open the following menu there. The numbers in the image correspond to the order of the steps:
+
+<Image src={AufrufSetupCloud} alt="Menu on the TouchTerminal with steps 1 to 5" width={600} />
+
+1. On the left, tap **Settings** (gear icon).
+1. In the bottom bar, tap the **Touch settings** icon.
+1. Tap **Accessories**.
+1. Tap **Urban Cloud Service**.
+1. Tap **Open settings**.
+
+The TouchTerminal shows the **Overview Urban Cloud**. The red indicator next to **Registration at server** shows that the terminal is not registered yet. Tap the gear icon next to this line.
+
+<Image src={Registrierung} alt="Overview Urban Cloud with a red indicator next to Registration at server" width={450} />
+
+The TouchTerminal shows the **Urban Cloud registration** with a QR code. Scan it with the app.
+
+<Image src={RegistrierungQRCode} alt="Urban Cloud registration with QR code on the TouchTerminal" width={450} />
+
+The app reports **Feeder added**.
+
+
+<Aside type="caution">
+Synchronization can take a few minutes. Tap the refresh icon (↻) and, if necessary, log in again after 5&nbsp;minutes.
+</Aside>
+
+Back in the app, you have two options:
+
+- **More feeders to add:** Repeat this step for each additional feeder.
+- **All feeders added:** Continue with [Step 6: Licensing feeders](/en/guide/user/06-automaten-lizenzieren).

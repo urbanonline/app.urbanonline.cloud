@@ -1,0 +1,46 @@
+---
+title: "Step 7: Creating barns and assigning feeders"
+description: Create your barns and assign the licensed feeders to them.
+prev:
+  label: "Step 6: Licensing feeders"
+  link: /en/guide/user/06-automaten-lizenzieren
+---
+
+import { Image } from 'astro:assets';
+import Abschluss from 'graphics/Abschluss_EN.png';
+import { Aside } from '@astrojs/starlight/components';
+import StallAnlegen from 'graphics/StallAnlegen_EN.png';
+
+<Aside type="note">
+This step can only be carried out by administrators.
+</Aside>
+
+If you operate several feeders at different locations, you can create a barn for each location. Example: you distribute four feeders across two barns.
+
+## Creating a barn and assigning feeders
+
+Navigate to **Settings → Feeders** and tap the **+** to the right of **Barns**.
+
+Enter a name for the barn. Under **Select feeders to assign**, use the box on the left to mark which feeders are located in this barn. Then tap **Create barn** at the bottom.
+
+<Image src={StallAnlegen} alt="Creating a barn and adding available feeders" width={300} />
+
+{/* TODO: Prüfen, ob der Dialog "Alle Automaten erfolgreich zugewiesen" nach "Stall erstellen" erscheint */}
+The app confirms with **All feeders successfully assigned**. Tap **OK**.
+
+## Removing feeders from a barn
+
+For an assigned feeder, tap the **×** and confirm the prompt with **Remove**. The feeder stays in your account and can be assigned to another barn.
+
+{/* TODO: Verhalten beim Entfernen bestätigen (Automat wird nur aus dem Stall genommen) */}
+
+---
+
+## Setup complete
+
+You can now view your animal data.
+
+
+<Image src={Abschluss} alt="Dashboard with animal data" width={300} />
+
+For requests and suggestions, contact [info@urbanonline.de](mailto:info@urbanonline.de).

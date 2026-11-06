@@ -1,47 +1,35 @@
 ---
 title: "Step 1: Registration"
-description: Register in the Urban Feed Monitor App.
+description: Start the registration in the Urban Feed Monitor app.
 prev:
   label: Prerequisites
   link: /en/guide/user/00-voraussetzungen
 next:
-  label: "Step 2: Log In"
-  link: /en/guide/user/02-einloggen
+  label: "Step 2: Personal details"
+  link: /en/guide/user/02-persoenliche-daten
 ---
+
+import { Aside } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import Einfuehrung from 'graphics/Einfuehrung.png';
-import Accountdaten from 'graphics/Accountdaten.png';
-import Unternehmensdaten from 'graphics/Unternehmensdaten.png';
+import Startbildschirm from 'graphics/Startbildschirm.png';
 
-:::note
-The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
-:::
+Start the Urban app. The start screen is also the login screen.
 
-Launch the Urban App. Go through the short introduction or skip this step.
+<Image src={Startbildschirm} alt="Start screen with the Register link and the Demo mode button" width={300} />
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+- **You already have an account:** Log in and continue with [Step 4: Logging in](/en/guide/user/04-einloggen).
+- **You do not have an account yet:** Tap the **Register** link and continue with Step 2.
 
-Tap **Register** to create a new account and set up your farm.
+## Demo mode
 
-</div>
-<Image src={Einfuehrung} alt="Introduction screen of the Urban App" width={300} />
-</div>
+If you would like to try out the app first, tap **Try demo mode**.
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+<Aside type="tip">
+On older devices or devices with a small display, you need to scroll down to see the button.
+</Aside>
 
-Enter your account details and accept the terms of use.
+<Aside type="note">
+You can use the same email address for demo mode and for your real account. The difference is the password: you receive the password for the demo version by email. You set the password for your real account yourself.
+</Aside>
 
-</div>
-<Image src={Accountdaten} alt="Create account form" width={300} />
-</div>
-
-<div class="ufm-step-row">
-<div class="ufm-step-text">
-
-Then enter your company details. Tap **Continue** to complete the registration. You will receive a confirmation at the email address provided.
-
-</div>
-<Image src={Unternehmensdaten} alt="Company details form" width={300} />
-</div>
+{/* TODO: Ablauf nach "Demo-Modus testen" klären (Eingabe der E-Mail? Firmendaten? Login mit Passwort aus der E-Mail?) */}
