@@ -1,0 +1,30 @@
+---
+title: Conditions préalables pour l'Urban Feed Monitor App
+description: Guides utilisateur et service pour l'application « Urban Feed Monitor ».
+template: splash
+---
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import Preview from '/src/components/Frame.astro';
+
+<Preview>
+  <CardGrid slot="cards" >
+    <LinkCard
+      title="Liste de contrôle"
+      href="/fr/prerequisites/checklist/"
+      description="Vérifiez les conditions préalables en quelques clics" 
+    />
+    <div style="visibility: hidden;">
+      <LinkCard/>
+    </div>
+    <LinkCard
+      title="Alma Pro"
+      href="/fr/prerequisites/feeder/"
+      description="Exigences minimales pour le distributeur"
+    />
+    <LinkCard
+      title="Appareil mobile"
+      href="/fr/prerequisites/mobile/"
+      description="Exigences minimales pour l'appareil mobile"
+    />
+  </CardGrid>
+</Preview>
