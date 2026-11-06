@@ -1,0 +1,30 @@
+---
+title: Требования к Urban Feed Monitor App
+description: Руководства для пользователей и сервисной службы по приложению «Urban Feed Monitor».
+template: splash
+---
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import Preview from '/src/components/Frame.astro';
+
+<Preview>
+  <CardGrid slot="cards" >
+    <LinkCard
+      title="Контрольный список"
+      href="/ru/prerequisites/checklist/"
+      description="Проверьте требования за несколько нажатий" 
+    />
+    <div style="visibility: hidden;">
+      <LinkCard/>
+    </div>
+    <LinkCard
+      title="Alma Pro"
+      href="/ru/prerequisites/feeder/"
+      description="Минимальные требования к автомату"
+    />
+    <LinkCard
+      title="Мобильное устройство"
+      href="/ru/prerequisites/mobile/"
+      description="Минимальные требования к мобильному устройству"
+    />
+  </CardGrid>
+</Preview>

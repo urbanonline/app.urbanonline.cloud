@@ -1,0 +1,45 @@
+---
+title: Проверка сетевого подключения
+description: Определение подключения Alma Pro к сети, сравнение с минимальными требованиями к сетевому подключению
+sidebar:
+  label: Сетевое подключение
+  order: 50
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+
+import VNCParameters from './graphics/vnc-parameters.png';
+
+## Проверка наличия Urban Router
+
+Система кормления Alma Pro должна быть обязательно оснащена Urban Router.
+
+## Проверка сетевого подключения
+
+WAN-порт Urban Router должен быть обязательно подключён к маршрутизатору сети хозяйства.
+Как проверить, выполнено ли это требование:
+
+1. В левой боковой панели сенсорного терминала нажмите нижнюю кнопку <Gear width={20} class="inline ml-2 mb-0" /> `Настройки` {/* UI-CHECK */} ([Снимок экрана 1](#screenshot-1), цифра <span class="text-2xl">➀</span>). Если вы находитесь в главном меню, где боковая панель не отображается, нажмите кнопку <Feeder width={20} class="inline ml-2 mb-0" /> `Автомат` {/* UI-CHECK */}, чтобы показать боковую панель.
+1. В нижней панели инструментов сенсорного терминала нажмите третью кнопку с названием `VNC` (цифра&nbsp;<span class="text-2xl">➁</span>), чтобы открыть всплывающее окно <span class="text-2xl">Ⓐ</span> с параметрами подключения VNC.
+1. В верхней половине всплывающего окна находится заголовок `IP-адрес, назначенный WLAN-маршрутизатору (WAN)` {/* UI-CHECK */}:
+    - Если там указан [адрес IPv4](https://ru.wikipedia.org/wiki/IP-адрес) в формате `nnn.nnn.nnn.nnn` <span class="text-2xl">Ⓑ</span>, Urban Router правильно подключён к маршрутизатору сети хозяйства.
+    - Если под заголовком нет текста, Urban Router <span class="font-bold">не</span> подключён к маршрутизатору сети хозяйства.
+
+<figure id="screenshot-1">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={VNCParameters}  alt="Установка Urban Cloud, проверка сетевого подключения" title="Проверка сетевого подключения" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Снимок экрана 1:</span> Настройка облака, проверка сетевого подключения
+  </figcaption>
+</figure>
+
+## Проверка подключения к интернету
+
+Воспользуйтесь [инструкцией](/ru/guide/service/setup-cloud/network/#view-connectivity-details) из сервисной документации, чтобы определить, подключён ли сенсорный терминал к интернету.
+
+## Дальнейшие действия
+
+* Подключите Urban Router вашей системы кормления к интернету, если это ещё не сделано.
+* Если ваши автоматы ещё не оснащены Urban Router, поручите своему дистрибьютору оснастить систему кормления Urban Router.
