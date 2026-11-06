@@ -1,0 +1,51 @@
+---
+title: "Paso 5: Añadir autómatas"
+description: Conecta tu Alma Pro con la aplicación Urban Feed Monitor mediante el TouchTerminal.
+prev:
+  label: "Paso 4: Iniciar sesión"
+  link: /es/guide/user/04-einloggen
+next:
+  label: "Paso 6: Licenciar autómatas"
+  link: /es/guide/user/06-automaten-lizenzieren
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import AufrufSetupCloud from '../service/graphics/AufrufSetupCloud_ES.png';
+import Registrierung from '../service/graphics/Registrierung_ES.png';
+import RegistrierungQRCode from '../service/graphics/RegistrierungQRCode_ES_T.png';
+
+<Aside type="note">
+Este paso solo lo pueden realizar los administradores.
+</Aside>
+
+Ve a **Ajustes → Autómatas** y pulsa el **+** situado a la derecha de **Autómatas**.
+
+Ve al TouchTerminal del Alma Pro que quieres añadir y abre allí el siguiente menú. Los números de la imagen corresponden al orden de los pasos:
+
+<Image src={AufrufSetupCloud} alt="Menú del TouchTerminal con los pasos 1 a 5" width={600} />
+
+1. A la izquierda, pulsa **Ajustes** (rueda dentada).
+1. En la barra inferior, pulsa el icono de **Ajustes Touch**.
+1. Pulsa **Accesorios**.
+1. Pulsa **Urban Cloud Service**.
+1. Pulsa **Abrir ajustes**.
+
+El TouchTerminal muestra el **Resumen de Urban Cloud**. El indicador rojo junto a **Registro en el servidor** muestra que el terminal todavía no está registrado. Pulsa la rueda dentada junto a esta línea.
+
+<Image src={Registrierung} alt="Resumen de Urban Cloud con indicador rojo junto a Registro en el servidor" width={450} />
+
+El TouchTerminal muestra el **Registro de Urban Cloud** con un código QR. Escanéalo con la aplicación.
+
+<Image src={RegistrierungQRCode} alt="Registro de Urban Cloud con código QR en el TouchTerminal" width={450} />
+
+La aplicación indica **Autómata añadido**.
+
+
+<Aside type="caution">
+La sincronización puede tardar unos minutos. Pulsa el icono de actualizar (↻) y, si es necesario, vuelve a iniciar sesión transcurridos 5&nbsp;minutos.
+</Aside>
+
+De vuelta en la aplicación, tienes dos opciones:
+
+- **Hay más autómatas:** Repite este paso con cada autómata adicional.
+- **Todos los autómatas añadidos:** Continúa con el [Paso 6: Licenciar autómatas](/es/guide/user/06-automaten-lizenzieren).
