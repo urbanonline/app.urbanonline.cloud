@@ -1,44 +1,35 @@
 ---
 title: "Schritt 1: Registrierung"
-description: Registrieren Sie sich in der Urban Feed Monitor App.
+description: Starten Sie die Registrierung in der Urban Feed Monitor App.
 prev:
   label: Voraussetzungen
   link: /guide/user/00-voraussetzungen
 next:
-  label: "Schritt 2: Einloggen"
-  link: /guide/user/02-einloggen
+  label: "Schritt 2: Persönliche Daten"
+  link: /guide/user/02-persoenliche-daten
 ---
 
+import { Aside } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import Einfuehrung from 'graphics/Einfuehrung.png';
-import Accountdaten from 'graphics/Accountdaten.png';
-import Unternehmensdaten from 'graphics/Unternehmensdaten.png';
+import Startbildschirm from 'graphics/Startbildschirm.png';
 
-Starten Sie die Urban App. Durchlaufen Sie die kurze Einführung oder überspringen Sie diesen Schritt.
+Starten Sie die Urban App. Der Startbildschirm ist zugleich der Login.
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+<Image src={Startbildschirm} alt="Startbildschirm mit Link Registrieren und Button Demo-Modus" width={300} />
 
-Tippen Sie auf **Registrieren**, um einen neuen Account und Ihren Betrieb anzulegen.
+- **Sie haben bereits ein Konto:** Loggen Sie sich ein und fahren Sie mit [Schritt 4: Einloggen](/guide/user/04-einloggen) fort.
+- **Sie haben noch kein Konto:** Tippen Sie auf den Link **Registrieren** und fahren Sie mit Schritt 2 fort.
 
-</div>
-<Image src={Einfuehrung} alt="Einführungsbildschirm der Urban App" width={300} />
-</div>
+## Demo-Modus
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+Wenn Sie die App zunächst ausprobieren möchten, tippen Sie auf **Demo-Modus testen**.
 
-Geben Sie Ihre Accountdaten ein und akzeptieren Sie die Nutzungsbedingungen.
+<Aside type="tip">
+Auf älteren Geräten oder Geräten mit kleinem Display müssen Sie nach unten scrollen, um den Button zu sehen.
+</Aside>
 
-</div>
-<Image src={Accountdaten} alt="Formular Konto erstellen" width={300} />
-</div>
+<Aside type="note">
+Für den Demo-Modus und Ihr echtes Konto können Sie dieselbe E-Mail-Adresse verwenden. Der Unterschied liegt im Passwort: Das Passwort für die Demo-Version erhalten Sie per E-Mail. Das Passwort Ihres echten Kontos legen Sie selbst fest.
+</Aside>
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
-
-Geben Sie anschließend die Daten Ihres Unternehmens ein. Tippen Sie auf **Fortsetzen**, um die Registrierung abzuschließen. Sie erhalten eine Bestätigung an die angegebene E-Mail-Adresse.
-
-</div>
-<Image src={Unternehmensdaten} alt="Formular Unternehmensdaten" width={300} />
-</div>
+{/* TODO: Ablauf nach "Demo-Modus testen" klären (Eingabe der E-Mail? Firmendaten? Login mit Passwort aus der E-Mail?) */}

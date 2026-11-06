@@ -1,48 +1,35 @@
 ---
 title: "Étape 1 : Inscription"
-topic: user
-description: Inscrivez-vous dans l'application Urban Feed Monitor.
+description: Démarrez l'inscription dans l'application Urban Feed Monitor.
 prev:
   label: Prérequis
   link: /fr/guide/user/00-voraussetzungen
 next:
-  label: "Étape 2 : Connexion"
-  link: /fr/guide/user/02-einloggen
+  label: "Étape 2 : Données personnelles"
+  link: /fr/guide/user/02-persoenliche-daten
 ---
+
+import { Aside } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import Einfuehrung from 'graphics/Einfuehrung.png';
-import Accountdaten from 'graphics/Accountdaten.png';
-import Unternehmensdaten from 'graphics/Unternehmensdaten.png';
+import Startbildschirm from 'graphics/Startbildschirm_FR_T.png';
 
-:::note
-The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
-:::
+Lancez l'application Urban. L'écran d'accueil sert également d'écran de connexion.
 
-Lancez l'application Urban. Parcourez la courte introduction ou ignorez cette étape.
+<Image src={Startbildschirm} alt="Écran d'accueil avec le lien S'inscrire et le bouton Mode démo" width={300} />
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+- **Vous avez déjà un compte :** Connectez-vous et passez à l'[Étape 4 : Connexion](/fr/guide/user/04-einloggen).
+- **Vous n'avez pas encore de compte :** Appuyez sur le lien **S'inscrire** et passez à l'étape 2.
 
-Appuyez sur **S'inscrire** pour créer un nouveau compte et configurer votre exploitation.
+## Mode démo
 
-</div>
-<Image src={Einfuehrung} alt="Écran d'introduction de l'application Urban" width={300} />
-</div>
+Si vous souhaitez d'abord essayer l'application, appuyez sur **Tester le mode démo**.
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+<Aside type="tip">
+Sur les appareils plus anciens ou dotés d'un petit écran, vous devez faire défiler vers le bas pour voir le bouton.
+</Aside>
 
-Saisissez vos données de compte et acceptez les conditions d'utilisation.
+<Aside type="note">
+Vous pouvez utiliser la même adresse e-mail pour le mode démo et pour votre compte réel. La différence réside dans le mot de passe : vous recevez le mot de passe de la version démo par e-mail. Le mot de passe de votre compte réel, vous le définissez vous-même.
+</Aside>
 
-</div>
-<Image src={Accountdaten} alt="Formulaire de création de compte" width={300} />
-</div>
-
-<div class="ufm-step-row">
-<div class="ufm-step-text">
-
-Saisissez ensuite les données de votre entreprise. Appuyez sur **Continuer** pour finaliser l'inscription. Vous recevrez une confirmation à l'adresse e-mail indiquée.
-
-</div>
-<Image src={Unternehmensdaten} alt="Formulaire des données de l'entreprise" width={300} />
-</div>
+{/* TODO: Ablauf nach "Demo-Modus testen" klären (Eingabe der E-Mail? Firmendaten? Login mit Passwort aus der E-Mail?) */}

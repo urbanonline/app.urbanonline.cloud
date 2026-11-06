@@ -1,0 +1,51 @@
+---
+title: "Étape 5 : Ajouter des distributeurs"
+description: Connectez votre Alma Pro à l'application Urban Feed Monitor via le TouchTerminal.
+prev:
+  label: "Étape 4 : Connexion"
+  link: /fr/guide/user/04-einloggen
+next:
+  label: "Étape 6 : Activer la licence des distributeurs"
+  link: /fr/guide/user/06-automaten-lizenzieren
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import AufrufSetupCloud from '../service/graphics/AufrufSetupCloud_FR.png';
+import Registrierung from '../service/graphics/Registrierung_FR_T.png';
+import RegistrierungQRCode from '../service/graphics/RegistrierungQRCode_FR_T.png';
+
+<Aside type="note">
+Cette étape ne peut être effectuée que par les administrateurs.
+</Aside>
+
+Accédez à **Réglages → Distributeurs** et appuyez sur le **+** à droite de **Distributeurs**.
+
+Rendez-vous au TouchTerminal de l'Alma Pro que vous souhaitez ajouter et ouvrez-y le menu suivant. Les chiffres de l'image correspondent à l'ordre des étapes :
+
+<Image src={AufrufSetupCloud} alt="Menu du TouchTerminal avec les étapes 1 à 5" width={600} />
+
+1. À gauche, appuyez sur **Réglages** (roue dentée).
+1. Dans la barre du bas, appuyez sur l'icône des **réglages Touch**.
+1. Appuyez sur **Accessoires**.
+1. Appuyez sur **Urban Cloud Service**.
+1. Appuyez sur **Ouvrir réglages**.
+
+Le TouchTerminal affiche l'**Aperçu Urban Cloud**. L'indicateur rouge à côté de **Enregistrement sur le serveur** montre que le terminal n'est pas encore enregistré. Appuyez sur la roue dentée à côté de cette ligne.
+
+<Image src={Registrierung} alt="Aperçu Urban Cloud avec indicateur rouge à côté de Enregistrement sur le serveur" width={450} />
+
+Le TouchTerminal affiche l'**Enregistrement Urban Cloud** avec un code QR. Scannez-le avec l'application.
+
+<Image src={RegistrierungQRCode} alt="Enregistrement Urban Cloud avec code QR sur le TouchTerminal" width={450} />
+
+L'application indique **Distributeur ajouté**.
+
+
+<Aside type="caution">
+La synchronisation peut prendre quelques minutes. Appuyez sur l'icône d'actualisation (↻) et, si nécessaire, reconnectez-vous après 5&nbsp;minutes.
+</Aside>
+
+De retour dans l'application, vous avez deux possibilités :
+
+- **D'autres distributeurs sont à ajouter :** Répétez cette étape pour chaque distributeur supplémentaire.
+- **Tous les distributeurs sont ajoutés :** Passez à l'[Étape 6 : Activer la licence des distributeurs](/fr/guide/user/06-automaten-lizenzieren).

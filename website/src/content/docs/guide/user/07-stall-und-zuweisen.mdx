@@ -1,0 +1,46 @@
+---
+title: "Schritt 7: Ställe anlegen und Automaten zuweisen"
+description: Legen Sie Ihre Ställe an und weisen Sie ihnen die lizenzierten Automaten zu.
+prev:
+  label: "Schritt 6: Automaten lizenzieren"
+  link: /guide/user/06-automaten-lizenzieren
+---
+
+import { Image } from 'astro:assets';
+import Abschluss from 'graphics/Abschluss.png';
+import { Aside } from '@astrojs/starlight/components';
+import StallAnlegen from 'graphics/StallAnlegen.png';
+
+<Aside type="note">
+Dieser Schritt ist nur für Administratoren möglich.
+</Aside>
+
+Betreiben Sie mehrere Automaten an verschiedenen Standorten, können Sie für jeden Standort einen Stall anlegen. Beispiel: Vier Automaten verteilen Sie auf zwei Ställe.
+
+## Stall anlegen und Automaten zuweisen
+
+Navigieren Sie zu **Einstellungen → Automaten** und tippen Sie rechts neben **Ställe** auf das **+**.
+
+Geben Sie einen Namen für den Stall ein. Unter **Automaten zum Zuweisen auswählen** markieren Sie im Kästchen links, welche Automaten in diesem Stall stehen. Tippen Sie anschließend unten auf **Stall erstellen**.
+
+<Image src={StallAnlegen} alt="Stall anlegen und verfügbare Automaten hinzufügen" width={300} />
+
+{/* TODO: Prüfen, ob der Dialog "Alle Automaten erfolgreich zugewiesen" nach "Stall erstellen" erscheint */}
+Die App bestätigt mit **Alle Automaten erfolgreich zugewiesen**. Tippen Sie auf **OK**.
+
+## Automaten aus dem Stall entfernen
+
+Tippen Sie bei einem zugewiesenen Automaten auf das **×** und bestätigen Sie die Rückfrage mit **Entfernen**. Der Automat bleibt in Ihrem Konto erhalten und lässt sich einem anderen Stall zuweisen.
+
+{/* TODO: Verhalten beim Entfernen bestätigen (Automat wird nur aus dem Stall genommen) */}
+
+---
+
+## Einrichtung abgeschlossen
+
+Sie können jetzt Ihre Tierdaten einsehen.
+
+
+<Image src={Abschluss} alt="Dashboard mit Tierdaten" width={300} />
+
+Bei Wünschen und Anregungen wenden Sie sich an [info@urbanonline.de](mailto:info@urbanonline.de).
