@@ -1,0 +1,46 @@
+---
+title: "Étape 7 : Créer des étables et affecter des distributeurs"
+description: Créez vos étables et affectez-leur les distributeurs sous licence.
+prev:
+  label: "Étape 6 : Activer la licence des distributeurs"
+  link: /fr/guide/user/06-automaten-lizenzieren
+---
+
+import { Image } from 'astro:assets';
+import Abschluss from 'graphics/Abschluss_FR.png';
+import { Aside } from '@astrojs/starlight/components';
+import StallAnlegen from 'graphics/StallAnlegen_FR.png';
+
+<Aside type="note">
+Cette étape ne peut être effectuée que par les administrateurs.
+</Aside>
+
+Si vous exploitez plusieurs distributeurs sur différents sites, vous pouvez créer une étable pour chaque site. Exemple : vous répartissez quatre distributeurs entre deux étables.
+
+## Créer une étable et affecter des distributeurs
+
+Accédez à **Réglages → Distributeurs** et appuyez sur le **+** à droite de **Étables**.
+
+Saisissez un nom pour l'étable. Sous **Sélectionner les distributeurs à affecter**, cochez à gauche les distributeurs qui se trouvent dans cette étable. Appuyez ensuite sur **Créer l'étable** en bas.
+
+<Image src={StallAnlegen} alt="Création d'une étable et ajout des distributeurs disponibles" width={300} />
+
+{/* TODO: Prüfen, ob der Dialog "Alle Automaten erfolgreich zugewiesen" nach "Stall erstellen" erscheint */}
+L'application confirme par **Tous les distributeurs ont été affectés avec succès**. Appuyez sur **OK**.
+
+## Retirer des distributeurs d'une étable
+
+Pour un distributeur affecté, appuyez sur le **×** et confirmez la question avec **Retirer**. Le distributeur reste dans votre compte et peut être affecté à une autre étable.
+
+{/* TODO: Verhalten beim Entfernen bestätigen (Automat wird nur aus dem Stall genommen) */}
+
+---
+
+## Configuration terminée
+
+Vous pouvez maintenant consulter les données de vos animaux.
+
+
+<Image src={Abschluss} alt="Tableau de bord avec les données des animaux" width={300} />
+
+Pour toute question ou suggestion, contactez [info@urbanonline.de](mailto:info@urbanonline.de).

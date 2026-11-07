@@ -1,0 +1,46 @@
+---
+title: "Paso 7: Crear establos y asignar autómatas"
+description: Crea tus establos y asígnales los autómatas licenciados.
+prev:
+  label: "Paso 6: Licenciar autómatas"
+  link: /es/guide/user/06-automaten-lizenzieren
+---
+
+import { Image } from 'astro:assets';
+import Abschluss from 'graphics/Abschluss_ES.png';
+import { Aside } from '@astrojs/starlight/components';
+import StallAnlegen from 'graphics/StallAnlegen_ES.png';
+
+<Aside type="note">
+Este paso solo lo pueden realizar los administradores.
+</Aside>
+
+Si utilizas varios autómatas en diferentes ubicaciones, puedes crear un establo para cada ubicación. Ejemplo: repartes cuatro autómatas entre dos establos.
+
+## Crear un establo y asignar autómatas
+
+Ve a **Ajustes → Autómatas** y pulsa el **+** situado a la derecha de **Establos**.
+
+Introduce un nombre para el establo. En **Seleccionar autómatas para asignar**, marca en la casilla de la izquierda qué autómatas se encuentran en este establo. A continuación, pulsa **Crear establo** en la parte inferior.
+
+<Image src={StallAnlegen} alt="Crear un establo y añadir los autómatas disponibles" width={300} />
+
+
+La aplicación confirma con **Todos los autómatas se han asignado correctamente**. Pulsa **OK**.
+
+## Quitar autómatas de un establo
+
+En un autómata asignado, pulsa la **×** y confirma la pregunta con **Quitar**. El autómata permanece en tu cuenta y se puede asignar a otro establo.
+
+{/* TODO: Verhalten beim Entfernen bestätigen (Automat wird nur aus dem Stall genommen) */}
+
+---
+
+## Configuración completada
+
+Ya puedes consultar los datos de tus animales.
+
+
+<Image src={Abschluss} alt="Panel con los datos de los animales" width={300} />
+
+Para consultas y sugerencias, ponte en contacto con [info@urbanonline.de](mailto:info@urbanonline.de).

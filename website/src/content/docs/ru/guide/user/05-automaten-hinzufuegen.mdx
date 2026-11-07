@@ -1,0 +1,51 @@
+---
+title: "Шаг 5: Добавление автоматов"
+description: Подключите Ваш Alma Pro к приложению Urban Feed Monitor через TouchTerminal.
+prev:
+  label: "Шаг 4: Вход"
+  link: /ru/guide/user/04-einloggen
+next:
+  label: "Шаг 6: Лицензирование автоматов"
+  link: /ru/guide/user/06-automaten-lizenzieren
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import AufrufSetupCloud from '../service/graphics/AufrufSetupCloud_RU.png';
+import Registrierung from '../service/graphics/Registrierung_RU_T.png';
+import RegistrierungQRCode from '../service/graphics/RegistrierungQRCode_RU_T.png';
+
+<Aside type="note">
+Этот шаг могут выполнить только администраторы.
+</Aside>
+
+Перейдите в **Настройки → Автоматы** и нажмите **+** справа от **Автоматы**.
+
+Подойдите к TouchTerminal того Alma Pro, который Вы хотите добавить, и откройте на нём следующее меню. Цифры на изображении соответствуют порядку шагов:
+
+<Image src={AufrufSetupCloud} alt="Меню на TouchTerminal с шагами с 1 по 5" width={600} />
+
+1. Слева нажмите **Настройки** (шестерёнка).
+1. В нижней панели нажмите значок **Тач-настроек**.
+1. Нажмите **Аксессуары**.
+1. Нажмите **Urban Cloud Service**.
+1. Нажмите **Открыть настройки**.
+
+TouchTerminal отобразит **Обзор Urban Cloud**. Красный индикатор рядом с пунктом **Регистрация на сервере** показывает, что терминал ещё не зарегистрирован. Нажмите на шестерёнку рядом с этой строкой.
+
+<Image src={Registrierung} alt="Обзор Urban Cloud с красным индикатором рядом с пунктом Регистрация на сервере" width={450} />
+
+TouchTerminal отобразит **Регистрацию Urban Cloud** с QR-кодом. Отсканируйте его с помощью приложения.
+
+<Image src={RegistrierungQRCode} alt="Регистрация Urban Cloud с QR-кодом на TouchTerminal" width={450} />
+
+Приложение сообщит **Автомат добавлен**.
+
+
+<Aside type="caution">
+Синхронизация может занять несколько минут. Нажмите на значок обновления (↻) и при необходимости войдите в приложение заново через 5&nbsp;минут.
+</Aside>
+
+Вернувшись в приложение, Вы можете поступить двумя способами:
+
+- **Есть ещё автоматы:** Повторите этот шаг для каждого следующего автомата.
+- **Все автоматы добавлены:** Перейдите к [Шагу 6: Лицензирование автоматов](/ru/guide/user/06-automaten-lizenzieren).

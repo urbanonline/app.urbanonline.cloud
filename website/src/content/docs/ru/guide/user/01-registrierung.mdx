@@ -1,48 +1,35 @@
 ---
 title: "Шаг 1: Регистрация"
-topic: user
-description: Зарегистрируйтесь в приложении Urban Feed Monitor.
+description: Начните регистрацию в приложении Urban Feed Monitor.
 prev:
-  label: Предварительные требования
+  label: Предварительные условия
   link: /ru/guide/user/00-voraussetzungen
 next:
-  label: "Шаг 2: Вход в систему"
-  link: /ru/guide/user/02-einloggen
+  label: "Шаг 2: Личные данные"
+  link: /ru/guide/user/02-persoenliche-daten
 ---
+
+import { Aside } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-import Einfuehrung from 'graphics/Einfuehrung.png';
-import Accountdaten from 'graphics/Accountdaten.png';
-import Unternehmensdaten from 'graphics/Unternehmensdaten.png';
+import Startbildschirm from 'graphics/Startbildschirm_RU.png';
 
-:::note
-The screenshots in this guide are currently shown in German and will be replaced with localized versions shortly. They are provided for orientation purposes only.
-:::
+Запустите приложение Urban. Стартовый экран одновременно является экраном входа.
 
-Запустите приложение Urban. Пройдите краткое введение или пропустите этот шаг.
+<Image src={Startbildschirm} alt="Стартовый экран со ссылкой «Регистрация» и кнопкой «Демо-режим»" width={300} />
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+- **У Вас уже есть учётная запись:** Войдите в приложение ➀ и перейдите к [Шагу 4: Вход](/ru/guide/user/04-einloggen).
+- **У Вас ещё нет учётной записи:** Нажмите на ссылку **Регистрация** ➁ и перейдите к шагу 2.
 
-Нажмите **Зарегистрироваться**, чтобы создать новый аккаунт и настроить своё хозяйство.
+## Демо-режим
 
-</div>
-<Image src={Einfuehrung} alt="Экран введения приложения Urban" width={300} />
-</div>
+Если Вы хотите сначала опробовать приложение, нажмите **Попробовать демо-режим**.
 
-<div class="ufm-step-row">
-<div class="ufm-step-text">
+<Aside type="tip">
+На старых устройствах или устройствах с небольшим дисплеем необходимо прокрутить экран вниз, чтобы увидеть кнопку.
+</Aside>
 
-Введите данные аккаунта и примите условия использования.
+<Aside type="note">
+Для демо-режима и для Вашей реальной учётной записи можно использовать один и тот же адрес электронной почты. Разница в пароле: пароль для демо-версии Вы получите по электронной почте. Пароль для реальной учётной записи Вы задаёте самостоятельно.
+</Aside>
 
-</div>
-<Image src={Accountdaten} alt="Форма создания аккаунта" width={300} />
-</div>
-
-<div class="ufm-step-row">
-<div class="ufm-step-text">
-
-Затем введите данные вашей компании. Нажмите **Продолжить**, чтобы завершить регистрацию. Вы получите подтверждение на указанный адрес электронной почты.
-
-</div>
-<Image src={Unternehmensdaten} alt="Форма данных компании" width={300} />
-</div>
+{/* TODO: Ablauf nach "Demo-Modus testen" klären (Eingabe der E-Mail? Firmendaten? Login mit Passwort aus der E-Mail?) */}
