@@ -1,0 +1,66 @@
+---
+title: Comprobación del terminal táctil
+description: Determinación de la generación del terminal táctil
+sidebar:
+  label: Terminal táctil
+  order: 30
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import TerminalGen from '../../../prerequisites/feeder/graphics/TouchTerminalGen.png';
+import version_check from 'graphics/version-checktouch.png';
+import Home from '../../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../../public/icons/almapro/questionmark.svg';
+
+## Requisitos del terminal táctil
+
+Para la instalación y la configuración de la Urban Cloud es imprescindible un terminal táctil de <span class="font-bold">generación 2</span> (vendido a partir de 2020) o superior.
+
+## Determinación de la generación
+
+### Identificación visual
+
+El método más sencillo es distinguir las generaciones por la carcasa:
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={TerminalGen} alt="Resumen de las generaciones de terminales táctiles" title="Resumen de las generaciones de terminales táctiles" />
+</div>
+<figcaption class="text-sm mt-2">
+  Figura 1: Generaciones de terminales táctiles — izquierda no compatible, derecha compatible
+</figcaption>
+</figure>
+
+| Generación | Rasgo distintivo | Compatible |
+|---|---|---|
+| Gen 1 | Puerto USB centrado verticalmente en el borde superior, rótulo Pro-face | ❌ |
+| Terminal de 8" | Carcasa roja | ❌ |
+| Gen 2 | Puerto USB con LED azul debajo, al ras del borde inferior de la pantalla, rótulo Pro-face | ✅ |
+| Gen 3–4 | Marco verde alrededor del puerto USB, marco negro alrededor de la pantalla, rótulo Schneider | ✅ |
+
+### Determinación mediante el software
+
+Si la identificación visual no es concluyente, puede leer la generación directamente en el terminal:
+
+* Vaya a la pantalla de inicio del autómata. Si es necesario, pulse el botón superior `Home` {/* UI-CHECK */} <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> en la barra de navegación del lado izquierdo de la pantalla.
+* En la pantalla de inicio, pulse el botón `Ayuda` {/* UI-CHECK */} <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Icono del menú de ayuda" /> en la esquina superior derecha de la pantalla.
+* La generación del hardware instalado <span class="text-2xl">➂</span> se muestra ahora a la izquierda del botón de cambio de idioma, junto a «Hardware» {/* UI-CHECK */}.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: comprobación de la generación del terminal" title="Alma Pro: comprobación de la generación del terminal" />
+</div>
+<figcaption class="text-sm mt-2">
+  Figura 2: Alma Pro, comprobación de la generación del terminal
+</figcaption>
+</figure>
+
+<Aside type="note" icon="information" title="Nota">
+  Con versiones de firmware inferiores a 25-04-V08 no se muestra el hardware instalado. Póngase en contacto con su socio de servicio de Urban para actualizar el firmware.
+</Aside>
+
+## Siguientes pasos
+
+* Si utiliza un **terminal no compatible** (Gen 1 o 8"), póngase en contacto con su distribuidor o socio de servicio de Urban para sustituir el terminal.
+
+* Si utiliza un terminal compatible (Gen 2 o superior), compruebe a continuación la [versión de firmware](/es/prerequisites/feeder/firmware).

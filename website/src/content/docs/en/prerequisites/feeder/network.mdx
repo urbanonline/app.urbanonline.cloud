@@ -1,0 +1,45 @@
+---
+title: Checking the Network Connection
+description: Determining how the Alma Pro is integrated into the network, comparison with the minimum network requirements
+sidebar:
+  label: Network connection
+  order: 50
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+
+import VNCParameters from './graphics/vnc-parameters.png';
+
+## Checking for an Urban Router
+
+The Alma Pro feeding system must be equipped with an Urban Router.
+
+## Checking the Network Connection
+
+The WAN port of the Urban Router must be connected to the router of the operation’s network.
+To find out whether this requirement is met:
+
+1. Click the bottom button <Gear width={20} class="inline ml-2 mb-0" /> `Settings` {/* UI-CHECK */} in the left sidebar of the touch terminal ([Screenshot 1](#screenshot-1), digit <span class="text-2xl">➀</span>). If you are in the main menu, where no sidebar is visible, press the <Feeder width={20} class="inline ml-2 mb-0" /> `Feeder` {/* UI-CHECK */} button to display the sidebar.
+1. In the bottom toolbar of the touch terminal, click the third button, labeled `VNC` (digit&nbsp;<span class="text-2xl">➁</span>), to open a pop-up window <span class="text-2xl">Ⓐ</span> with the VNC connection parameters.
+1. In the upper half of the pop-up window you will find the heading `IP address assigned to the WLAN router (WAN)` {/* UI-CHECK */}:
+    - If an [IPv4 address](https://en.wikipedia.org/wiki/IP_address) in the form `nnn.nnn.nnn.nnn` <span class="text-2xl">Ⓑ</span> is listed there, the Urban Router is correctly connected to the router of the operation’s network.
+    - If there is no text below the heading, the Urban Router is <span class="font-bold">not</span> connected to the router of the operation’s network.
+
+<figure id="screenshot-1">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={VNCParameters}  alt="Urban Cloud installation, checking the network connection" title="Checking the Network Connection" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Screenshot 1:</span> Cloud setup, checking the network connection
+  </figcaption>
+</figure>
+
+## Checking the Internet Connection
+
+Use the [guide](/en/guide/service/setup-cloud/network/#view-connectivity-details) in the service documentation to determine whether the touch terminal is connected to the internet.
+
+## Next Steps
+
+* Connect the Urban Router of your feeding system to the internet if you have not already done so.
+* If your feeder(s) are not yet equipped with an Urban Router, ask your sales partner to equip your feeding system with an Urban Router.

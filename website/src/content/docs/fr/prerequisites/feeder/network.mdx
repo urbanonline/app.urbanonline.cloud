@@ -1,0 +1,45 @@
+---
+title: Vérification de la connexion réseau
+description: Détermination de l'intégration réseau de l'Alma Pro, comparaison avec les exigences minimales de connexion réseau
+sidebar:
+  label: Connexion réseau
+  order: 50
+---
+import { Image } from 'astro:assets';
+import Gear from '../../../../../../public/icons/almapro/gear.svg';
+import Feeder from '../../../../../../public/icons/almapro/feeder.svg';
+
+import VNCParameters from './graphics/vnc-parameters.png';
+
+## Vérification de l'Urban Router
+
+Le système d'alimentation Alma Pro doit impérativement être équipé d'un Urban Router.
+
+## Vérification de la connexion réseau
+
+Le port WAN de l'Urban Router doit impérativement être relié au routeur du réseau de l'exploitation.
+Voici comment vérifier si cette exigence est remplie&nbsp;:
+
+1. Dans la barre latérale gauche du terminal tactile, appuyez sur le bouton du bas <Gear width={20} class="inline ml-2 mb-0" /> `Paramètres` {/* UI-CHECK */} ([Capture d'écran 1](#screenshot-1), chiffre <span class="text-2xl">➀</span>). Si vous êtes dans le menu principal, où aucune barre latérale n'est visible, appuyez sur le bouton <Feeder width={20} class="inline ml-2 mb-0" /> `Distributeur` {/* UI-CHECK */} pour l'afficher.
+1. Dans la barre d'outils inférieure du terminal tactile, appuyez sur le troisième bouton, intitulé `VNC` (chiffre&nbsp;<span class="text-2xl">➁</span>), pour ouvrir une fenêtre contextuelle <span class="text-2xl">Ⓐ</span> contenant les paramètres de connexion VNC.
+1. Dans la moitié supérieure de la fenêtre contextuelle, vous trouverez le titre `Adresse IP attribuée au routeur WLAN (WAN)` {/* UI-CHECK */}&nbsp;:
+    - Si une [adresse IPv4](https://fr.wikipedia.org/wiki/Adresse_IP) de la forme `nnn.nnn.nnn.nnn` <span class="text-2xl">Ⓑ</span> y figure, l'Urban Router est correctement relié au routeur du réseau de l'exploitation.
+    - Si aucun texte ne figure sous le titre, l'Urban Router n'est <span class="font-bold">pas</span> relié au routeur du réseau de l'exploitation.
+
+<figure id="screenshot-1">
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={VNCParameters}  alt="Installation de l'Urban Cloud, vérification de la connexion réseau" title="Vérification de la connexion réseau" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Capture d'écran 1&nbsp;:</span> Configuration du cloud, vérification de la connexion réseau
+  </figcaption>
+</figure>
+
+## Vérification de la connexion Internet
+
+Suivez le [guide](/fr/guide/service/setup-cloud/network/#view-connectivity-details) de la documentation de service pour déterminer si le terminal tactile est connecté à Internet.
+
+## Étapes suivantes
+
+* Connectez l'Urban Router de votre système d'alimentation à Internet si ce n'est pas encore fait.
+* Si votre ou vos distributeurs ne sont pas encore équipés d'un Urban Router, chargez votre partenaire commercial d'équiper votre système d'alimentation d'un Urban Router.

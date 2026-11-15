@@ -1,0 +1,45 @@
+---
+title: Требования к автомату
+description: Минимальные требования для Urban Feed Monitor App.
+tableOfContents: false
+sidebar:
+  label: Обзор
+  order: 10
+---
+
+import Preview from '/src/components/Frame.astro';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Для использования приложения Urban Feed Monitor App должны быть выполнены следующие требования:
+
+<Preview>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Модель автомата"
+      href="model"
+      description="Требуется Alma Pro" 
+   />
+
+    <LinkCard
+      title="Сенсорный терминал"
+      href="terminal"
+      description="Требуется сенсорный терминал второго поколения или новее (с 2020 года)"
+    />
+  </CardGrid>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Прошивка"
+      href="firmware"
+      description="Требуется версия прошивки 25-04-V08 или выше" 
+   />
+
+    <LinkCard
+      title="Сеть"
+      href="network"
+      description="Требуется Urban Router с подключением к интернету"
+    />
+  </CardGrid>
+
+</Preview>

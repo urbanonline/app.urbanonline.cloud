@@ -1,0 +1,45 @@
+---
+title: Exigences relatives au distributeur
+description: Exigences minimales pour l'Urban Feed Monitor App.
+tableOfContents: false
+sidebar:
+  label: Aperçu
+  order: 10
+---
+
+import Preview from '/src/components/Frame.astro';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Les exigences suivantes doivent être remplies pour utiliser l'Urban Feed Monitor App&nbsp;:
+
+<Preview>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Modèle de distributeur"
+      href="model"
+      description="Alma Pro requis" 
+   />
+
+    <LinkCard
+      title="Terminal tactile"
+      href="terminal"
+      description="Terminal tactile de deuxième génération ou supérieure requis (à partir de 2020)"
+    />
+  </CardGrid>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Firmware"
+      href="firmware"
+      description="Version de firmware 25-04-V08 ou supérieure requise" 
+   />
+
+    <LinkCard
+      title="Réseau"
+      href="network"
+      description="Urban Router avec connexion Internet requis"
+    />
+  </CardGrid>
+
+</Preview>

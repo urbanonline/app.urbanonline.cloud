@@ -1,0 +1,45 @@
+---
+title: Feeder Requirements
+description: Minimum requirements for the Urban Feed Monitor App.
+tableOfContents: false
+sidebar:
+  label: Overview
+  order: 10
+---
+
+import Preview from '/src/components/Frame.astro';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The following requirements must be met to use the Urban Feed Monitor App:
+
+<Preview>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Feeder model"
+      href="model"
+      description="Alma Pro required" 
+   />
+
+    <LinkCard
+      title="Touch terminal"
+      href="terminal"
+      description="Second-generation touch terminal or higher required (from 2020)"
+    />
+  </CardGrid>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Firmware"
+      href="firmware"
+      description="Firmware version 25-04-V08 or higher required" 
+   />
+
+    <LinkCard
+      title="Network"
+      href="network"
+      description="Urban Router with internet connection required"
+    />
+  </CardGrid>
+
+</Preview>

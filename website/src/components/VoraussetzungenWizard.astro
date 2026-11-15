@@ -1,118 +1,519 @@
 ---
 // VoraussetzungenWizard.astro
-// Einbindung im MDX:
+// Einbindung im MDX (Pfadtiefe beachten: DE liegt eine Ebene flacher als en/, es/, fr/, ru/):
 // import VoraussetzungenWizard from '../../../../components/VoraussetzungenWizard.astro';
 // <VoraussetzungenWizard />
+//
+// Sprache: Astro.currentLocale (Root-Sprache = 'de'), clientseitig gelesen über data-locale.
+const locale = Astro.currentLocale ?? 'de';
 ---
 
-<div style="padding: 1.5rem 0;" id="vw-wizard">
+<div style="padding: 1.5rem 0;" id="vw-wizard" data-locale={locale}>
   <div id="vw-progress" aria-hidden="true" style="display: flex; align-items: center; gap: 6px; margin-bottom: 2rem;"></div>
   <div id="vw-content"></div>
 </div>
 
 <script>
 (function () {
-  interface NeinAction {
-    title: string;
-    action: string;
-  }
+  // ─────────────────────────────────────────────────────────────
+  // Typen
+  // ─────────────────────────────────────────────────────────────
+  const LOCALES = ['de', 'en', 'es', 'fr', 'ru'] as const;
+  type Locale = (typeof LOCALES)[number];
 
-  interface Step {
-    id: string;
-    label: string;
+  // Reihenfolge der IDs für den normalen Pfad
+  const STEP_IDS = ['smartphone', 'appstore', 'alma', 'terminal', 'firmware', 'internet', 'router'] as const;
+  type StepId = (typeof STEP_IDS)[number];
+
+  interface StepText {
     title: string;
     question: string;
     hint: string | null;
-    nein: NeinAction | null;
   }
 
-  // Reihenfolge der IDs für den normalen Pfad
-  const steps: Step[] = [
-    {
-      id: 'smartphone',
-      label: 'Checkpoint 1',
-      title: 'Smartphone',
-      question: 'Ist ein iPhone oder Android-Gerät vorhanden?',
-      hint: null,
-      nein: {
-        title: 'Kein Smartphone vorhanden',
-        action: 'Die Urban Feed Monitor App erfordert ein iPhone (iOS) oder ein Android-Gerät.',
+  interface ResultText {
+    title: string;
+    body: string;
+  }
+
+  interface Messages {
+    yes: string;
+    no: string;
+    result: string;
+    restart: string;
+    checkpointOf: string;       // {n}, {total}
+    partlyFulfilled: string;    // {n}, {total}
+    allFulfilled: string;       // enthält Link zu Schritt 1
+    appStoreAlt: string;
+    playStoreAlt: string;
+    almaProUrl: string;         // Produktseite je Sprache
+    firmwareRouterNote: string; // Zusatzsatz, wenn Firmware UND Router fehlen
+    routerFirmwareNote: string; // Zusatzsatz, wenn Router UND Firmware fehlen
+    steps: Record<StepId, StepText>;
+    results: Record<StepId, ResultText>;
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // Texte
+  //
+  // Schreibregeln für alle Sprachen:
+  //  - Platzhalter: {n} {total} {fw} {almaProUrl} {strong}
+  //  - Interne Links als Wurzelpfad schreiben (href="/guide/…"); das
+  //    Sprachpräfix (/en, /es, …) setzt tx() automatisch.
+  //  - Externe Links und {strong} unverändert übernehmen.
+  //  - Keine Icons (⚠) und kein Markup außer <a> in den Texten.
+  //
+  // Typ Record<Locale, Messages>: `astro check` meldet fehlende Keys oder Sprachen.
+  // Registerwahl: DE Sie · EN neutral · ES tú · FR vous · RU Вы.
+  // FR: geschütztes Leerzeichen (&nbsp;) vor ? : ;
+  // Sicherheitsnetz zur Laufzeit (z. B. neue Sprache, noch ohne Block): Sprache → en → de.
+  // ─────────────────────────────────────────────────────────────
+  const messages: Record<Locale, Messages> = {
+    de: {
+      yes: 'Ja',
+      no: 'Nein',
+      result: 'Ergebnis',
+      restart: '↺ Nochmal von vorne',
+      checkpointOf: 'Checkpoint {n} von {total}',
+      partlyFulfilled: '{n} von {total} Voraussetzungen bereits erfüllt:',
+      allFulfilled: 'Alle Voraussetzungen erfüllt. Sie können direkt mit <a href="/guide/user/01-registrierung" {strong}>Schritt 1: Registrierung</a> starten.',
+      appStoreAlt: 'Im App Store laden',
+      playStoreAlt: 'Bei Google Play laden',
+      almaProUrl: 'https://www.urbanonline.de/produkte/detail/urban-alma-pro',
+      firmwareRouterNote: 'Dieser Termin lässt sich mit der Router-Installation kombinieren.',
+      routerFirmwareNote: 'Die Installation lässt sich mit dem Firmware-Update kombinieren.',
+      steps: {
+        smartphone: {
+          title: 'Smartphone',
+          question: 'Ist ein iPhone oder Android-Gerät vorhanden?',
+          hint: null,
+        },
+        appstore: {
+          title: 'App installiert',
+          question: 'Ist die Urban Feed Monitor App bereits auf Ihrem Gerät installiert?',
+          hint: null,
+        },
+        alma: {
+          title: 'Automat',
+          question: 'Ist ein Alma Pro Fütterungsautomat vorhanden?',
+          hint: 'Vorgängermodelle sind nicht kompatibel. <a href="/prerequisites/feeder/model">Ermittlung des Modells</a>',
+        },
+        terminal: {
+          title: 'Touch-Terminal',
+          question: 'Ist ein Touch-Terminal der 2. Generation vorhanden?',
+          hint: 'Terminals der 2. Generation wurden ab 2020 ausgeliefert. <a href="/prerequisites/feeder/terminal">Ermittlung der Generation</a>',
+        },
+        firmware: {
+          title: 'Firmware',
+          question: 'Ist Firmwareversion {fw} oder höher auf der Alma Pro installiert?',
+          hint: 'Prüfung am Gerät: Home-Schaltfläche → Hilfe-Symbol (oben rechts). Die Versionsnummer erscheint links neben der Sprachumschaltung. <a href="/prerequisites/feeder/firmware">Detaillierte Anleitung</a>',
+        },
+        internet: {
+          title: 'Internetverbindung im Stall',
+          question: 'Ist im Stall eine Internetverbindung vorhanden (d.h. es besteht eine Verbindung nach außen, nicht nur ein lokales Netzwerk)?',
+          hint: '<a href="/prerequisites/feeder/network">Nähere Hinweise zum Netzwerk</a>',
+        },
+        router: {
+          title: 'Urban Router',
+          question: 'Ist ein Urban Router im Stall installiert?',
+          hint: null,
+        },
+      },
+      results: {
+        smartphone: {
+          title: 'Kein Smartphone vorhanden',
+          body: 'Die Urban Feed Monitor App erfordert ein iPhone (iOS) oder ein Android-Gerät.',
+        },
+        appstore: {
+          title: 'App noch nicht installiert',
+          body: 'Laden Sie die Urban Feed Monitor App herunter:',
+        },
+        alma: {
+          title: 'Kein Alma Pro Fütterungsautomat vorhanden',
+          body: 'Die Urban Feed Monitor App setzt einen Alma Pro Fütterungsautomaten voraus. <a href="{almaProUrl}" target="_blank" rel="noopener">Mehr zur Urban Alma Pro</a> – wenden Sie sich an Ihren Urban-Servicepartner. Das passende Touch-Terminal und die aktuelle Firmware sind im Lieferumfang enthalten. Den Urban Router müssen Sie separat bestellen.',
+        },
+        terminal: {
+          title: 'Touch-Terminal Gen 2 fehlt',
+          body: 'Wenden Sie sich an Ihren Urban-Servicepartner für einen Austausch.',
+        },
+        firmware: {
+          title: 'Firmware veraltet',
+          body: 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin sofort das Terminal hinzugefügt werden kann. Starten Sie jetzt mit <a href="/guide/user/01-registrierung" {strong}>Schritt 1: Registrierung</a>.',
+        },
+        internet: {
+          title: 'Keine Internetverbindung im Stall',
+          body: 'Eine Internetverbindung im Stall ist Voraussetzung für die Urban Cloud. Klären Sie dies mit Ihrem Netzwerktechniker – Urban kann hierbei nicht unterstützen.',
+        },
+        router: {
+          title: 'Kein Urban Router vorhanden',
+          body: 'Wenden Sie sich an Ihren Urban-Servicepartner für die Installation des Urban Routers.',
+        },
       },
     },
-    {
-      id: 'appstore',
-      label: 'Checkpoint 2',
-      title: 'App installiert',
-      question: 'Ist die Urban Feed Monitor App bereits auf Ihrem Gerät installiert?',
-      hint: null,
-      nein: {
-        title: 'App noch nicht installiert',
-        action: 'Laden Sie die Urban Feed Monitor App herunter: <a href="https://apps.apple.com/de/app/urban-feed-monitor/id6746261090" target="_blank" rel="noopener">App Store (iOS)</a> oder <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro" target="_blank" rel="noopener">Google Play (Android)</a>',
+    en: {
+      yes: `Yes`,
+      no: `No`,
+      result: `Result`,
+      restart: `↺ Start over`,
+      checkpointOf: `Checkpoint {n} of {total}`,
+      partlyFulfilled: `{n} of {total} prerequisites already met:`,
+      allFulfilled: `All prerequisites are met. You can start right away with <a href="/guide/user/01-registrierung" {strong}>Step 1: Registration</a>.`,
+      appStoreAlt: `Download on the App Store`,
+      playStoreAlt: `Get it on Google Play`,
+      almaProUrl: `https://www.urbanonline.de/en/urban-products/detail/urban-alma-pro`,
+      firmwareRouterNote: `This appointment can be combined with the router installation.`,
+      routerFirmwareNote: `The installation can be combined with the firmware update.`,
+      steps: {
+        smartphone: {
+          title: `Smartphone`,
+          question: `Do you have an iPhone or an Android device?`,
+          hint: null,
+        },
+        appstore: {
+          title: `App installed`,
+          question: `Is the Urban Feed Monitor App already installed on your device?`,
+          hint: null,
+        },
+        alma: {
+          title: `Feeder`,
+          question: `Do you have an Alma Pro feeder?`,
+          hint: `Earlier models are not compatible. <a href="/prerequisites/feeder/model">Identifying the model</a>`,
+        },
+        terminal: {
+          title: `Touch-Terminal`,
+          question: `Do you have a 2nd-generation Touch-Terminal?`,
+          hint: `2nd-generation terminals have been delivered since 2020. <a href="/prerequisites/feeder/terminal">Identifying the generation</a>`,
+        },
+        firmware: {
+          title: `Firmware`,
+          question: `Is firmware version {fw} or higher installed on the Alma Pro?`,
+          hint: `Check on the device: Home button → Help icon (top right). The version number appears to the left of the language switch. <a href="/prerequisites/feeder/firmware">Detailed instructions</a>`,
+        },
+        internet: {
+          title: `Internet connection in the barn`,
+          question: `Is there an internet connection in the barn (i.e. a connection to the outside, not just a local network)?`,
+          hint: `<a href="/prerequisites/feeder/network">More information on the network</a>`,
+        },
+        router: {
+          title: `Urban Wi-Fi router`,
+          question: `Is an Urban Wi-Fi router installed in the barn?`,
+          hint: null,
+        },
+      },
+      results: {
+        smartphone: {
+          title: `No smartphone available`,
+          body: `The Urban Feed Monitor App requires an iPhone (iOS) or an Android device.`,
+        },
+        appstore: {
+          title: `App not installed yet`,
+          body: `Download the Urban Feed Monitor App:`,
+        },
+        alma: {
+          title: `No Alma Pro feeder available`,
+          body: `The Urban Feed Monitor App requires an Alma Pro feeder. <a href="{almaProUrl}" target="_blank" rel="noopener">More about the Urban Alma Pro</a> – please contact your Urban service personnel. The matching Touch-Terminal and the current firmware are included in the delivery. The Urban Wi-Fi router must be ordered separately.`,
+        },
+        terminal: {
+          title: `2nd-generation Touch-Terminal missing`,
+          body: `Contact your Urban service personnel to arrange a replacement.`,
+        },
+        firmware: {
+          title: `Firmware outdated`,
+          body: `Schedule a service appointment for the firmware update. In the meantime, continue with steps 1–3 (registration, logging in, creating a barn) so that the terminal can be added straight away at the service appointment. Start now with <a href="/guide/user/01-registrierung" {strong}>Step 1: Registration</a>.`,
+        },
+        internet: {
+          title: `No internet connection in the barn`,
+          body: `An internet connection in the barn is a prerequisite for the Urban Cloud. Clarify this with your network technician – Urban cannot provide support with this.`,
+        },
+        router: {
+          title: `No Urban Wi-Fi router available`,
+          body: `Contact your Urban service personnel to have the Urban Wi-Fi router installed.`,
+        },
       },
     },
-    {
-      id: 'alma',
-      label: 'Checkpoint 3',
-      title: 'Automat',
-      question: 'Ist ein Alma Pro Fütterungsautomat vorhanden?',
-      hint: 'Vorgängermodelle sind nicht kompatibel. <a href="/prerequisites/feeder/model">Ermittlung des Modells</a>',
-      nein: {
-        title: 'Kein Alma Pro Fütterungsautomat vorhanden',
-        action: '',  // wird in renderSummary gesondert behandelt
+    es: {
+      yes: `Sí`,
+      no: `No`,
+      result: `Resultado`,
+      restart: `↺ Empezar de nuevo`,
+      checkpointOf: `Punto de control {n} de {total}`,
+      partlyFulfilled: `{n} de {total} requisitos previos ya cumplidos:`,
+      allFulfilled: `Se cumplen todos los requisitos previos. Puedes empezar directamente con el <a href="/guide/user/01-registrierung" {strong}>Paso 1: Registro</a>.`,
+      appStoreAlt: `Descárgala en el App Store`,
+      playStoreAlt: `Disponible en Google Play`,
+      almaProUrl: `https://www.urbanonline.de/es/productos/detail/urban-alma-pro`,
+      firmwareRouterNote: `Esta cita puede combinarse con la instalación del router.`,
+      routerFirmwareNote: `La instalación puede combinarse con la actualización del firmware.`,
+      steps: {
+        smartphone: {
+          title: `Smartphone`,
+          question: `¿Tienes un iPhone o un dispositivo Android?`,
+          hint: null,
+        },
+        appstore: {
+          title: `App instalada`,
+          question: `¿Ya tienes instalada la Urban Feed Monitor App en tu dispositivo?`,
+          hint: null,
+        },
+        alma: {
+          title: `Autómata`,
+          question: `¿Tienes un autómata Alma Pro?`,
+          hint: `Los modelos anteriores no son compatibles. <a href="/prerequisites/feeder/model">Cómo identificar el modelo</a>`,
+        },
+        terminal: {
+          title: `Touch-Terminal`,
+          question: `¿Tienes un Touch-Terminal de 2.ª generación?`,
+          hint: `Los terminales de 2.ª generación se entregan desde 2020. <a href="/prerequisites/feeder/terminal">Cómo identificar la generación</a>`,
+        },
+        firmware: {
+          title: `Firmware`,
+          question: `¿Tiene la Alma Pro instalada la versión de firmware {fw} o superior?`,
+          hint: `Comprobación en el dispositivo: botón de inicio → icono de ayuda (arriba a la derecha). El número de versión aparece a la izquierda del selector de idioma. <a href="/prerequisites/feeder/firmware">Instrucciones detalladas</a>`,
+        },
+        internet: {
+          title: `Conexión a internet en el establo`,
+          question: `¿Hay conexión a internet en el establo (es decir, una conexión con el exterior, no solo una red local)?`,
+          hint: `<a href="/prerequisites/feeder/network">Más información sobre la red</a>`,
+        },
+        router: {
+          title: `Router Urban`,
+          question: `¿Hay un router Urban instalado en el establo?`,
+          hint: null,
+        },
+      },
+      results: {
+        smartphone: {
+          title: `No hay smartphone`,
+          body: `La Urban Feed Monitor App requiere un iPhone (iOS) o un dispositivo Android.`,
+        },
+        appstore: {
+          title: `La app aún no está instalada`,
+          body: `Descarga la Urban Feed Monitor App:`,
+        },
+        alma: {
+          title: `No hay ningún autómata Alma Pro`,
+          body: `La Urban Feed Monitor App requiere un autómata Alma Pro. <a href="{almaProUrl}" target="_blank" rel="noopener">Más información sobre la Urban Alma Pro</a>: ponte en contacto con el personal de servicio de Urban. El Touch-Terminal adecuado y el firmware actual están incluidos en el suministro. El router Urban debes pedirlo por separado.`,
+        },
+        terminal: {
+          title: `Falta el Touch-Terminal de 2.ª generación`,
+          body: `Ponte en contacto con el personal de servicio de Urban para solicitar un cambio.`,
+        },
+        firmware: {
+          title: `Firmware desactualizado`,
+          body: `Concierta una cita de servicio para la actualización del firmware. Mientras tanto, continúa con los pasos 1–3 (registro, inicio de sesión, crear el establo) para que en la cita de servicio se pueda añadir el terminal de inmediato. Empieza ahora con el <a href="/guide/user/01-registrierung" {strong}>Paso 1: Registro</a>.`,
+        },
+        internet: {
+          title: `Sin conexión a internet en el establo`,
+          body: `Una conexión a internet en el establo es un requisito para la Urban Cloud. Consúltalo con tu técnico de redes; Urban no puede ayudarte con esto.`,
+        },
+        router: {
+          title: `No hay ningún router Urban`,
+          body: `Ponte en contacto con el personal de servicio de Urban para la instalación del router Urban.`,
+        },
       },
     },
-    {
-      id: 'terminal',
-      label: 'Checkpoint 4',
-      title: 'TouchTerminal',
-      question: 'Ist ein TouchTerminal der 2. Generation vorhanden?',
-      hint: 'Terminals der 2. Generation wurden ab 2020 ausgeliefert. <a href="/prerequisites/feeder/terminal">Ermittlung der Generation</a>',
-      nein: {
-        title: 'TouchTerminal Gen 2 fehlt',
-        action: 'Wenden Sie sich an Ihren Urban-Servicepartner für einen Austausch Ihres inkompatiblen Terminalmodells.',
+    fr: {
+      yes: `Oui`,
+      no: `Non`,
+      result: `Résultat`,
+      restart: `↺ Recommencer`,
+      checkpointOf: `Point de contrôle {n} sur {total}`,
+      partlyFulfilled: `{n} sur {total} conditions préalables déjà remplies&nbsp;:`,
+      allFulfilled: `Toutes les conditions préalables sont remplies. Vous pouvez commencer directement par l'<a href="/guide/user/01-registrierung" {strong}>étape 1&nbsp;: Inscription</a>.`,
+      appStoreAlt: `Télécharger dans l'App Store`,
+      playStoreAlt: `Disponible sur Google Play`,
+      almaProUrl: `https://www.urbanonline.de/fr/urban-produits/detail/urban-alma-pro`,
+      firmwareRouterNote: `Ce rendez-vous peut être combiné avec l'installation du routeur.`,
+      routerFirmwareNote: `L'installation peut être combinée avec la mise à jour du firmware.`,
+      steps: {
+        smartphone: {
+          title: `Smartphone`,
+          question: `Disposez-vous d'un iPhone ou d'un appareil Android&nbsp;?`,
+          hint: null,
+        },
+        appstore: {
+          title: `Application installée`,
+          question: `L'Urban Feed Monitor App est-elle déjà installée sur votre appareil&nbsp;?`,
+          hint: null,
+        },
+        alma: {
+          title: `Distributeur`,
+          question: `Disposez-vous d'un distributeur Alma Pro&nbsp;?`,
+          hint: `Les modèles antérieurs ne sont pas compatibles. <a href="/prerequisites/feeder/model">Identifier le modèle</a>`,
+        },
+        terminal: {
+          title: `Touch-Terminal`,
+          question: `Disposez-vous d'un Touch-Terminal de 2e génération&nbsp;?`,
+          hint: `Les terminaux de 2e génération sont livrés depuis 2020. <a href="/prerequisites/feeder/terminal">Identifier la génération</a>`,
+        },
+        firmware: {
+          title: `Firmware`,
+          question: `La version de firmware {fw} ou supérieure est-elle installée sur l'Alma Pro&nbsp;?`,
+          hint: `Vérification sur l'appareil&nbsp;: bouton Accueil → icône d'aide (en haut à droite). Le numéro de version s'affiche à gauche du sélecteur de langue. <a href="/prerequisites/feeder/firmware">Instructions détaillées</a>`,
+        },
+        internet: {
+          title: `Connexion internet dans l'étable`,
+          question: `Y a-t-il une connexion internet dans l'étable (c'est-à-dire une connexion vers l'extérieur, pas seulement un réseau local)&nbsp;?`,
+          hint: `<a href="/prerequisites/feeder/network">Plus d'informations sur le réseau</a>`,
+        },
+        router: {
+          title: `Routeur Urban`,
+          question: `Un routeur Urban est-il installé dans l'étable&nbsp;?`,
+          hint: null,
+        },
+      },
+      results: {
+        smartphone: {
+          title: `Aucun smartphone disponible`,
+          body: `L'Urban Feed Monitor App nécessite un iPhone (iOS) ou un appareil Android.`,
+        },
+        appstore: {
+          title: `Application pas encore installée`,
+          body: `Téléchargez l'Urban Feed Monitor App&nbsp;:`,
+        },
+        alma: {
+          title: `Aucun distributeur Alma Pro disponible`,
+          body: `L'Urban Feed Monitor App nécessite un distributeur Alma Pro. <a href="{almaProUrl}" target="_blank" rel="noopener">En savoir plus sur l'Urban Alma Pro</a> – contactez le personnel de service Urban. Le Touch-Terminal adapté et le firmware actuel sont inclus dans la livraison. Le routeur Urban doit être commandé séparément.`,
+        },
+        terminal: {
+          title: `Touch-Terminal de 2e génération manquant`,
+          body: `Contactez le personnel de service Urban pour un échange.`,
+        },
+        firmware: {
+          title: `Firmware obsolète`,
+          body: `Convenez d'un rendez-vous de service pour la mise à jour du firmware. Poursuivez entre-temps avec les étapes 1 à 3 (inscription, connexion, création de l'étable), afin que le terminal puisse être ajouté immédiatement lors du rendez-vous de service. Commencez dès maintenant par l'<a href="/guide/user/01-registrierung" {strong}>étape 1&nbsp;: Inscription</a>.`,
+        },
+        internet: {
+          title: `Pas de connexion internet dans l'étable`,
+          body: `Une connexion internet dans l'étable est indispensable pour l'Urban Cloud. Clarifiez ce point avec votre technicien réseau – Urban ne peut pas vous aider sur ce point.`,
+        },
+        router: {
+          title: `Aucun routeur Urban disponible`,
+          body: `Contactez le personnel de service Urban pour l'installation du routeur Urban.`,
+        },
       },
     },
-    {
-      id: 'firmware',
-      label: 'Checkpoint 5',
-      title: 'Firmware',
-      question: 'Ist Firmwareversion 25-04_V09 oder höher auf der Alma Pro installiert?',
-      hint: 'Prüfung am Gerät: Home-Schaltfläche → Hilfe-Symbol (oben rechts). Die Versionsnummer erscheint links neben der Sprachumschaltung. <a href="/prerequisites/feeder/firmware">Detaillierte Anleitung</a>',
-      nein: {
-        title: 'Firmware veraltet',
-        action: 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin sofort das Terminal hinzugefügt werden kann. Starten Sie jetzt mit <a href="/guide/user/01-registrierung" style="color: #27500A; font-weight: 600;">Schritt 1: Registrierung</a>.',
+    ru: {
+      yes: `Да`,
+      no: `Нет`,
+      result: `Результат`,
+      restart: `↺ Начать сначала`,
+      checkpointOf: `Проверка {n} из {total}`,
+      partlyFulfilled: `Уже выполнено {n} из {total} предварительных условий:`,
+      allFulfilled: `Все предварительные условия выполнены. Вы можете сразу начать с <a href="/guide/user/01-registrierung" {strong}>Шага 1: Регистрация</a>.`,
+      appStoreAlt: `Загрузите в App Store`,
+      playStoreAlt: `Доступно в Google Play`,
+      almaProUrl: `https://www.urbanonline.de/en/urban-products/detail/urban-alma-pro`,
+      firmwareRouterNote: `Этот визит можно совместить с установкой роутера.`,
+      routerFirmwareNote: `Установку можно совместить с обновлением прошивки.`,
+      steps: {
+        smartphone: {
+          title: `Смартфон`,
+          question: `Есть ли у Вас iPhone или устройство на Android?`,
+          hint: null,
+        },
+        appstore: {
+          title: `Приложение установлено`,
+          question: `Установлено ли на Вашем устройстве приложение Urban Feed Monitor App?`,
+          hint: null,
+        },
+        alma: {
+          title: `Автомат`,
+          question: `Есть ли у Вас автомат Alma Pro?`,
+          hint: `Предыдущие модели несовместимы. <a href="/prerequisites/feeder/model">Как определить модель</a>`,
+        },
+        terminal: {
+          title: `Touch-Terminal`,
+          question: `Есть ли у Вас Touch-Terminal 2-го поколения?`,
+          hint: `Терминалы 2-го поколения поставляются с 2020 года. <a href="/prerequisites/feeder/terminal">Как определить поколение</a>`,
+        },
+        firmware: {
+          title: `Прошивка`,
+          question: `Установлена ли на Alma Pro версия прошивки {fw} или выше?`,
+          hint: `Проверка на устройстве: кнопка «Домой» → значок справки (вверху справа). Номер версии отображается слева от переключателя языка. <a href="/prerequisites/feeder/firmware">Подробная инструкция</a>`,
+        },
+        internet: {
+          title: `Подключение к интернету в помещении`,
+          question: `Есть ли в помещении подключение к интернету (то есть выход во внешнюю сеть, а не только локальная сеть)?`,
+          hint: `<a href="/prerequisites/feeder/network">Подробнее о сети</a>`,
+        },
+        router: {
+          title: `Роутер Urban`,
+          question: `Установлен ли в помещении роутер Urban?`,
+          hint: null,
+        },
+      },
+      results: {
+        smartphone: {
+          title: `Смартфон отсутствует`,
+          body: `Для Urban Feed Monitor App требуется iPhone (iOS) или устройство на Android.`,
+        },
+        appstore: {
+          title: `Приложение ещё не установлено`,
+          body: `Скачайте Urban Feed Monitor App:`,
+        },
+        alma: {
+          title: `Автомат Alma Pro отсутствует`,
+          body: `Для работы Urban Feed Monitor App необходим автомат Alma Pro. <a href="{almaProUrl}" target="_blank" rel="noopener">Подробнее об Urban Alma Pro</a> – обратитесь в сервисную службу Urban. Подходящий Touch-Terminal и актуальная прошивка входят в комплект поставки. Роутер Urban необходимо заказать отдельно.`,
+        },
+        terminal: {
+          title: `Отсутствует Touch-Terminal 2-го поколения`,
+          body: `Обратитесь в сервисную службу Urban для замены.`,
+        },
+        firmware: {
+          title: `Устаревшая прошивка`,
+          body: `Договоритесь о визите сервисной службы для обновления прошивки. А пока выполните шаги 1–3 (регистрация, вход, создание стойла), чтобы во время визита терминал можно было сразу добавить. Начните прямо сейчас с <a href="/guide/user/01-registrierung" {strong}>Шага 1: Регистрация</a>.`,
+        },
+        internet: {
+          title: `Нет подключения к интернету в помещении`,
+          body: `Подключение к интернету в помещении является обязательным условием для Urban Cloud. Выясните этот вопрос у Вашего сетевого специалиста – компания Urban не может помочь в этом вопросе.`,
+        },
+        router: {
+          title: `Роутер Urban отсутствует`,
+          body: `Обратитесь в сервисную службу Urban для установки роутера Urban.`,
+        },
       },
     },
-    {
-      id: 'internet',
-      label: 'Checkpoint 6',
-      title: 'Internetverbindung im Stall',
-      question: 'Ist im Stall eine Internetverbindung vorhanden (d.h. es besteht eine Verbindung nach außen, nicht nur ein lokales Netzwerk)?',
-      hint: '<a href="/prerequisites/feeder/network">Nähere Hinweise zum Netzwerk</a>',
-      nein: {
-        title: 'Keine Internetverbindung im Stall',
-        action: 'Eine Internetverbindung im Stall ist Voraussetzung für die Urban Cloud. Klären Sie dies mit Ihrem Netzwerktechniker – Urban kann hierbei nicht unterstützen.',
-      },
-    },
-    {
-      id: 'router',
-      label: 'Checkpoint 7',
-      title: 'Urban Router',
-      question: 'Ist ein Urban Router im Stall installiert?',
-      hint: null,
-      nein: {
-        title: 'Kein Urban Router vorhanden',
-        action: '',  // wird in renderSummary kontextabhängig gesetzt
-      },
-    },
-  ];
+  };
+
+  // ─────────────────────────────────────────────────────────────
+  // Sprachunabhängige Konstanten
+  // ─────────────────────────────────────────────────────────────
+  const FIRMWARE_MIN = '25-04_V09';
+  const STRONG_STYLE = 'style="color: #27500A; font-weight: 600;"';
 
   // Welche Step-IDs werden bei alma=nein übersprungen
-  const SKIP_IF_NO_ALMA = new Set(['terminal', 'firmware', 'router']);
+  const SKIP_IF_NO_ALMA = new Set<StepId>(['terminal', 'firmware', 'router']);
 
-  const total = steps.length;
+  const wizardEl = document.getElementById('vw-wizard') as HTMLElement;
+  const rawLocale = wizardEl.dataset['locale'] ?? 'de';
+  const locale: Locale = (LOCALES as readonly string[]).includes(rawLocale) ? (rawLocale as Locale) : 'de';
+  // Fallback-Kette für fehlende Sprachblöcke: gewählte Sprache → Englisch → Deutsch
+  const t: Messages = messages[locale] ?? messages['en'] ?? messages.de;
+
+  // Root-Sprache (de) ohne Präfix, alle anderen unter /<locale>
+  const prefix = locale === 'de' ? '' : `/${locale}`;
+
+  // App-Store: /de/ für Deutsch, sonst /us/ als universeller Fallback
+  const appStoreUrl = `https://apps.apple.com/${locale === 'de' ? 'de' : 'us'}/app/urban-feed-monitor/id6746261090`;
+  const playStoreUrl = `https://play.google.com/store/apps/details?id=com.app.urban_alma_pro&hl=${locale}`;
+
+  // Platzhalter ersetzen und interne Links mit Sprachpräfix versehen
+  function tx(s: string, vars: Record<string, string | number> = {}): string {
+    const all: Record<string, string | number> = {
+      fw: FIRMWARE_MIN,
+      almaProUrl: t.almaProUrl,
+      strong: STRONG_STYLE,
+      ...vars,
+    };
+    return s
+      .replace(/\{(\w+)\}/g, (m, k: string) => (k in all ? String(all[k]) : m))
+      .replace(/href="\//g, `href="${prefix}/`);
+  }
+
+  const total = STEP_IDS.length;
   let current = 0;
-  const answers: Record<string, boolean> = {};
+  const answers: Partial<Record<StepId, boolean>> = {};
 
   const progressEl = document.getElementById('vw-progress') as HTMLElement;
   const contentEl = document.getElementById('vw-content') as HTMLElement;
@@ -131,20 +532,20 @@
 
   function visibleIndex(idx: number): number {
     let skipped = 0;
-    if (answers['smartphone'] === false)
-      skipped += steps.slice(0, idx).filter(s => s.id === 'appstore').length;
-    if (answers['alma'] === false)
-      skipped += steps.slice(0, idx).filter(s => SKIP_IF_NO_ALMA.has(s.id)).length;
-    else if (answers['internet'] === false)
-      skipped += steps.slice(0, idx).filter(s => s.id === 'router').length;
+    if (answers.smartphone === false)
+      skipped += STEP_IDS.slice(0, idx).filter(id => id === 'appstore').length;
+    if (answers.alma === false)
+      skipped += STEP_IDS.slice(0, idx).filter(id => SKIP_IF_NO_ALMA.has(id)).length;
+    else if (answers.internet === false)
+      skipped += STEP_IDS.slice(0, idx).filter(id => id === 'router').length;
     return idx - skipped;
   }
 
   function visibleTotal(): number {
     let skip = 0;
-    if (answers['smartphone'] === false) skip += 1;
-    if (answers['alma'] === false) skip += SKIP_IF_NO_ALMA.size;
-    else if (answers['internet'] === false) skip += 1;
+    if (answers.smartphone === false) skip += 1;
+    if (answers.alma === false) skip += SKIP_IF_NO_ALMA.size;
+    else if (answers.internet === false) skip += 1;
     return total - skip;
   }
 
@@ -160,24 +561,25 @@
   }
 
   function renderStep(): void {
-    const s = steps[current];
+    const id = STEP_IDS[current];
+    const s = t.steps[id];
     const vIdx = visibleIndex(current);
     const vTot = visibleTotal();
     renderProgress(current, false);
 
     const hintHtml = s.hint
-      ? `<div style="font-size: 0.8125rem; color: ${C.gray2}; background: ${C.bgSidebar}; border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 1.25rem; line-height: 1.6;">${s.hint}</div>`
+      ? `<div style="font-size: 0.8125rem; color: ${C.gray2}; background: ${C.bgSidebar}; border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 1.25rem; line-height: 1.6;">${tx(s.hint)}</div>`
       : '';
 
     contentEl.innerHTML = `
       <div style="background: ${C.bg}; border: 1px solid ${C.border}; border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1rem;">
-        <div style="font-size: 0.75rem; color: ${C.gray3}; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em;">Checkpoint ${vIdx + 1} von ${vTot}</div>
-        <div style="font-size: 1.25rem; font-weight: 600; color: ${C.text}; margin-bottom: 0.75rem; border-bottom: 1px solid ${C.borderSub}; padding-bottom: 0.5rem;">${s.title}</div>
-        <div style="font-size: 0.9375rem; color: ${C.text}; line-height: 1.6; margin-bottom: 1.25rem;">${s.question}</div>
+        <div style="font-size: 0.75rem; color: ${C.gray3}; margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.05em;">${tx(t.checkpointOf, { n: vIdx + 1, total: vTot })}</div>
+        <div style="font-size: 1.25rem; font-weight: 600; color: ${C.text}; margin-bottom: 0.75rem; border-bottom: 1px solid ${C.borderSub}; padding-bottom: 0.5rem;">${tx(s.title)}</div>
+        <div style="font-size: 0.9375rem; color: ${C.text}; line-height: 1.6; margin-bottom: 1.25rem;">${tx(s.question)}</div>
         ${hintHtml}
         <div style="display: flex; gap: 10px;">
-          <button data-answer="true" style="margin: 0; flex: 1; box-sizing: border-box; height: 2.75rem; padding: 0 1rem; border-radius: 0.5rem; border: 1px solid #3B6D11; background: ${C.bg}; color: #3B6D11; font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;"><span class="text-2xl">✓</span> Ja</button>
-          <button data-answer="false" style="margin: 0; flex: 1; box-sizing: border-box; height: 2.75rem; padding: 0 1rem; border-radius: 0.5rem; border: 1px solid #A32D2D; background: ${C.bg}; color: #A32D2D; font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;"><span class="text-2xl">✕</span> Nein</button>
+          <button data-answer="true" style="margin: 0; flex: 1; box-sizing: border-box; height: 2.75rem; padding: 0 1rem; border-radius: 0.5rem; border: 1px solid #3B6D11; background: ${C.bg}; color: #3B6D11; font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;"><span class="text-2xl">✓</span> ${t.yes}</button>
+          <button data-answer="false" style="margin: 0; flex: 1; box-sizing: border-box; height: 2.75rem; padding: 0 1rem; border-radius: 0.5rem; border: 1px solid #A32D2D; background: ${C.bg}; color: #A32D2D; font-size: 0.9375rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;"><span class="text-2xl">✕</span> ${t.no}</button>
         </div>
       </div>`;
 
@@ -188,16 +590,15 @@
   }
 
   function answer(ja: boolean): void {
-    const s = steps[current];
-    answers[s.id] = ja;
+    answers[STEP_IDS[current]] = ja;
 
     // Nächsten Schritt ermitteln – ggf. überspringen
     let next = current + 1;
     while (next < total) {
-      const nextId = steps[next].id;
-      if (answers['smartphone'] === false && nextId === 'appstore') { next++; continue; }
-      if (answers['alma'] === false && SKIP_IF_NO_ALMA.has(nextId)) { next++; continue; }
-      if (answers['internet'] === false && nextId === 'router') { next++; continue; }
+      const nextId = STEP_IDS[next];
+      if (answers.smartphone === false && nextId === 'appstore') { next++; continue; }
+      if (answers.alma === false && SKIP_IF_NO_ALMA.has(nextId)) { next++; continue; }
+      if (answers.internet === false && nextId === 'router') { next++; continue; }
       break;
     }
     current = next;
@@ -205,94 +606,80 @@
     if (current < total) { renderStep(); } else { renderSummary(); }
   }
 
-  function summaryItem(title: string, body: string): string {
+  // Eine Fehlermeldung im Ergebnis. footerHtml (optional) steht unter dem Text, z. B. die Store-Badges.
+  function summaryItem(id: StepId, extraBody = '', footerHtml = ''): string {
+    const r = t.results[id];
+    const body = [tx(r.body), extraBody ? tx(extraBody) : ''].filter(Boolean).join(' ');
     return `<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
-      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;">${title}</div>
-      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6;">${body}</div>
+      <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;"><span class="text-xl">⚠</span> ${tx(r.title)}</div>
+      <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6;${footerHtml ? ' margin-bottom: 0.75rem;' : ''}">${body}</div>
+      ${footerHtml}
     </div>`;
+  }
+
+  function storeBadges(): string {
+    return `<div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+          <a href="${appStoreUrl}" target="_blank" rel="noopener">
+            <img src="/appstore-${locale}.svg" alt="${t.appStoreAlt}" style="height: 40px; width: auto;" />
+          </a>
+          <a href="${playStoreUrl}" target="_blank" rel="noopener">
+            <img src="/playstore-${locale}.svg" alt="${t.playStoreAlt}" style="height: 40px; width: auto;" />
+          </a>
+        </div>`;
   }
 
   function renderSummary(): void {
     renderProgress(total, true);
 
-    const neinSmartphone = answers['smartphone'] === false;
-    const neinAppstore   = answers['appstore']   === false;
-    const neinAlma       = answers['alma']        === false;
-    const neinTerminal   = answers['terminal']    === false;
-    const neinFirmware   = answers['firmware']    === false;
-    const neinInternet   = answers['internet']    === false;
-    const neinRouter     = answers['router']      === false;
+    const neinSmartphone = answers.smartphone === false;
+    const neinAppstore   = answers.appstore   === false;
+    const neinAlma       = answers.alma       === false;
+    const neinTerminal   = answers.terminal   === false;
+    const neinFirmware   = answers.firmware   === false;
+    const neinInternet   = answers.internet   === false;
+    const neinRouter     = answers.router     === false;
 
     const items: string[] = [];
 
-    if (neinSmartphone) {
-      items.push(summaryItem('⚠ Kein Smartphone vorhanden',
-        'Die Urban Feed Monitor App erfordert ein iPhone (iOS) oder ein Android-Gerät.'));
-    }
+    if (neinSmartphone) items.push(summaryItem('smartphone'));
 
-    if (neinAppstore && !neinSmartphone) {
-      items.push(`<div style="border: 1px solid #F09595; border-left: 3px solid #A32D2D; background: #FCEBEB; border-radius: 0.5rem; padding: 0.9rem 1rem; margin-bottom: 0.75rem;">
-        <div style="font-weight: 700; font-size: 0.9375rem; color: #A32D2D; margin-bottom: 0.4rem;"><span class="text-xl">⚠</span> App noch nicht installiert</div>
-        <div style="font-size: 0.8125rem; color: #501313; line-height: 1.6; margin-bottom: 0.75rem;">Laden Sie die Urban Feed Monitor App herunter:</div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
-          <a href="https://apps.apple.com/de/app/urban-feed-monitor/id6746261090" target="_blank" rel="noopener">
-            <img src="/appstore-de.svg" alt="Im App Store laden" style="height: 40px; width: auto;" />
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.app.urban_alma_pro" target="_blank" rel="noopener">
-            <img src="/playstore-de.svg" alt="Bei Google Play laden" style="height: 40px; width: auto;" />
-          </a>
-        </div>
-      </div>`);
-    }
+    if (neinAppstore && !neinSmartphone) items.push(summaryItem('appstore', '', storeBadges()));
 
-    if (neinAlma) {
-      items.push(summaryItem('<span class="text-xl">⚠</span> Kein Alma Pro Fütterungsautomat vorhanden',
-        `Die Urban Feed Monitor App setzt einen Alma Pro Fütterungsautomaten voraus. <a href="https://www.urbanonline.de/produkte/detail/urban-alma-pro" target="_blank" rel="noopener">Mehr zur Urban Alma Pro</a> – wenden Sie sich an Ihren Urban-Servicepartner. Das passende TouchTerminal und die aktuelle Firmware sind im Lieferumfang enthalten. Den Urban Router müssen Sie separat bestellen.`));
-    }
+    if (neinAlma) items.push(summaryItem('alma'));
 
-    if (!neinAlma && neinTerminal) {
-      items.push(summaryItem('<span class="text-xl">⚠</span> TouchTerminal Gen 2 fehlt',
-        'Wenden Sie sich an Ihren Urban-Servicepartner für einen Austausch.'));
-    }
+    if (!neinAlma && neinTerminal) items.push(summaryItem('terminal'));
 
     if (!neinAlma && neinFirmware) {
-      let text = 'Vereinbaren Sie einen Servicetermin für das Firmware-Update. Fahren Sie in der Zwischenzeit mit den Schritten 1–3 fort (Registrierung, Einloggen, Stall anlegen), damit beim Servicetermin sofort das Terminal hinzugefügt werden kann. Starten Sie jetzt mit <a href="/guide/user/01-registrierung" style="color: #27500A; font-weight: 600;">Schritt 1: Registrierung</a>.';
-      if (neinRouter) text += ' Dieser Termin lässt sich mit der Router-Installation kombinieren.';
-      items.push(summaryItem('<span class="text-xl">⚠</span> Firmware veraltet', text));
+      items.push(summaryItem('firmware', neinRouter ? t.firmwareRouterNote : ''));
     }
 
-    if (neinInternet) {
-      items.push(summaryItem('<span class="text-xl">⚠</span> Keine Internetverbindung im Stall',
-        'Eine Internetverbindung im Stall ist Voraussetzung für die Urban Cloud. Klären Sie dies mit Ihrem Netzwerktechniker – Urban kann hierbei nicht unterstützen.'));
-    }
+    if (neinInternet) items.push(summaryItem('internet'));
 
     if (!neinAlma && !neinInternet && neinRouter) {
-      let text = 'Wenden Sie sich Ihren Urban-Servicepartner für die Installation des Urban Routers.';
-      if (neinFirmware) text += ' Die Installation lässt sich mit dem Firmware-Update kombinieren.';
-      items.push(summaryItem('<span class="text-xl">⚠</span> Kein Urban Router vorhanden', text));
+      items.push(summaryItem('router', neinFirmware ? t.routerFirmwareNote : ''));
     }
 
     let inner = '';
     if (items.length === 0) {
-      inner = `<div style="background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px;"><span class="text-2xl">✓</span> Alle Voraussetzungen erfüllt. Sie können direkt mit <a href="/guide/user/01-registrierung" style="color: #27500A; font-weight: 600;">Schritt 1: Registrierung</a> starten.</div>`;
+      inner = `<div style="background: #EAF3DE; border: 1px solid #C0DD97; border-radius: 0.5rem; padding: 1rem 1.25rem; color: #27500A; font-size: 0.875rem; display: flex; align-items: center; gap: 10px;"><span class="text-2xl">✓</span> ${tx(t.allFulfilled)}</div>`;
     } else {
       const jaCount = Object.values(answers).filter(Boolean).length;
-      if (jaCount > 0) inner = `<div style="font-size: 0.875rem; color: #92480A; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;"><span class="text-2xl">⚠</span> ${jaCount} von ${Object.keys(answers).length} Voraussetzungen bereits erfüllt:</div>`;
+      if (jaCount > 0) inner = `<div style="font-size: 0.875rem; color: #92480A; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;"><span class="text-2xl">⚠</span> ${tx(t.partlyFulfilled, { n: jaCount, total: Object.keys(answers).length })}</div>`;
       inner += items.join('');
     }
 
     contentEl.innerHTML = `
       <div style="background: ${C.bg}; border: 1px solid ${C.border}; border-radius: 0.75rem; padding: 1.25rem 1.5rem;">
-        <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: ${C.text};">Ergebnis</div>
+        <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: ${C.text};">${t.result}</div>
         ${inner}
-        <button id="vw-restart-btn" style="margin-top: 1.25rem; width: 100%; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid ${C.gray4}; background: ${C.bgSidebar}; color: ${C.gray2}; font-size: 0.8125rem; cursor: pointer;">↺ Nochmal von vorne</button>
+        <button id="vw-restart-btn" style="margin-top: 1.25rem; width: 100%; padding: 0.6rem; border-radius: 0.5rem; border: 1px solid ${C.gray4}; background: ${C.bgSidebar}; color: ${C.gray2}; font-size: 0.8125rem; cursor: pointer;">${t.restart}</button>
       </div>`;
     (document.getElementById('vw-restart-btn') as HTMLButtonElement).addEventListener('click', restart);
   }
 
   function restart(): void {
     current = 0;
-    Object.keys(answers).forEach(k => delete answers[k]);
+    (Object.keys(answers) as StepId[]).forEach(k => delete answers[k]);
     renderStep();
   }
 

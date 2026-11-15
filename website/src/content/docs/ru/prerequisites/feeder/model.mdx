@@ -1,0 +1,36 @@
+---
+title: Проверка модели автомата
+description: Минимальные требования к автомату для использования Urban Feed Monitor App
+sidebar:
+  label: Модель автомата
+  order: 20
+---
+import { Image } from 'astro:assets';
+import AlmaVergleich from '../../../prerequisites/feeder/graphics/Alma_vs_AlmaPro.png';
+
+### Требования к модели автомата
+
+Для использования приложения Urban Feed Monitor App обязателен автомат типа **Alma Pro**.
+
+### Определение модели автомата
+
+Проще всего отличить модели визуально по корпусу и терминалу:
+
+<figure>
+  <Image src={AlmaVergleich} alt="Сравнение Alma (предыдущая модель) и Alma Pro" />
+  <figcaption class="text-sm mt-2">
+    Рисунок 1: Отличительные признаки Alma (слева) и Alma Pro (справа)
+  </figcaption>
+</figure>
+
+| Признак    | <span class="p-0.75 bg-red-600 text-white">Alma (предыдущая модель)</span> | <span class="p-0.75 bg-green-600 text-white">Alma Pro</span>|
+|------------|-------------------------|----------------------------------------|
+| Корпус     | Нержавеющая сталь, мраморный рисунок | Нержавеющая сталь, шлифованная |
+| Надпись    | “KälberMAMA Alma”       | “ALMA PRO”                             |
+| Терминал   | Отдельного терминала нет | Сенсорный терминал на поворотном кронштейне / отдельный |
+
+### Дальнейшие действия
+
+* Если вы используете **Alma** или другую предыдущую модель (U40, U20), использование Urban Feed Monitor App невозможно. Обратитесь к вашему дистрибьютору или сервисному партнёру Urban.
+
+* Если вы используете **Alma Pro**, далее проверьте [сенсорный терминал](/ru/prerequisites/feeder/terminal).

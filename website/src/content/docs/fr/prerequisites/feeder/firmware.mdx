@@ -1,0 +1,38 @@
+---
+title: Vérification de la version du firmware de l'Alma Pro
+description: Détermination de la version du firmware de l'Alma Pro, comparaison avec la version minimale requise
+sidebar:
+  label: Version du firmware
+  order: 40
+---
+import { Image } from 'astro:assets';
+import version_check from 'graphics/version-check.png';
+import Home from '../../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../../public/icons/almapro/questionmark.svg';
+
+### Exigences relatives à la version du firmware
+
+La version de firmware <span class="font-bold">25-04-V08</span> ou supérieure doit être installée sur l'Alma Pro pour l'installation et la configuration de l'Urban Cloud.
+
+### Détermination de la version du firmware
+
+Voici comment vérifier quelle version du firmware est installée sur votre distributeur Alma Pro&nbsp;:
+
+* Accédez à l'écran d'accueil du distributeur. Si nécessaire, appuyez sur le bouton `Home` {/* UI-CHECK */} du haut <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> dans la barre de navigation, à gauche de l'écran.
+* Sur l'écran d'accueil, appuyez sur le bouton `Aide` {/* UI-CHECK */} <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Icône du menu d'aide" /> en haut à droite de l'écran.
+* Le numéro de version du firmware installé sur le distributeur <span class="text-2xl">➂</span> s'affiche maintenant à gauche du bouton de changement de langue.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro : vérification de la version du firmware" title="Alma Pro : vérification de la version du firmware" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Figure 1&nbsp;:</span> Alma Pro, vérification de la version du firmware
+  </figcaption>
+</figure>
+
+### Étapes suivantes
+
+* Si la version du firmware installée sur votre distributeur est inférieure à 25-04-V08, effectuez d'abord une mise à jour du firmware de votre distributeur.
+
+* Si la version de firmware 25-04-V08 (ou supérieure) est déjà installée et que toutes les autres [exigences](/fr/prerequisites/feeder/) sont remplies, vous pouvez commencer par la [configuration de l'Urban Cloud](/fr/guide/service/callup-screen).

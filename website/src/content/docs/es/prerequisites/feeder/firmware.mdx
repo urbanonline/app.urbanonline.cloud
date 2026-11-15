@@ -1,0 +1,38 @@
+---
+title: Comprobación de la versión de firmware del Alma Pro
+description: Determinación de la versión de firmware del Alma Pro y comparación con la versión mínima requerida
+sidebar:
+  label: Versión de firmware
+  order: 40
+---
+import { Image } from 'astro:assets';
+import version_check from 'graphics/version-check.png';
+import Home from '../../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../../public/icons/almapro/questionmark.svg';
+
+### Requisitos de la versión de firmware
+
+Para la instalación y la configuración de la Urban Cloud es imprescindible que el Alma Pro tenga instalada la versión de firmware <span class="font-bold">25-04-V08</span> o superior.
+
+### Determinación de la versión de firmware
+
+Así puede comprobar qué versión de firmware está instalada en su autómata Alma Pro:
+
+* Vaya a la pantalla de inicio del autómata. Si es necesario, pulse el botón superior `Home` {/* UI-CHECK */} <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> en la barra de navegación del lado izquierdo de la pantalla.
+* En la pantalla de inicio, pulse el botón `Ayuda` {/* UI-CHECK */} <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Icono del menú de ayuda" /> en la esquina superior derecha de la pantalla.
+* El número de versión del firmware instalado en el autómata <span class="text-2xl">➂</span> se muestra ahora a la izquierda del botón de cambio de idioma.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: comprobación de la versión de firmware" title="Alma Pro: comprobación de la versión de firmware" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Figura 1:</span> Alma Pro, comprobación de la versión de firmware
+  </figcaption>
+</figure>
+
+### Siguientes pasos
+
+* Si la versión de firmware instalada en su autómata es inferior a 25-04-V08, actualice primero el firmware del autómata.
+
+* Si ya tiene instalada la versión de firmware 25-04-V08 (o superior) y se cumplen también todos los demás [requisitos](/es/prerequisites/feeder/), puede comenzar con la [configuración de la Urban Cloud](/es/guide/service/callup-screen).

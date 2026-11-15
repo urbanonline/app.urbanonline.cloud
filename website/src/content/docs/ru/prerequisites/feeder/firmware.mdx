@@ -1,0 +1,38 @@
+---
+title: Проверка версии прошивки Alma Pro
+description: Определение версии прошивки Alma Pro, сравнение с минимально необходимой версией
+sidebar:
+  label: Версия прошивки
+  order: 40
+---
+import { Image } from 'astro:assets';
+import version_check from 'graphics/version-check.png';
+import Home from '../../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../../public/icons/almapro/questionmark.svg';
+
+### Требования к версии прошивки
+
+Для установки и настройки Urban Cloud на Alma Pro должна быть установлена версия прошивки <span class="font-bold">25-04-V08</span> или выше.
+
+### Определение версии прошивки
+
+Как проверить, какая версия прошивки установлена на вашем автомате Alma Pro:
+
+* Перейдите на начальный экран автомата. При необходимости нажмите верхнюю кнопку `Home` {/* UI-CHECK */} <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> в панели навигации в левой части экрана.
+* На начальном экране нажмите кнопку `Справка` {/* UI-CHECK */} <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Значок меню справки" /> в правом верхнем углу экрана.
+* Номер версии установленной прошивки автомата <span class="text-2xl">➂</span> теперь отображается слева от кнопки переключения языка.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: проверка версии прошивки" title="Alma Pro: проверка версии прошивки" />
+  </div>
+  <figcaption class="text-sm mt-2">
+    <span class="">Рисунок 1:</span> Alma Pro, проверка версии прошивки
+  </figcaption>
+</figure>
+
+### Дальнейшие действия
+
+* Если версия прошивки, установленная на вашем автомате, ниже 25-04-V08, сначала обновите прошивку автомата.
+
+* Если на вашем автомате уже установлена версия прошивки 25-04-V08 (или выше) и выполнены все остальные [требования](/ru/prerequisites/feeder/), вы можете приступить к [настройке Urban Cloud](/ru/guide/service/callup-screen).

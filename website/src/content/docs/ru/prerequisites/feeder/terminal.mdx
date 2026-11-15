@@ -1,0 +1,66 @@
+---
+title: Проверка сенсорного терминала
+description: Определение поколения сенсорного терминала
+sidebar:
+  label: Сенсорный терминал
+  order: 30
+---
+import { Image } from 'astro:assets';
+import { Aside } from '@astrojs/starlight/components';
+import TerminalGen from '../../../prerequisites/feeder/graphics/TouchTerminalGen.png';
+import version_check from 'graphics/version-checktouch.png';
+import Home from '../../../../../../public/icons/almapro/home.svg';
+import QuestionMark from '../../../../../../public/icons/almapro/questionmark.svg';
+
+## Требования к сенсорному терминалу
+
+Для установки и настройки Urban Cloud обязателен сенсорный терминал <span class="font-bold">поколения 2</span> (продаётся с 2020 года) или новее.
+
+## Определение поколения
+
+### Визуальное определение
+
+Проще всего отличить поколения по корпусу:
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={TerminalGen} alt="Обзор поколений сенсорных терминалов" title="Обзор поколений сенсорных терминалов" />
+</div>
+<figcaption class="text-sm mt-2">
+  Рисунок 1: Поколения сенсорных терминалов — слева несовместимые, справа совместимые
+</figcaption>
+</figure>
+
+| Поколение | Отличительный признак | Совместимость |
+|---|---|---|
+| Gen 1 | USB-порт по центру верхнего края по вертикали, надпись Pro-face | ❌ |
+| Терминал 8" | Красный корпус | ❌ |
+| Gen 2 | USB-порт с синим светодиодом под ним, вровень с нижним краем экрана, надпись Pro-face | ✅ |
+| Gen 3–4 | Зелёная рамка вокруг USB-порта, чёрная рамка вокруг экрана, надпись Schneider | ✅ |
+
+### Определение через программное обеспечение
+
+Если визуально определить поколение не удаётся, его можно считать прямо на терминале:
+
+* Перейдите на начальный экран автомата. При необходимости нажмите верхнюю кнопку `Home` {/* UI-CHECK */} <span class="text-2xl">➀</span> <Home width={20} class="inline ml-2 mb-0" /> в панели навигации в левой части экрана.
+* На начальном экране нажмите кнопку `Справка` {/* UI-CHECK */} <span class="text-2xl">➁</span> <QuestionMark width={20} align="top" class="inline ml-2 mb-0" alt="Значок меню справки" /> в правом верхнем углу экрана.
+* Поколение установленной аппаратной части <span class="text-2xl">➂</span> теперь отображается слева от кнопки переключения языка, рядом с надписью «Оборудование» {/* UI-CHECK */}.
+
+<figure>
+<div class="border border-gray-300 rounded-xs p-4">
+<Image src={version_check} alt="Alma Pro: проверка поколения терминала" title="Alma Pro: проверка поколения терминала" />
+</div>
+<figcaption class="text-sm mt-2">
+  Рисунок 2: Alma Pro, проверка поколения терминала
+</figcaption>
+</figure>
+
+<Aside type="note" icon="information" title="Примечание">
+  Для версий прошивки ниже 25-04-V08 установленная аппаратная часть не отображается. Для обновления прошивки обратитесь к сервисному партнёру Urban.
+</Aside>
+
+## Дальнейшие действия
+
+* Если вы используете **несовместимый терминал** (Gen 1 или 8"), по вопросу замены терминала обратитесь к дистрибьютору или сервисному партнёру Urban.
+
+* Если вы используете совместимый терминал (Gen 2 или новее), далее проверьте [версию прошивки](/ru/prerequisites/feeder/firmware).

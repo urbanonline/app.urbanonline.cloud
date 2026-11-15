@@ -1,0 +1,45 @@
+---
+title: Requisitos del autómata
+description: Requisitos mínimos para la Urban Feed Monitor App.
+tableOfContents: false
+sidebar:
+  label: Resumen
+  order: 10
+---
+
+import Preview from '/src/components/Frame.astro';
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Para utilizar la Urban Feed Monitor App deben cumplirse los siguientes requisitos:
+
+<Preview>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Modelo de autómata"
+      href="model"
+      description="Se requiere Alma Pro" 
+   />
+
+    <LinkCard
+      title="Terminal táctil"
+      href="terminal"
+      description="Se requiere un terminal táctil de segunda generación o superior (a partir de 2020)"
+    />
+  </CardGrid>
+
+  <CardGrid slot="cards" stagger>
+    <LinkCard
+      title="Firmware"
+      href="firmware"
+      description="Se requiere la versión de firmware 25-04-V08 o superior" 
+   />
+
+    <LinkCard
+      title="Red"
+      href="network"
+      description="Se requiere un Urban Router con conexión a internet"
+    />
+  </CardGrid>
+
+</Preview>
